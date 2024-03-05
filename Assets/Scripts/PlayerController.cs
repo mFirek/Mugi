@@ -1,86 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-// A simple 2D movement controller for a player in Unity
-public class PlayerMovementController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    #region Gameplay properties
 
-    // Horizontal player keyboard input
-    //  -1 = Left
-    //   0 = No input
-    //   1 = Right
-    private float playerInput = 0;
+    public float speed;
+    private Rigidbody2D rb2d;
 
-    // Horizontal player speed
-    [SerializeField] private float speed = 250;
-
-    #endregion
-
-    #region Component references
-
-    private Rigidbody2D rb;
-
-    #endregion
-
-    #region Initialisation methods
-
-    // Initialises this component
-    // (NB: Is called automatically before the first frame update)
     void Start()
     {
-        // Get component references
-        rb = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
-    #endregion
-
-    #region Gameplay methods
-
-    // Is called automatically every graphics frame
     void Update()
     {
-        // Detect and store horizontal player input   
-        playerInput = Input.GetAxisRaw("Horizontal");
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
-        // NB: Here, you might want to set the player's animation,
-        // e.g. idle or walking
+        rb2d.velocity = new Vector2(moveHorizontal * speed, moveVertical * speed);
 
-        // Swap the player sprite scale to face the movement direction
-        SwapSprite();
+        // Try out this delta time method??
+        //rb2d.transform.position += new Vector3(speed * Time.deltaTime, 0.0f, 0.0f);
     }
 
-    // Swap the player sprite scale to face the movement direction
-    void SwapSprite()
-    {
-        // Right
-        if (playerInput > 0)
-        {
-            transform.localScale = new Vector3(
-                Mathf.Abs(transform.localScale.x),
-                transform.localScale.y,
-                transform.localScale.z
-            );
-        }
-        // Left
-        else if (playerInput < 0)
-        {
-            transform.localScale = new Vector3(
-                -1 * Mathf.Abs(transform.localScale.x),
-                transform.localScale.y,
-                transform.localScale.z
-            );
-        }
-    }
-
-    // Is called automatically every physics step
+    //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
     void FixedUpdate()
     {
-        // Move the player horizontally
-        rb.velocity = new Vector2(
-            playerInput * speed * Time.fixedDeltaTime,
-            0
-        );
     }
-
-    #endregion
 }

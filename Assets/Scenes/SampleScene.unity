@@ -692,8 +692,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 673796132}
   - component: {fileID: 673796131}
+=======
+  - component: {fileID: 772807242}
+  - component: {fileID: 772807241}
+  - component: {fileID: 772807243}
+>>>>>>> 873712686f3ca21303516947790326c1cce8700c
   m_Layer: 0
   m_Name: dirtCenter_0 (4)
   m_TagString: Untagged
@@ -770,7 +776,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1515455672}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &792232482
+=======
+--- !u!251 &772807243
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772807240}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
+--- !u!1 &1581947689
+>>>>>>> 873712686f3ca21303516947790326c1cce8700c
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

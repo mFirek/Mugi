@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 325174180}
   - component: {fileID: 325174179}
   - component: {fileID: 325174178}
+  - component: {fileID: 325174181}
   m_Layer: 3
   m_Name: Triangle (1)
   m_TagString: Teren
@@ -167,7 +168,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -256,6 +257,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -179.791}
+--- !u!114 &325174181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325174177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e98519b44aa2654dabc2b3b793fd3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &396075464
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +280,7 @@ GameObject:
   - component: {fileID: 396075467}
   - component: {fileID: 396075466}
   - component: {fileID: 396075465}
+  - component: {fileID: 396075468}
   m_Layer: 3
   m_Name: Triangle (5)
   m_TagString: Teren
@@ -304,7 +318,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -393,6 +407,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -179.791}
+--- !u!114 &396075468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396075464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e98519b44aa2654dabc2b3b793fd3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +567,7 @@ GameObject:
   - component: {fileID: 540260514}
   - component: {fileID: 540260513}
   - component: {fileID: 540260512}
+  - component: {fileID: 540260515}
   m_Layer: 3
   m_Name: Triangle (4)
   m_TagString: Teren
@@ -578,7 +605,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -667,6 +694,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -179.791}
+--- !u!114 &540260515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540260511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e98519b44aa2654dabc2b3b793fd3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &583388431
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,7 +936,7 @@ GameObject:
   - component: {fileID: 1041778922}
   - component: {fileID: 1041778925}
   - component: {fileID: 1041778926}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -987,7 +1026,7 @@ Transform:
   m_GameObject: {fileID: 1041778921}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.85, y: -2.67, z: 0}
+  m_LocalPosition: {x: -5.86, y: -3.74, z: 0}
   m_LocalScale: {x: 0.5758, y: 0.4108, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1085,6 +1124,7 @@ GameObject:
   - component: {fileID: 1059351940}
   - component: {fileID: 1059351939}
   - component: {fileID: 1059351938}
+  - component: {fileID: 1059351941}
   m_Layer: 3
   m_Name: Triangle
   m_TagString: Teren
@@ -1122,7 +1162,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1211,6 +1251,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1059351941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059351937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e98519b44aa2654dabc2b3b793fd3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1497277924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,6 +1274,7 @@ GameObject:
   - component: {fileID: 1497277927}
   - component: {fileID: 1497277926}
   - component: {fileID: 1497277925}
+  - component: {fileID: 1497277928}
   m_Layer: 3
   m_Name: Triangle (3)
   m_TagString: Teren
@@ -1259,7 +1312,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1348,6 +1401,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1497277928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497277924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e98519b44aa2654dabc2b3b793fd3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1553003376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,6 +1424,7 @@ GameObject:
   - component: {fileID: 1553003379}
   - component: {fileID: 1553003378}
   - component: {fileID: 1553003377}
+  - component: {fileID: 1553003380}
   m_Layer: 3
   m_Name: Triangle (6)
   m_TagString: Teren
@@ -1396,7 +1462,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1485,6 +1551,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -179.791}
+--- !u!114 &1553003380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553003376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e98519b44aa2654dabc2b3b793fd3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1693718812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,6 +1574,7 @@ GameObject:
   - component: {fileID: 1693718815}
   - component: {fileID: 1693718814}
   - component: {fileID: 1693718813}
+  - component: {fileID: 1693718816}
   m_Layer: 3
   m_Name: Triangle (2)
   m_TagString: Teren
@@ -1533,7 +1612,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1622,6 +1701,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1693718816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693718812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e98519b44aa2654dabc2b3b793fd3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1855206726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,7 +1855,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1947799730}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

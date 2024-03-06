@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        jumpsRemaining = 1; // Ustawia początkową liczbę skoków
+        jumpsRemaining = 2; // Ustawia początkową liczbę skoków
     }
 
     void Update()
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Teren"))
         {
-            jumpsRemaining = 1;
+            jumpsRemaining = 2;
         }
     }
 }

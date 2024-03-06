@@ -633,8 +633,8 @@ Transform:
   m_GameObject: {fileID: 1041778921}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.86, y: -3.74, z: 0}
-  m_LocalScale: {x: 0.5758, y: 0.4108, z: 1}
+  m_LocalPosition: {x: -5.86, y: -3.62, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1947799730}
@@ -1171,6 +1171,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 786770457952072951, guid: 37161783d14402f458d7765638a68e4e, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 2081887871113067491, guid: 37161783d14402f458d7765638a68e4e, type: 3}
       propertyPath: m_Name
       value: Triangle

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float jumpForce = 10f;
+    public float jumpForce = 5f;
     public GameObject bulletPrefab;
     public Transform firePoint;
     public LayerMask groundMask;
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        jumpsRemaining = 1; // Ustawia początkową liczbę skoków
+        jumpsRemaining = 2; // Ustawia początkową liczbę skoków
     }
 
     void Update()
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Strzelanie
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             Shoot();
         }
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Teren"))
         {
-            jumpsRemaining = 1;
+            jumpsRemaining = 2;
         }
     }
 }

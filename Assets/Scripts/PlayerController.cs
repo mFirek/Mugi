@@ -18,12 +18,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        jumpsRemaining = 2; // Ustawia poczÄ…tkowÄ… liczbÄ™ skokÃ³w
+        jumpsRemaining = 2; // Ustawia pocz¹tkow¹ liczbê skoków
     }
 
     void Update()
     {
-        // SprawdÅº, czy gracz jest na ziemi
+        // SprawdŸ, czy gracz jest na ziemi
         isGrounded = Physics2D.OverlapCircle(transform.position, 0.1f, groundMask);
 
         // Ruch w poziomie
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         // Skakanie
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && jumpsRemaining > 0)
         {
-            if (!isGrounded) // JeÅ›li gracz nie jest na ziemi, zmniejsz liczbÄ™ pozostaÅ‚ych skokÃ³w
+            if (!isGrounded) // Jeœli gracz nie jest na ziemi, zmniejsz liczbê pozosta³ych skoków
             {
                 jumpsRemaining--;
             }
@@ -51,10 +51,10 @@ public class PlayerController : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-        bulletRb.velocity = firePoint.right * bulletSpeed; // ZakÅ‚adajÄ…c, Å¼e pocisk porusza siÄ™ w kierunku, w ktÃ³rym patrzy gracz
+        bulletRb.velocity = firePoint.right * bulletSpeed; // Zak³adaj¹c, ¿e pocisk porusza siê w kierunku, w którym patrzy gracz
     }
 
-    // Zresetuj liczbÄ™ skokÃ³w, gdy gracz dotknie ziemi
+    // Zresetuj liczbê skoków, gdy gracz dotknie ziemi
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Teren"))

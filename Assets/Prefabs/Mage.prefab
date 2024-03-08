@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 450031440393166798}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0134, y: 0.0564, z: 0}
+  m_LocalPosition: {x: 0.015, y: 0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -189,13 +189,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b930e26d9728ab74089b1bf58d6d2c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 100
+  m_JumpForce: 200
   m_MovementSmoothing: 0
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 119
   m_GroundCheck: {fileID: 6324423924206824175}
+  m_CeilingCheck: {fileID: 5822751369979980528}
+  m_Animator: {fileID: 1280796850274760536}
+  m_AttackAnimationName: Attack
+  OnLandEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5201313701002005343}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnLanding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_MaxAirJumps: 1
 --- !u!50 &4983985356538049192
 Rigidbody2D:
   serializedVersion: 4
@@ -233,7 +252,7 @@ PolygonCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 648988abbec0dfc43ab740ccfa9318c5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -269,17 +288,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.035, y: 0.08}
-      - {x: -0.0511404, y: 0.049963742}
+    - - {x: -0.016349588, y: 0.06867652}
+      - {x: -0.02880299, y: 0.058933605}
+      - {x: -0.0364866, y: 0.0419707}
       - {x: -0.03967039, y: -0.003106459}
-      - {x: -0.05615445, y: -0.07410298}
-      - {x: -0.05456476, y: -0.07661086}
+      - {x: -0.052157957, y: -0.06877428}
+      - {x: -0.039244816, y: -0.07061608}
       - {x: -0.008190213, y: -0.070614964}
       - {x: 0.026246076, y: -0.07134503}
-      - {x: 0.039942864, y: -0.075744405}
-      - {x: 0.050847128, y: -0.07233386}
-      - {x: 0.065, y: 0.07}
-      - {x: 0.055, y: 0.08}
+      - {x: 0.039276842, y: -0.0710818}
+      - {x: 0.048848823, y: -0.06500691}
+      - {x: 0.04625714, y: 0.0078089014}
+      - {x: 0.05500871, y: 0.06800174}
+      - {x: 0.01969736, y: 0.077335656}
   m_UseDelaunayMesh: 0
 --- !u!114 &5201313701002005343
 MonoBehaviour:

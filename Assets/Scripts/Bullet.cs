@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
+      
         if (collision.gameObject.CompareTag("Teren"))
         {
             Destroy(gameObject); // Destroy the bullet upon collision with an obstacle

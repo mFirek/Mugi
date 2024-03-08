@@ -10,13 +10,14 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private LayerMask m_WhatIsGround;
     [SerializeField] private Transform m_GroundCheck;
     [SerializeField] private Transform m_CeilingCheck;
-     [Header("Attack Animation")]
+    [Header("Attack Animation")]
     [SerializeField] private Animator m_Animator; // Animator komponent do obs³ugi animacji.
     [SerializeField] private string m_AttackAnimationName = "Attack"; // Nazwa animacji ataku.
 
     const float k_GroundedRadius = .2f;
-    private bool m_Grounded;
     const float k_CeilingRadius = .2f;
+    private bool m_Grounded;
+    private bool m_HitCeiling = false;
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;
     private Vector3 m_Velocity = Vector3.zero;
@@ -31,6 +32,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private int m_MaxAirJumps = 1; // Maximum number of air jumps allowed.
     private int m_CurrentAirJumps = 0; // Current number of air jumps performed.
 
+
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -41,17 +43,24 @@ public class CharacterController2D : MonoBehaviour
         {
             m_Animator = GetComponent<Animator>(); // Spróbuj znaleŸæ Animator na tym samym obiekcie.
         }
+        m_WhatIsGround |= (1 << LayerMask.NameToLayer("Ceiling"));
     }
 
     private void FixedUpdate()
     {
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
-        
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
-        for (int i = 0; i < colliders.Length; i++)
+        m_HitCeiling = false;
+
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (colliders[i].gameObject != gameObject)
+            Attack();
+        }
+
+        Collider2D[] groundColliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+        for (int i = 0; i < groundColliders.Length; i++)
+        {
+            if (groundColliders[i].gameObject != gameObject)
             {
                 m_Grounded = true;
                 if (!wasGrounded)
@@ -60,6 +69,15 @@ public class CharacterController2D : MonoBehaviour
                     m_CanAirJump = true; // Reset air jumps when landing.
                     m_CurrentAirJumps = 0;
                 }
+            }
+        }
+
+        Collider2D[] ceilingColliders = Physics2D.OverlapCircleAll(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround);
+        for (int i = 0; i < ceilingColliders.Length; i++)
+        {
+            if (ceilingColliders[i].gameObject != gameObject)
+            {
+                m_HitCeiling = true;
             }
         }
     }
@@ -88,10 +106,17 @@ public class CharacterController2D : MonoBehaviour
         }
         else if (m_CanAirJump && !m_Grounded && jump && m_CurrentAirJumps < m_MaxAirJumps)
         {
-            m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0f); // Zero out vertical velocity before air jump.
+            m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0f);
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             m_CanAirJump = false;
             m_CurrentAirJumps++;
+        }
+
+        if (m_HitCeiling)
+        {
+            jump = false;
+            m_HitCeiling = false;
+            // Tutaj mo¿esz dostosowaæ dodatkowe dzia³ania w przypadku uderzenia w sufit.
         }
     }
 
@@ -102,6 +127,27 @@ public class CharacterController2D : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
-   
-   
+
+    private void Attack()
+    {
+        // SprawdŸ, czy Animator zosta³ przypisany.
+        if (m_Animator != null)
+        {
+            // Odtwórz animacjê ataku, jeœli Animator istnieje.
+            m_Animator.Play(m_AttackAnimationName);
+        }
+        else
+        {
+            Debug.LogWarning("Animator component is not assigned. Cannot play attack animation.");
+        }
+    }
+
+    private IEnumerator ReturnToIdleAfterAttack()
+    {
+        // Poczekaj, a¿ animacja ataku siê zakoñczy.
+        yield return new WaitForSeconds(m_Animator.GetCurrentAnimatorStateInfo(0).length);
+
+        // Wróæ do animacji idle.
+        m_Animator.Play("Idle"); // Zak³adaj¹c, ¿e masz animacjê idle o nazwie "Idle".
+    }
 }

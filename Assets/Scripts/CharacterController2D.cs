@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +10,9 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private LayerMask m_WhatIsGround;
     [SerializeField] private Transform m_GroundCheck;
     [SerializeField] private Transform m_CeilingCheck;
+     [Header("Attack Animation")]
+    [SerializeField] private Animator m_Animator; // Animator komponent do obs³ugi animacji.
+    [SerializeField] private string m_AttackAnimationName = "Attack"; // Nazwa animacji ataku.
 
     const float k_GroundedRadius = .2f;
     private bool m_Grounded;
@@ -33,13 +37,17 @@ public class CharacterController2D : MonoBehaviour
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
+        if (m_Animator == null)
+        {
+            m_Animator = GetComponent<Animator>(); // Spróbuj znaleŸæ Animator na tym samym obiekcie.
+        }
     }
 
     private void FixedUpdate()
     {
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
-
+        
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -94,4 +102,6 @@ public class CharacterController2D : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+   
+   
 }

@@ -4,40 +4,63 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour 
 {
+    public CharacterController2D controller;
+    public Animator animator;
+    public GameObject bulletPrefab;
+    public Transform firePointR;
+    public Transform firePointL;
+    public float bulletSpeed = 1f;
+    public float runSpeed = 40f;
+    private Vector2 lastDirection = Vector2.right;
+    float horizontalMove = 0f;
+    bool jump = false;
 
-	public CharacterController2D controller;
-	public Animator animator;
+    void Update () {
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
-	public float runSpeed = 40f;
+        if (Input.GetButtonDown("Jump")) {
+            jump = true;
+            animator.SetBool("IsJumping", true);
+        }
 
-	float horizontalMove = 0f;
-	bool jump = false;
+        if (Input.GetKeyDown(KeyCode.Z)) {
+            animator.Play("Attack", -1, 0f);
+            Shoot();
+        }
+    }
 
-	void Update () {
+    void Shoot()
+    {
+        // Wybieramy odpowiedni firePoint w zale¿noœci od ostatniego kierunku patrzenia
+        Transform firePoint = lastDirection == Vector2.right ? firePointR : firePointL;
 
-		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
 
-		animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        // Ustalamy kierunek strza³u na podstawie kierunku patrzenia
+        Vector2 shootDirection = lastDirection;
 
-		if (Input.GetButtonDown("Jump"))
-		{
-			
-			jump = true;
-			animator.SetBool("IsJumping", true);
-		}
+        if (horizontalMove == 0)
+        {
+            // Jeœli gracz stoi w miejscu, kierunek patrzenia zostaje zachowany
+            shootDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+        }
+        else if (horizontalMove < 0)
+        {
+            // Jeœli gracz porusza siê w lewo, kierunek strza³u równie¿ zostaje zmieniony na lewo
+            shootDirection = Vector2.left;
+        }
 
+        bulletRb.velocity = shootDirection * bulletSpeed;
+    }
 
-	}
-
-	public void OnLanding ()
-	{
+    public void OnLanding() {
         animator.SetBool("IsJumping", false);
     }
 
-	void FixedUpdate ()
-	{
-
-		controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
-		jump = false;
-	}
+    void FixedUpdate() {
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
+        jump = false;
+    }
 }

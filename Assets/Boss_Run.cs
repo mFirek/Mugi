@@ -9,7 +9,11 @@ public class Boss_Run : StateMachineBehaviour
     public float RangeShoot = 30f;
     public float rangeShootCooldown = 3f; // Czas oczekiwania miêdzy kolejnymi atakami na dystansie
     public float rangeShootTimer = 0f; // Licznik czasu dla cooldownu
+    private float cooldownTimer = 0f; // Licznik czasu dla cooldownu
     private bool cooldownActive = false; // Flaga wskazuj¹ca, czy cooldown jest aktywny
+
+    public GameObject projectilePrefab; // Prefab pocisku
+    public Transform shootPoint; // Miejsce, z którego ma byæ wystrzelony pocisk
 
 
     Transform player;
@@ -26,6 +30,11 @@ public class Boss_Run : StateMachineBehaviour
         // Zresetuj timer cooldownu
         rangeShootTimer = 0f;
         cooldownActive = false;
+
+        if (projectilePrefab != null)
+        {
+            projectilePrefab.SetActive(false);
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -44,6 +53,9 @@ public class Boss_Run : StateMachineBehaviour
         if (Vector2.Distance(player.position, rb.position) <= attackRange)
         {
             animator.SetTrigger("Attack");
+            cooldownActive = true;
+            // Zresetuj timer cooldownu
+            cooldownTimer = 0f;
         }
         // SprawdŸ, czy cooldown dla ataku na dystansie zosta³ zakoñczony
         else if (rangeShootTimer >= rangeShootCooldown)
@@ -55,10 +67,30 @@ public class Boss_Run : StateMachineBehaviour
         }
         if (cooldownActive)
         {
-            rangeShootTimer += Time.deltaTime;
+            cooldownTimer += Time.deltaTime;
+            // SprawdŸ, czy cooldown zosta³ zakoñczony
+            if (cooldownTimer >= rangeShootCooldown)
+            {
+                cooldownActive = false;
+            }
         }
     }
+    // Wywo³ywane z animacji strza³u
+    public void ShootProjectile()
+    {
+        // SprawdŸ, czy jest miejsce, z którego ma byæ wystrzelony pocisk
+        if (shootPoint != null && projectilePrefab != null)
+        {
+            // Instancjonuj prefab z miejsca strza³u
+            GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
 
+            // Jeœli chcesz, mo¿esz przekazaæ dodatkowe informacje o strzale do prefabu, np. kierunek strza³u, moc itp.
+            projectile.GetComponent<ProjectileScript>().SetDirection(shootPoint.forward);
+           
+            // Aktywuj pocisk
+            projectile.SetActive(true);
+        }
+    }
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -66,3 +98,5 @@ public class Boss_Run : StateMachineBehaviour
         animator.ResetTrigger("Shoot");
     }
 }
+
+

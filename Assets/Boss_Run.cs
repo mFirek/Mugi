@@ -16,13 +16,9 @@ public class Boss_Run : StateMachineBehaviour
     public Transform firePoint; // Miejsce, z którego ma byæ wystrzelony pocisk
     public GameObject bulletPrefab; // Prefabrykat pocisku
 
-
     Transform player;
     Rigidbody2D rb;
     Boss boss;
-
-
-    
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -79,11 +75,20 @@ public class Boss_Run : StateMachineBehaviour
     }
 
 
-    void Shoot()
+    public void Shoot()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Vector2 lookDir = player.position - firePoint.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 360f;
+        firePoint.rotation = Quaternion.Euler(0, 0, angle);
+
+        if (Vector2.Distance(player.position, rb.position) <= RangeShoot)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+            rbBullet.AddForce(firePoint.up * 20f, ForceMode2D.Impulse);
+        }
     }
-        
+
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

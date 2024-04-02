@@ -46,32 +46,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene($"{level}");
     }
 
-    public void ResetLevel(float delay)
-    {
-        Invoke(nameof(ResetLevel), delay);
-    }
-
-    public void NextLevel()
-    {
-        loadlevel(level + 1);
-    }
-
-    public void ResetLevel()
-    {
-        lives--;
-        if (lives > 0)
-        {
-            loadlevel(level);
-        }
-        else
-        {
-            GameOver();
-        }
-    }
-    public void GameOver()
-    {
-        NewGame();
-    }
 
 }
 

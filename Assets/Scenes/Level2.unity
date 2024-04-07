@@ -10810,42 +10810,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1876130503227203258, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: m_Size.x
-      value: 0.28012398
-      objectReference: {fileID: 0}
-    - target: {fileID: 1876130503227203258, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: m_Size.y
-      value: 0.14160824
-      objectReference: {fileID: 0}
-    - target: {fileID: 1876130503227203258, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.002570644
-      objectReference: {fileID: 0}
-    - target: {fileID: 1876130503227203258, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.0023003817
-      objectReference: {fileID: 0}
     - target: {fileID: 2049959633096492879, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1520324732}
-    - target: {fileID: 8265271660989337256, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: m_Size.x
-      value: 0.27995262
-      objectReference: {fileID: 0}
-    - target: {fileID: 8265271660989337256, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: m_Size.y
-      value: 0.14338791
-      objectReference: {fileID: 0}
-    - target: {fileID: 8265271660989337256, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0028621405
-      objectReference: {fileID: 0}
-    - target: {fileID: 8265271660989337256, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.0017350316
-      objectReference: {fileID: 0}
     - target: {fileID: 8726589637273572758, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
       propertyPath: m_Name
       value: Rat

@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838d43e3aaa03ad42ac617d136aaddc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 0.3
+  attackRange: 0.28
   deathTrigger: Death
 --- !u!1101 &-1586781771667019056
 AnimatorStateTransition:
@@ -104,13 +104,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Death
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

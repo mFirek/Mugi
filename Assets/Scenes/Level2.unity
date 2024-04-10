@@ -2285,7 +2285,7 @@ MonoBehaviour:
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
     cacheStartup: 0
-  showNavGraphs: 1
+  showNavGraphs: 0
   showUnwalkableNodes: 1
   debugMode: 0
   debugFloor: 0
@@ -4724,6 +4724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ziemia (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6428858194421369786, guid: 8ae4d76198bc6cc449da091713fdfded, type: 3}
+      propertyPath: m_TagString
+      value: Teren
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5067,11 +5071,11 @@ PrefabInstance:
       objectReference: {fileID: 7305103508064788049, guid: 9a9925dea31c6624fbe5fdec23ca05d1, type: 3}
     - target: {fileID: 5975658969130223078, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.249
+      value: -7.93
       objectReference: {fileID: 0}
     - target: {fileID: 5975658969130223078, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.314
+      value: 2.13
       objectReference: {fileID: 0}
     - target: {fileID: 5975658969130223078, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6897,11 +6901,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 878042115250244922, guid: 48a9b950b8fecc743abccc7beea09518, type: 3}
       propertyPath: m_Size.x
-      value: 1.92
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 878042115250244922, guid: 48a9b950b8fecc743abccc7beea09518, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 1.92
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 4676282938664533523, guid: 48a9b950b8fecc743abccc7beea09518, type: 3}
       propertyPath: m_Name
@@ -8617,6 +8621,14 @@ PrefabInstance:
     - target: {fileID: 4676282938664533523, guid: 48a9b950b8fecc743abccc7beea09518, type: 3}
       propertyPath: m_Name
       value: Trawa
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676282938664533523, guid: 48a9b950b8fecc743abccc7beea09518, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676282938664533523, guid: 48a9b950b8fecc743abccc7beea09518, type: 3}
+      propertyPath: m_TagString
+      value: Ceiling
       objectReference: {fileID: 0}
     - target: {fileID: 6527024068732424723, guid: 48a9b950b8fecc743abccc7beea09518, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10677,12 +10689,24 @@ PrefabInstance:
       value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 5156878332120363065, guid: 8ae4d76198bc6cc449da091713fdfded, type: 3}
+      propertyPath: m_Size.y
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156878332120363065, guid: 8ae4d76198bc6cc449da091713fdfded, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156878332120363065, guid: 8ae4d76198bc6cc449da091713fdfded, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.96
       objectReference: {fileID: 0}
     - target: {fileID: 6428858194421369786, guid: 8ae4d76198bc6cc449da091713fdfded, type: 3}
       propertyPath: m_Name
       value: Ziemia
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428858194421369786, guid: 8ae4d76198bc6cc449da091713fdfded, type: 3}
+      propertyPath: m_TagString
+      value: Ceiling
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

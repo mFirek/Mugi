@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838d43e3aaa03ad42ac617d136aaddc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 0.35
+  attackRange: 0.5
   deathTrigger: Death
 --- !u!1101 &8531934795333935333
 AnimatorStateTransition:

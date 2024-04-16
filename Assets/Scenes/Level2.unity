@@ -10727,10 +10727,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minotaur
       objectReference: {fileID: 0}
-    - target: {fileID: 3740477313338027357, guid: 4c0ce612e2cbeba4daac4747898e9d59, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10857,41 +10853,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1876130503227203258, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: m_Size.x
-      value: 0.2618602
-      objectReference: {fileID: 0}
-    - target: {fileID: 1876130503227203258, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.0065612495
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049959633096492879, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2049959633096492879, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1520324732}
-    - target: {fileID: 8265271660989337256, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: m_Size.x
-      value: 0.2878276
-      objectReference: {fileID: 0}
-    - target: {fileID: 8265271660989337256, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8265271660989337256, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0067996383
-      objectReference: {fileID: 0}
     - target: {fileID: 8726589637273572758, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
       propertyPath: m_Name
       value: Rat
-      objectReference: {fileID: 0}
-    - target: {fileID: 8726589637273572758, guid: 296598ba4831f3e48bf717b14225b2ce, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10950,17 +10918,9 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1520324732}
-    - target: {fileID: 4671574526393272812, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
-      propertyPath: activateDistance
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4954605746971495624, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
       propertyPath: m_Name
       value: Glut
-      objectReference: {fileID: 0}
-    - target: {fileID: 4954605746971495624, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11132,10 +11092,6 @@ PrefabInstance:
     - target: {fileID: 2491892736835036731, guid: 2f545a1751793d240b41c07a66e126c0, type: 3}
       propertyPath: m_Name
       value: Goblin
-      objectReference: {fileID: 0}
-    - target: {fileID: 2491892736835036731, guid: 2f545a1751793d240b41c07a66e126c0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2535187025772997075, guid: 2f545a1751793d240b41c07a66e126c0, type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,31 +1,37 @@
 fileFormatVersion: 2
-guid: 72aec0779b6eeb540b0d688b3aac77d4
+guid: 385eea076ff508e43a07e8943286da48
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7017491071104181137
-    second: blob_minion_walk-removebg-preview_0
+      213: 5175484822342644775
+    second: Golem_1_walk_0
   - first:
-      213: -4933730656846645023
-    second: blob_minion_walk-removebg-preview_1
+      213: 7145368577757440244
+    second: Golem_1_walk_1
   - first:
-      213: 2206102686215174436
-    second: blob_minion_walk-removebg-preview_2
+      213: 3668113545366278642
+    second: Golem_1_walk_2
   - first:
-      213: -7573155410304151218
-    second: blob_minion_walk-removebg-preview_3
+      213: 3560413011806008074
+    second: Golem_1_walk_3
   - first:
-      213: 899244522531533353
-    second: blob_minion_walk-removebg-preview_4
+      213: -1852207923889470867
+    second: Golem_1_walk_4
   - first:
-      213: -6594710897417625507
-    second: blob_minion_walk-removebg-preview_5
+      213: -7984011152290138843
+    second: Golem_1_walk_5
   - first:
-      213: 4910234622625031502
-    second: blob_minion_walk-removebg-preview_6
+      213: -3132998592984035555
+    second: Golem_1_walk_6
   - first:
-      213: -3044534269424056784
-    second: blob_minion_walk-removebg-preview_7
+      213: -7381214906031234670
+    second: Golem_1_walk_7
+  - first:
+      213: 1852743690599055226
+    second: Golem_1_walk_8
+  - first:
+      213: 1893436096413615750
+    second: Golem_1_walk_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -147,13 +153,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blob_minion_walk-removebg-preview_0
+      name: Golem_1_walk_0
       rect:
         serializedVersion: 2
-        x: 22
+        x: 28
+        y: 0
+        width: 33
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 724b828660403d740800000000000000
+      internalID: 5175484822342644775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_1_walk_1
+      rect:
+        serializedVersion: 2
+        x: 118
         y: 0
         width: 34
-        height: 34
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +188,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 193e3abe2f2236160800000000000000
-      internalID: 7017491071104181137
+      spriteID: 4f8687a1dd2792360800000000000000
+      internalID: 7145368577757440244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blob_minion_walk-removebg-preview_1
+      name: Golem_1_walk_2
       rect:
         serializedVersion: 2
-        x: 103
+        x: 208
         y: 0
-        width: 28
-        height: 35
+        width: 36
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +209,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e8733d8b1ed78bb0800000000000000
-      internalID: -4933730656846645023
+      spriteID: 2f11b53c5d1c7e230800000000000000
+      internalID: 3668113545366278642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blob_minion_walk-removebg-preview_2
+      name: Golem_1_walk_3
       rect:
         serializedVersion: 2
-        x: 184
+        x: 297
         y: 0
-        width: 27
-        height: 35
+        width: 37
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 429f3e564b6ad9e10800000000000000
-      internalID: 2206102686215174436
+      spriteID: a03306635c0296130800000000000000
+      internalID: 3560413011806008074
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blob_minion_walk-removebg-preview_3
+      name: Golem_1_walk_4
       rect:
         serializedVersion: 2
-        x: 265
+        x: 384
         y: 0
-        width: 26
-        height: 34
+        width: 41
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +251,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e415ef3574fb6e690800000000000000
-      internalID: -7573155410304151218
+      spriteID: d628766e4b2ab46e0800000000000000
+      internalID: -1852207923889470867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blob_minion_walk-removebg-preview_4
+      name: Golem_1_walk_5
       rect:
         serializedVersion: 2
-        x: 347
+        x: 473
         y: 0
-        width: 25
-        height: 34
+        width: 44
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +272,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 92235bbf022ca7c00800000000000000
-      internalID: 899244522531533353
+      spriteID: 5253df87828133190800000000000000
+      internalID: -7984011152290138843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blob_minion_walk-removebg-preview_5
+      name: Golem_1_walk_6
       rect:
         serializedVersion: 2
-        x: 424
+        x: 566
         y: 0
-        width: 28
-        height: 34
+        width: 40
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +293,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d50660b0161ea74a0800000000000000
-      internalID: -6594710897417625507
+      spriteID: d1f4367016a5584d0800000000000000
+      internalID: -3132998592984035555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blob_minion_walk-removebg-preview_6
+      name: Golem_1_walk_7
       rect:
         serializedVersion: 2
-        x: 502
+        x: 657
         y: 0
-        width: 31
-        height: 35
+        width: 38
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +314,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e45a36daf58a42440800000000000000
-      internalID: 4910234622625031502
+      spriteID: 291a03b7628a09990800000000000000
+      internalID: -7381214906031234670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blob_minion_walk-removebg-preview_7
+      name: Golem_1_walk_8
       rect:
         serializedVersion: 2
-        x: 582
+        x: 748
         y: 0
-        width: 32
-        height: 35
+        width: 35
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,8 +335,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 036c97c6634afb5d0800000000000000
-      internalID: -3044534269424056784
+      spriteID: a7fb002029446b910800000000000000
+      internalID: 1852743690599055226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_1_walk_9
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 0
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 686c2ab0916d64a10800000000000000
+      internalID: 1893436096413615750
       vertices: []
       indices: 
       edges: []
@@ -324,15 +372,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      blob_minion_walk-removebg-preview_0: 7017491071104181137
-      blob_minion_walk-removebg-preview_1: -4933730656846645023
-      blob_minion_walk-removebg-preview_2: 2206102686215174436
-      blob_minion_walk-removebg-preview_3: -7573155410304151218
-      blob_minion_walk-removebg-preview_4: 899244522531533353
-      blob_minion_walk-removebg-preview_5: -6594710897417625507
-      blob_minion_walk-removebg-preview_6: 4910234622625031502
-      blob_minion_walk-removebg-preview_7: -3044534269424056784
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

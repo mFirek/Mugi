@@ -1,85 +1,22 @@
-//using UnityEngine;
-
-//public class Enemies_Death : MonoBehaviour
-//{
-//    Rigidbody2D rb;
-//    Collider2D[] colliders;
-
-//    // Przesuniêcie w dó³ podczas animacji
-//    public Vector3 deathAnimationOffset = new Vector3(0f, -0.5f, 0f);
-
-//    void Start()
-//    {
-//        rb = GetComponentInChildren<Rigidbody2D>();
-//        colliders = GetComponentsInChildren<Collider2D>();
-//    }
-
-//    void OnCollisionEnter2D(Collision2D collision)
-//    {
-//        if (collision.gameObject.CompareTag("Kula"))
-//        {
-//            Animator animator = GetComponentInChildren<Animator>();
-
-//            if (animator != null)
-//            {
-//                // Wy³¹cz fizykê obiektu
-//                if (rb != null)
-//                {
-//                    rb.simulated = false;
-//                }
-
-//                // Wy³¹cz collidery obiektu
-//                foreach (Collider2D collider in colliders)
-//                {
-//                    collider.enabled = false;
-//                }
-
-//                // Uruchom animacjê œmierci
-//                animator.SetTrigger("Death");
-
-//                // Przesuñ obiekt trochê w dó³ podczas animacji
-//                transform.position += deathAnimationOffset;
-
-//                // Zniszcz obiekt po zakoñczeniu animacji
-//                Destroy(gameObject, GetAnimationLength(animator, "Death"));
-//            }
-//            else
-//            {
-//                // Jeœli nie znaleziono animatora, zniszcz obiekt bez odtwarzania animacji
-//                Destroy(gameObject);
-//            }
-//        }
-//    }
-
-//    float GetAnimationLength(Animator animator, string triggerName)
-//    {
-//        if (animator != null)
-//        {
-//            // Pobierz czas trwania animacji
-//            AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
-//            foreach (AnimationClip clip in clips)
-//            {
-//                if (clip.name == triggerName)
-//                {
-//                    return clip.length;
-//                }
-//            }
-//        }
-//        return 0f;
-//    }
-//}
 using UnityEngine;
-
+using System.Collections;
 public class Enemies_Death : MonoBehaviour
 {
     Rigidbody2D rb;
     Collider2D[] colliders;
+    bool isDying = false;
 
-    // Czas migania postaci po trafieniu pociskiem
+    // Licznik zderzeñ z obiektem o tagu "Kula"
+    private int collisionCount = 0;
+
+    // Maksymalna liczba zderzeñ przed znikniêciem obiektu
+    public int maxCollisions = 3;
+
+    // Czas trwania migania postaci
     public float blinkDuration = 0.5f;
 
-    // Flaga informuj¹ca, czy postaæ jest w trakcie miganie
-    private bool isBlinking = false;
+    // Skrypt "Enemy AI", który chcemy wy³¹czyæ podczas migania i po znikniêciu obiektu
+    public EnemyAI enemyAI;
 
     void Start()
     {
@@ -89,42 +26,107 @@ public class Enemies_Death : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Kula"))
+        if (!isDying && collision.gameObject.CompareTag("Kula"))
         {
             // Zniszcz pocisk
             Destroy(collision.gameObject);
 
-            Animator animator = GetComponentInChildren<Animator>();
+            // Zwiêksz licznik zderzeñ
+            collisionCount++;
 
-            if (animator != null && HasDeathAnimation(animator))
+            // Jeœli liczba zderzeñ przekroczy³a limit, zniszcz obiekt
+            if (collisionCount >= maxCollisions)
             {
-                // Wy³¹cz fizykê obiektu
-                if (rb != null)
+                Animator animator = GetComponentInChildren<Animator>();
+                if (animator == null || !HasDeathAnimation(animator))
                 {
-                    rb.simulated = false;
-                }
-
-                // Wy³¹cz collidery obiektu
-                foreach (Collider2D collider in colliders)
-                {
-                    collider.enabled = false;
-                }
-
-                // Uruchom animacjê œmierci
-                animator.SetTrigger("Death");
-
-                // Zniszcz obiekt po zakoñczeniu animacji
-                Destroy(gameObject, GetAnimationLength(animator, "Death"));
-            }
-            else
-            {
-                // Jeœli nie znaleziono animatora lub animacji "Death", zacznij migotanie i zniszcz obiekt po miganiu
-                if (!isBlinking)
-                {
-                    isBlinking = true;
                     StartCoroutine(BlinkAndDestroy());
                 }
+                else
+                {
+                    DestroyEnemy();
+                }
             }
+        }
+    }
+
+    IEnumerator BlinkAndDestroy()
+    {
+        isDying = true;
+
+        // Wy³¹cz skrypt "Enemy AI"
+        if (enemyAI != null)
+        {
+            enemyAI.enabled = false;
+        }
+
+        // Zatrzymaj ruch obiektu
+        rb.velocity = Vector2.zero;
+
+        // Zapêtlenie migania przez okreœlony czas
+        float timer = 0f;
+        while (timer < blinkDuration)
+        {
+            // Zmieñ kolor wszystkich renderów na bia³y
+            foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+            {
+                renderer.material.color = Color.white;
+            }
+
+            // Czekaj krótk¹ chwilê
+            yield return new WaitForSeconds(0.1f);
+
+            // Zmieñ kolor wszystkich renderów na pierwotny
+            foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+            {
+                renderer.material.color = Color.clear; // Tutaj zmieni³em na Color.clear, ale mo¿esz u¿yæ koloru pierwotnego
+            }
+
+            // Czekaj krótk¹ chwilê
+            yield return new WaitForSeconds(0.1f);
+
+            // Aktualizuj czas
+            timer += 0.2f;
+        }
+
+        // Wy³¹cz postaæ po zakoñczeniu migania
+        gameObject.SetActive(false);
+    }
+
+    void DestroyEnemy()
+    {
+        // Wy³¹cz skrypt "Enemy AI"
+        if (enemyAI != null)
+        {
+            enemyAI.enabled = false;
+        }
+
+        Animator animator = GetComponentInChildren<Animator>();
+
+        if (animator != null && HasDeathAnimation(animator))
+        {
+            // Wy³¹cz fizykê obiektu
+            if (rb != null)
+            {
+                rb.simulated = false;
+            }
+
+            // Wy³¹cz collidery obiektu
+            foreach (Collider2D collider in colliders)
+            {
+                collider.enabled = false;
+            }
+
+            // Uruchom animacjê œmierci
+            animator.SetTrigger("Death");
+
+            // Zniszcz obiekt po zakoñczeniu animacji
+            Destroy(gameObject, GetAnimationLength(animator, "Death"));
+        }
+        else
+        {
+            // Jeœli nie znaleziono animatora lub animacji "Death", zniszcz obiekt natychmiast
+            Destroy(gameObject);
         }
     }
 
@@ -144,39 +146,6 @@ public class Enemies_Death : MonoBehaviour
         return false;
     }
 
-    // Migotanie postaci na bia³o i zniszczenie jej po miganiu
-    private System.Collections.IEnumerator BlinkAndDestroy()
-    {
-        // Zapêtlenie migania przez okreœlony czas
-        float timer = 0f;
-        while (timer < blinkDuration)
-        {
-            // Zmieñ kolor wszystkich renderów na bia³y
-            foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
-            {
-                renderer.material.color = Color.white;
-            }
-
-            // Czekaj krótk¹ chwilê
-            yield return new WaitForSeconds(0.1f);
-
-            // Zmieñ kolor wszystkich renderów na pierwotny
-            foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
-            {
-                renderer.material.color = Color.white;
-            }
-
-            // Czekaj krótk¹ chwilê
-            yield return new WaitForSeconds(0.1f);
-
-            // Aktualizuj czas
-            timer += 0.2f;
-        }
-
-        // Wy³¹cz postaæ po zakoñczeniu migania
-        gameObject.SetActive(false);
-    }
-
     float GetAnimationLength(Animator animator, string triggerName)
     {
         if (animator != null)
@@ -193,6 +162,11 @@ public class Enemies_Death : MonoBehaviour
         return 0f;
     }
 }
+
+
+
+
+
 
 
 

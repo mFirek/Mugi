@@ -156,7 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae9211203a76f42ba944b9c8707605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxCollisions: 2
   blinkDuration: 0.5
+  enemyAI: {fileID: 6353321915711284166}
 --- !u!114 &1719474117561068416
 MonoBehaviour:
   m_ObjectHideFlags: 0

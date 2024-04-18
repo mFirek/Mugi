@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -50,6 +51,7 @@ public class Boss_Run : StateMachineBehaviour
         // SprawdŸ, czy player jest w zasiêgu ataku na dystansie
         if (Vector2.Distance(player.position, rb.position) <= attackRange)
         {
+            
             animator.SetTrigger("Attack");
             cooldownActive = true;
             // Zresetuj timer cooldownu
@@ -59,6 +61,7 @@ public class Boss_Run : StateMachineBehaviour
         else if (rangeShootTimer >= rangeShootCooldown)
         {
             animator.SetTrigger("Shoot");
+            
             Shoot();
             rangeShootTimer = 0f;
             cooldownActive = true;
@@ -80,12 +83,16 @@ public class Boss_Run : StateMachineBehaviour
         Vector2 lookDir = player.position - firePoint.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 360f;
         firePoint.rotation = Quaternion.Euler(0, 0, angle);
-
+        
         if (Vector2.Distance(player.position, rb.position) <= RangeShoot)
         {
+            
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+            //miejsce gdzie opóŸniono pocisk
+            Thread.Sleep(1500);
             rbBullet.AddForce(firePoint.up * 20f, ForceMode2D.Impulse);
+            
         }
     }
 

@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
@@ -25,6 +26,7 @@ public class ProjectileScript : MonoBehaviour
         
         if (Time.time >= nextFireTime)
         {
+            
             Shoot();
             nextFireTime = Time.time + 1f / fireRate;
         }
@@ -49,7 +51,7 @@ public class ProjectileScript : MonoBehaviour
             float laserHeight = laserSpawnPoint.position.y;
             // Skoryguj pozycjê lasera o tê wysokoœæ
             Vector3 laserSpawnPosition = new Vector3(laserSpawnPoint.position.x, laserHeight, laserSpawnPoint.position.z);
-
+            
             // Wystrzel laser z poprawionej pozycji
             activeLaser = Instantiate(laserPrefab, laserSpawnPosition, laserSpawnPoint.rotation, transform);
             // Ustawienie kierunku lasera w stronê gracza (jeœli potrzebne)

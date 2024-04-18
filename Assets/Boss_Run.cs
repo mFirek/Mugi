@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -85,6 +86,8 @@ public class Boss_Run : StateMachineBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+            //miejsce opóŸnienia wystrza³u wzgledem animacji
+            Thread.Sleep(1500);
             rbBullet.AddForce(firePoint.up * 0.2f, ForceMode2D.Impulse);
         }
     }

@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform firePointR;
     public Transform firePointL;
     public float bulletSpeed = 1f;
-    public float runSpeed = 40f;
+    public float runSpeed = 10f;
     private Vector2 lastDirection = Vector2.right;
     float horizontalMove = 0f;
     bool jump = false;

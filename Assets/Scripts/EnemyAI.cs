@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     [Header("Pathfinding")]
-    public Transform target;
+    public string playerTag = "Player"; // Tag gracza
     public float activateDistance = 50f;
     public float pathUpdateSeconds = 0.5f;
 
@@ -30,6 +30,9 @@ public class EnemyAI : MonoBehaviour
     Rigidbody2D rb;
     private bool isOnCoolDown;
 
+    // Pole target
+    private Transform target;
+
     public void Start()
     {
         seeker = GetComponent<Seeker>();
@@ -37,6 +40,17 @@ public class EnemyAI : MonoBehaviour
         isJumping = false;
         isInAir = false;
         isOnCoolDown = false;
+
+        // Wyszukiwanie gracza na podstawie tagu podczas uruchamiania
+        GameObject player = GameObject.FindGameObjectWithTag(playerTag);
+        if (player != null)
+        {
+            target = player.transform;
+        }
+        else
+        {
+            Debug.LogError("Nie mo¿na znaleŸæ obiektu z tagiem " + playerTag);
+        }
 
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
@@ -126,6 +140,9 @@ public class EnemyAI : MonoBehaviour
 
     private bool TargetInDistance()
     {
+        if (target == null)
+            return false;
+
         return Vector2.Distance(transform.position, target.transform.position) < activateDistance;
     }
 

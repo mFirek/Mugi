@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3718d69de112a154e9db9f5575bc635d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  playerTag: Player
   activateDistance: 1.5
   pathUpdateSeconds: 0.5
   speed: 0.5
@@ -308,6 +308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76724b40052070f45937dbdc9420f503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCollisions: 3
+  maxCollisions: 1
   blinkDuration: 0.5
   flyingEnemyAI: {fileID: 3731125914645644271}

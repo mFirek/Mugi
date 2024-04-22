@@ -11,7 +11,7 @@ public class FlyingEnemiesDeath : MonoBehaviour
     private int collisionCount = 0;
 
     // Maksymalna liczba zderzeñ przed znikniêciem obiektu
-    public int maxCollisions = 3;
+    public int maxCollisions = 1;
 
     // Czas trwania migania postaci
     public float blinkDuration = 0.5f;

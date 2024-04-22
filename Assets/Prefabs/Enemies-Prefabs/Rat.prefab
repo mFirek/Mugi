@@ -82,6 +82,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCollisions: 3
+  blinkDuration: 0.5
+  enemyAI: {fileID: 0}
 --- !u!114 &755079218069329725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63d6691e47c5f34fa178e51ce9dc542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  playerTag: Player
   activateDistance: 1.6
   pathUpdateSeconds: 0.5
   speed: 1
@@ -166,7 +168,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 7261031384445923711, guid: dbdd77d7785b802448ac30b97ef4560b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.23, y: 0.15}

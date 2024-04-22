@@ -4,7 +4,7 @@ using UnityEngine;
 public class FlyingEnemyAI : MonoBehaviour
 {
     [Header("Pathfinding")]
-    public Transform target;
+    public string playerTag = "Player"; // Tag gracza
     public float activateDistance = 50f;
     public float pathUpdateSeconds = 0.5f;
 
@@ -18,11 +18,23 @@ public class FlyingEnemyAI : MonoBehaviour
     private int currentWaypoint = 0;
     private Seeker seeker;
     private Rigidbody2D rb;
+    private Transform target; // Transformacja gracza
 
     private void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+
+        // ZnajdŸ transformacjê gracza na podstawie tagu
+        GameObject player = GameObject.FindGameObjectWithTag(playerTag);
+        if (player != null)
+        {
+            target = player.transform;
+        }
+        else
+        {
+            Debug.LogError("Nie mo¿na znaleŸæ obiektu z tagiem " + playerTag);
+        }
 
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
@@ -50,27 +62,24 @@ public class FlyingEnemyAI : MonoBehaviour
             return;
         }
 
-        // Direction Calculation
+        // Obliczenie kierunku
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed;
 
-        // Movement
+        // Ruch
         rb.MovePosition(rb.position + force * Time.fixedDeltaTime);
 
-        // Check if reached waypoint
+        // Sprawdzenie, czy osi¹gniêto punkt kontrolny
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
         if (distance < 0.1f)
         {
             currentWaypoint++;
         }
 
-        // Direction Graphics Handling
+        // Obs³uga grafiki kierunku
         if (directionLookEnabled)
         {
-            // Pobierz kierunek od przeciwnika do gracza
             Vector2 directionToTarget = target.position - transform.position;
-
-            // Obróæ sprite w kierunku gracza
             if (directionToTarget.x > 0)
             {
                 transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);

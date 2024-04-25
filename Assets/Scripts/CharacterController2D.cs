@@ -1,6 +1,6 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -11,8 +11,8 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private Transform m_GroundCheck;
     [SerializeField] private Transform m_CeilingCheck;
     [Header("Attack Animation")]
-    [SerializeField] private Animator m_Animator; // Animator komponent do obs³ugi animacji.
-    [SerializeField] private string m_AttackAnimationName = "Attack"; // Nazwa animacji ataku.
+    [SerializeField] private Animator m_Animator;
+    [SerializeField] private string m_AttackAnimationName = "Attack";
 
     const float k_GroundedRadius = .2f;
     const float k_CeilingRadius = .2f;
@@ -22,27 +22,30 @@ public class CharacterController2D : MonoBehaviour
     private bool m_FacingRight = true;
     private Vector3 m_Velocity = Vector3.zero;
 
-    [Header("Events")]
-    [Space]
+    private bool m_CanAirJump = true;
+    [SerializeField] private int m_MaxAirJumps = 1;
+    private int m_CurrentAirJumps = 0;
+
+    private Rigidbody2D rb;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
+
     public UnityEvent OnLandEvent;
-    [System.Serializable]
-    public class BoolEvent : UnityEvent<bool> { }
 
-    private bool m_CanAirJump = true; // Whether the player can perform an air jump.
-    [SerializeField] private int m_MaxAirJumps = 1; // Maximum number of air jumps allowed.
-    private int m_CurrentAirJumps = 0; // Current number of air jumps performed.
-
+    [Header("Dash")]
+    [SerializeField] private bool m_CanDash = true;
+    [SerializeField] private float m_DashForce = 10000f;
+    [SerializeField] private float m_DashDuration = 0.2f; // Czas trwania dashu
+    [SerializeField] private float m_DashSmoothness = 0.1f; // P³ynnoœæ dashu
 
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
 
-        if (OnLandEvent == null)
-            OnLandEvent = new UnityEvent();
         if (m_Animator == null)
-        {
-            m_Animator = GetComponent<Animator>(); // Spróbuj znaleŸæ Animator na tym samym obiekcie.
-        }
+            m_Animator = GetComponent<Animator>();
+
         m_WhatIsGround |= (1 << LayerMask.NameToLayer("Ceiling"));
     }
 
@@ -51,11 +54,6 @@ public class CharacterController2D : MonoBehaviour
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
         m_HitCeiling = false;
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Attack();
-        }
 
         Collider2D[] groundColliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
         for (int i = 0; i < groundColliders.Length; i++)
@@ -66,7 +64,7 @@ public class CharacterController2D : MonoBehaviour
                 if (!wasGrounded)
                 {
                     OnLandEvent.Invoke();
-                    m_CanAirJump = true; // Reset air jumps when landing.
+                    m_CanAirJump = true;
                     m_CurrentAirJumps = 0;
                 }
             }
@@ -79,6 +77,23 @@ public class CharacterController2D : MonoBehaviour
             {
                 m_HitCeiling = true;
             }
+        }
+
+        if (m_Grounded && rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (!m_Grounded && rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X) && m_CanDash)
+        {
+            Dash();
         }
     }
 
@@ -116,7 +131,6 @@ public class CharacterController2D : MonoBehaviour
         {
             jump = false;
             m_HitCeiling = false;
-            // Tutaj mo¿esz dostosowaæ dodatkowe dzia³ania w przypadku uderzenia w sufit.
         }
     }
 
@@ -130,10 +144,8 @@ public class CharacterController2D : MonoBehaviour
 
     private void Attack()
     {
-        // SprawdŸ, czy Animator zosta³ przypisany.
         if (m_Animator != null)
         {
-            // Odtwórz animacjê ataku, jeœli Animator istnieje.
             m_Animator.Play(m_AttackAnimationName);
         }
         else
@@ -142,12 +154,34 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-    private IEnumerator ReturnToIdleAfterAttack()
+    private void Dash()
     {
-        // Poczekaj, a¿ animacja ataku siê zakoñczy.
-        yield return new WaitForSeconds(m_Animator.GetCurrentAnimatorStateInfo(0).length);
+        StartCoroutine(DashCoroutine());
+    }
 
-        // Wróæ do animacji idle.
-        m_Animator.Play("Idle"); // Zak³adaj¹c, ¿e masz animacjê idle o nazwie "Idle".
+    private IEnumerator DashCoroutine()
+    {
+        m_CanDash = false;
+
+        // Tymczasowe wy³¹czenie grawitacji podczas dashowania
+        rb.gravityScale = 0;
+
+        // Zmiana prêdkoœci postaci na prêdkoœæ dashu przez okreœlony czas
+        Vector2 dashVelocity = (m_FacingRight ? transform.right : -transform.right) * m_DashForce * 100000;
+        float timer = 0f;
+
+        while (timer < m_DashDuration)
+        {
+            m_Rigidbody2D.velocity = Vector2.Lerp(m_Rigidbody2D.velocity, dashVelocity, m_DashSmoothness);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // Przywrócenie grawitacji po zakoñczeniu dashu
+        rb.gravityScale = 1;
+
+        m_Rigidbody2D.velocity = Vector2.zero;
+        yield return new WaitForSeconds(1f); // Czas odnowienia dashu
+        m_CanDash = true;
     }
 }

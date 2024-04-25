@@ -329,6 +329,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6875879166870245530, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
+      propertyPath: m_CanDash
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875879166870245530, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
+      propertyPath: m_DashForce
+      value: 200000
+      objectReference: {fileID: 0}
     - target: {fileID: 9143355098252780229, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
       propertyPath: m_Name
       value: Mage

@@ -162,11 +162,3 @@ public class Enemies_Death : MonoBehaviour
         return 0f;
     }
 }
-
-
-
-
-
-
-
-

@@ -5,7 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class CharacterController2D : MonoBehaviour, IDataPresistence
+public class xxx : MonoBehaviour, IDataPresistence
 {
     public void LoadData(GameData gameData)
     {

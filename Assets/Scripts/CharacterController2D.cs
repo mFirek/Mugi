@@ -2,7 +2,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 
-public class CharacterController2D : MonoBehaviour
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
+public class CharacterController2D : MonoBehaviour, IDataPresistence
 {
     [SerializeField] private float m_JumpForce = 400f;
     [Range(0, .3f)][SerializeField] private float m_MovementSmoothing = .05f;
@@ -183,5 +185,16 @@ public class CharacterController2D : MonoBehaviour
         m_Rigidbody2D.velocity = Vector2.zero;
         yield return new WaitForSeconds(1f); // Czas odnowienia dashu
         m_CanDash = true;
+    }
+    public void LoadData(GameData gameData)
+    {
+        //this.transform.position = DataPresistenceManager.playerPosition;
+        //wczytuje pozycjê gracza
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        //data.playerPosition = this.transform.position;
+        //zapisuje pozycjê gracza
     }
 }

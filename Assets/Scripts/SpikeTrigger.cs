@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class SpikeTrigger : MonoBehaviour
 {
     private Vector3 startingPosition;
@@ -20,6 +20,26 @@ public class SpikeTrigger : MonoBehaviour
         {
             // Jeśli tak, cofnij gracza do początkowej pozycji
             player.transform.position = startingPosition;
+        }
+    }
+}
+*/
+
+public class SpikeTrigger : MonoBehaviour
+{
+    private GameObject player; 
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Vector2 respawnPoint = GameManager.Instance.GetSpawnPoint();
+            player.transform.position = respawnPoint;
         }
     }
 }

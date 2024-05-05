@@ -312,6 +312,9 @@ MonoBehaviour:
   m_CeilingCheck: {fileID: 5822751369979980528}
   m_Animator: {fileID: 1280796850274760536}
   m_AttackAnimationName: Attack
+  m_MaxAirJumps: 1
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -327,7 +330,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_MaxAirJumps: 1
+  m_CanDash: 0
+  m_DashForce: 2.5
+  m_DashDuration: 0.15
+  m_DashSmoothness: 0.1
 --- !u!50 &4983985356538049192
 Rigidbody2D:
   serializedVersion: 4
@@ -352,7 +358,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &5201313701002005343

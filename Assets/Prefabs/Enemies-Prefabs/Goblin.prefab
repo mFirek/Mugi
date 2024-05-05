@@ -184,11 +184,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
-  activateDistance: 3
-  pathUpdateSeconds: 0.5
+  activateDistance: 0.8
+  pathUpdateSeconds: 0.1
   speed: 1.3
   jumpForce: 2
-  nextWaypointDistance: 0.3
+  nextWaypointDistance: 0.1
   jumpNodeHeightRequirement: 0.3
   jumpModifier: 0.3
   jumpCheckOffset: 0.1

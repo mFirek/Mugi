@@ -185,12 +185,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63d6691e47c5f34fa178e51ce9dc542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  activateDistance: 5
-  pathUpdateSeconds: 0.5
+  playerTag: Player
+  activateDistance: 0.8
+  pathUpdateSeconds: 0.1
   speed: 1
   jumpForce: 3
-  nextWaypointDistance: 3
+  nextWaypointDistance: 0.2
   jumpNodeHeightRequirement: 0.8
   jumpModifier: 0.3
   jumpCheckOffset: 0.1

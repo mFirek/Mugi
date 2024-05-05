@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 2695833335711562302, guid: 428d069ba8b0e0c4f8f5dad23dbfd19c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.54, y: 0.42}
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
-  activateDistance: 0.8
+  activateDistance: 1.7
   pathUpdateSeconds: 0.1
   speed: 1
   jumpForce: 3

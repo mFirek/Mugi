@@ -60,11 +60,11 @@ public class Boss_Run : StateMachineBehaviour
 
         else if (rangeShootTimer >= rangeShootCooldown)
         {  //------------------------------------------------------
-            //animator.SetTrigger("Shoot");
-            //Shoot();
-            //rangeShootTimer = 0f;
-            //cooldownActive = true;
-            this.monoBehaviour.StartCoroutine(DelayedShoot(animator));
+            animator.SetTrigger("Shoot");
+            Shoot();
+            rangeShootTimer = 0f;
+            cooldownActive = true;
+            //this.monoBehaviour.StartCoroutine(DelayedShoot(animator));
         }
         if (cooldownActive)
         {

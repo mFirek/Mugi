@@ -4,41 +4,22 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class ParallaxBackground : MonoBehaviour
 {
-    public ParallaxCamera parallaxCamera;
-    List<ParallaxLayer> parallaxLayers = new List<ParallaxLayer>();
-
+    private float length, startpos;
+    public GameObject cam;
+    public float parallexEffect;
     void Start()
     {
-        if (parallaxCamera == null)
-            parallaxCamera = Camera.main.GetComponent<ParallaxCamera>();
-
-        if (parallaxCamera != null)
-            parallaxCamera.onCameraTranslate += Move;
-
-        SetLayers();
+        startpos = transform.position.x;
+        length = GetComponent<SpriteRenderer>().bounds.size.x;
+        
     }
-
-    void SetLayers()
+    
+    void Update()
     {
-        parallaxLayers.Clear();
-
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            ParallaxLayer layer = transform.GetChild(i).GetComponent<ParallaxLayer>();
-
-            if (layer != null)
-            {
-                layer.name = "Layer-" + i;
-                parallaxLayers.Add(layer);
-            }
-        }
-    }
-
-    void Move(float delta)
-    {
-        foreach (ParallaxLayer layer in parallaxLayers)
-        {
-            layer.Move(delta);
-        }
+        float temp = (cam.transform.position.x * (1 - parallexEffect));
+        float dist = (cam.transform.position.x * parallexEffect);
+        transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
+        if (temp > startpos + length) startpos += length;
+        else if (temp < startpos - length) startpos -= length;
     }
 }

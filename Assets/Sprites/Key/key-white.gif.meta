@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4f108e834c99ee7498bcf3e47249dc03
+guid: b541dd5e0ee327648a3013e20b907b5e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3178258919983284336
-    second: parallax-demon-woods-mid-trees_0
+      213: 6017379436030131374
+    second: key-white_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +84,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Standalone
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: parallax-demon-woods-mid-trees_0
+      name: key-white_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 592
-        height: 272
+        x: 181
+        y: 111
+        width: 93
+        height: 198
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07002d906a17b1c20800000000000000
-      internalID: 3178258919983284336
+      spriteID: eacf05337b6028350800000000000000
+      internalID: 6017379436030131374
       vertices: []
       indices: 
       edges: []
@@ -156,8 +156,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      parallax-demon-woods-mid-trees_0: 3178258919983284336
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

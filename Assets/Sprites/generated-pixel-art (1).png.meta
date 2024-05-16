@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6d8843f86a22f3b4f86730a22ac6d3af
+guid: 1162a59315762e642b48f4f12f405429
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1669054325834199966
-    second: Bez_nazwy-1_0
+      213: -7117559834713787781
+    second: generated-pixel-art (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 3
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -84,33 +84,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -126,26 +100,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bez_nazwy-1_0
+      name: generated-pixel-art (1)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
+        x: 612
+        y: 578
+        width: 412
+        height: 446
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 8, y: 8}
-        - {x: -8, y: 8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
+      outline: []
       physicsShape: []
-      tessellationDetail: 1
+      tessellationDetail: -1
       bones: []
-      spriteID: e933d2af01ca92710800000000000000
-      internalID: 1669054325834199966
+      spriteID: b72fb407a09593d90800000000000000
+      internalID: -7117559834713787781
       vertices: []
       indices: 
       edges: []
@@ -153,7 +123,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cd494d21d98305f4da2e3eb3cddfe3d5
+    spriteID: d9a4283241e0b3349bd24dd97ad2e17e
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bez_nazwy-1_0: 1669054325834199966
+      generated-pixel-art (1)_0: -7117559834713787781
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

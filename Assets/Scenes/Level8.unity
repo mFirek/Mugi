@@ -283,6 +283,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 2
@@ -401,6 +405,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingSpikeTrigger (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7923060028467944429, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Size.x
       value: 0.12087178
@@ -441,6 +449,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
@@ -521,6 +533,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 2
@@ -597,6 +613,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
@@ -680,6 +700,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
@@ -1065,9 +1089,9 @@ GameObject:
   - component: {fileID: 134381659}
   - component: {fileID: 134381658}
   - component: {fileID: 134381657}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lava (1)
-  m_TagString: Untagged
+  m_TagString: Teren
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1275,6 +1299,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
@@ -1550,7 +1578,7 @@ GameObject:
   - component: {fileID: 182007467}
   m_Layer: 0
   m_Name: Lava
-  m_TagString: Teren
+  m_TagString: Ceiling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1683,7 +1711,7 @@ GameObject:
   - component: {fileID: 191085673}
   m_Layer: 0
   m_Name: Lava (9)
-  m_TagString: Teren
+  m_TagString: Ceiling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2046,6 +2074,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 2
@@ -2405,6 +2437,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 2
@@ -2540,11 +2576,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
   m_PrefabInstance: {fileID: 323469273}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &337765896 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
-  m_PrefabInstance: {fileID: 1187607851}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &346263109
 PrefabInstance:
@@ -2782,6 +2813,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
@@ -3364,6 +3399,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingSpikeTrigger (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7923060028467944429, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Size.x
       value: 0.12087178
@@ -3446,6 +3485,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingSpikeTrigger (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7923060028467944429, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Size.x
       value: 0.12087178
@@ -3522,7 +3565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6875879166870245530, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
       propertyPath: m_MaxAirJumps
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9143355098252780229, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
       propertyPath: m_Name
@@ -3552,6 +3595,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
@@ -4295,6 +4342,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 758637152443162582, guid: e674243fbc21f6643a34bdd0fa20b77a, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967294
+      objectReference: {fileID: 0}
     - target: {fileID: 1728056466237738410, guid: e674243fbc21f6643a34bdd0fa20b77a, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.8649538
@@ -4353,11 +4404,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5597612796510643372, guid: e674243fbc21f6643a34bdd0fa20b77a, type: 3}
       propertyPath: m_Size.x
-      value: 0.15557033
+      value: 0.16288823
       objectReference: {fileID: 0}
     - target: {fileID: 5597612796510643372, guid: e674243fbc21f6643a34bdd0fa20b77a, type: 3}
       propertyPath: m_Size.y
-      value: 0.14375293
+      value: 0.17450945
       objectReference: {fileID: 0}
     - target: {fileID: 5597612796510643372, guid: e674243fbc21f6643a34bdd0fa20b77a, type: 3}
       propertyPath: m_Enabled
@@ -4369,11 +4420,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5597612796510643372, guid: e674243fbc21f6643a34bdd0fa20b77a, type: 3}
       propertyPath: m_Offset.x
-      value: -0.002214834
+      value: 0.00062420964
       objectReference: {fileID: 0}
     - target: {fileID: 5597612796510643372, guid: e674243fbc21f6643a34bdd0fa20b77a, type: 3}
       propertyPath: m_Offset.y
-      value: -0.008123528
+      value: 0.007254727
       objectReference: {fileID: 0}
     - target: {fileID: 5597612796510643372, guid: e674243fbc21f6643a34bdd0fa20b77a, type: 3}
       propertyPath: m_AutoTiling
@@ -4403,7 +4454,8 @@ PrefabInstance:
       propertyPath: m_AutoTiling
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7333288365199742699, guid: e674243fbc21f6643a34bdd0fa20b77a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4909,7 +4961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3121192590385388165, guid: 234e6cb3bd8564e49b5c697f6fef1769, type: 3}
       propertyPath: m_TagString
-      value: Ceiling
+      value: Teren
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5014,7 +5066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 391027096268058952, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.24
+      value: -0.52
       objectReference: {fileID: 0}
     - target: {fileID: 3640165491888499479, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_Name
@@ -5022,7 +5074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3703248379392871834, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: speed
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4352964006103914563, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5690,6 +5742,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 2
@@ -6270,6 +6326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingSpikeTrigger (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7923060028467944429, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Size.x
       value: 0.12087178
@@ -6499,6 +6559,10 @@ PrefabInstance:
     - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Name
       value: FallingSpikeTrigger (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7923060028467944429, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Size.x
@@ -6761,7 +6825,7 @@ GameObject:
   - component: {fileID: 990905713}
   m_Layer: 8
   m_Name: Lava
-  m_TagString: Teren
+  m_TagString: Ceiling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7211,6 +7275,10 @@ PrefabInstance:
       value: Lava 1 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3121192590385388165, guid: 234e6cb3bd8564e49b5c697f6fef1769, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121192590385388165, guid: 234e6cb3bd8564e49b5c697f6fef1769, type: 3}
       propertyPath: m_TagString
       value: Teren
       objectReference: {fileID: 0}
@@ -7493,6 +7561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingSpikeTrigger (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7923060028467944429, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Size.x
       value: 0.12087178
@@ -7678,9 +7750,9 @@ GameObject:
   - component: {fileID: 1114941052}
   - component: {fileID: 1114941051}
   - component: {fileID: 1114941050}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lava (12)
-  m_TagString: Teren
+  m_TagString: Ceiling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7816,6 +7888,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 2
@@ -7926,7 +8002,7 @@ Transform:
   - {fileID: 76431059}
   - {fileID: 515745809}
   - {fileID: 1301864834}
-  - {fileID: 1187607852}
+  - {fileID: 7758979610166364265}
   - {fileID: 2030855354}
   - {fileID: 1128404629}
   - {fileID: 1345027622}
@@ -7998,6 +8074,10 @@ PrefabInstance:
       value: Lava 1 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3121192590385388165, guid: 234e6cb3bd8564e49b5c697f6fef1769, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121192590385388165, guid: 234e6cb3bd8564e49b5c697f6fef1769, type: 3}
       propertyPath: m_TagString
       value: Teren
       objectReference: {fileID: 0}
@@ -8061,6 +8141,10 @@ PrefabInstance:
     - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Name
       value: FallingSpikeTrigger (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7923060028467944429, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Size.x
@@ -8244,6 +8328,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1131287293}
     m_Modifications:
+    - target: {fileID: 511293351115506516, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (4)
@@ -8252,13 +8340,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
@@ -8269,11 +8365,35 @@ PrefabInstance:
       value: -0.00068851607
       objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_DrawMode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_RenderingLayerMask
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
@@ -8324,16 +8444,57 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8203129942254507435, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1187607853}
+    - targetCorrespondingSourceObject: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1187607859}
   m_SourcePrefab: {fileID: 100100000, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
---- !u!4 &1187607852 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
-  m_PrefabInstance: {fileID: 1187607851}
+--- !u!50 &1187607853
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624167112785179402}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 2
+  m_SleepingMode: 2
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!114 &1187607859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624167112785179402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7612a522b40f04790423460d19659b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1191460919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8647,6 +8808,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingSpikeTrigger (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7923060028467944429, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Size.x
       value: 0.12087178
@@ -8832,7 +8997,7 @@ GameObject:
   - component: {fileID: 1277954185}
   - component: {fileID: 1277954184}
   - component: {fileID: 1277954183}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lava (11)
   m_TagString: Teren
   m_Icon: {fileID: 0}
@@ -9044,6 +9209,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 2
@@ -9120,6 +9289,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
@@ -9212,7 +9385,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 648988abbec0dfc43ab740ccfa9318c5, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -9236,7 +9409,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.14942455, y: 0.03753513}
+  m_Offset: {x: -0.14942455, y: 0.08294904}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.52, y: 0.45000002}
@@ -9246,7 +9419,7 @@ BoxCollider2D:
     drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 8.021164, y: 0.8191956}
+  m_Size: {x: 8.021164, y: 0.91002345}
   m_EdgeRadius: 0
 --- !u!212 &1303077478
 SpriteRenderer:
@@ -9290,7 +9463,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -365962084327653769, guid: 43cbf084054e4f24d8f9e0d2f49ae326, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9727,6 +9900,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 2
@@ -10123,6 +10300,10 @@ PrefabInstance:
     - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Name
       value: FallingSpikeTrigger (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7923060028467944429, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Size.x
@@ -11093,6 +11274,10 @@ PrefabInstance:
       value: Lava 1 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 3121192590385388165, guid: 234e6cb3bd8564e49b5c697f6fef1769, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121192590385388165, guid: 234e6cb3bd8564e49b5c697f6fef1769, type: 3}
       propertyPath: m_TagString
       value: Teren
       objectReference: {fileID: 0}
@@ -11123,6 +11308,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
@@ -11206,6 +11395,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
@@ -11710,6 +11903,10 @@ PrefabInstance:
       value: Lava 1
       objectReference: {fileID: 0}
     - target: {fileID: 3121192590385388165, guid: 234e6cb3bd8564e49b5c697f6fef1769, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121192590385388165, guid: 234e6cb3bd8564e49b5c697f6fef1769, type: 3}
       propertyPath: m_TagString
       value: Teren
       objectReference: {fileID: 0}
@@ -11732,6 +11929,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
@@ -11881,7 +12082,7 @@ GameObject:
   - component: {fileID: 1620130196}
   - component: {fileID: 1620130195}
   - component: {fileID: 1620130194}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lava (4)
   m_TagString: Teren
   m_Icon: {fileID: 0}
@@ -12278,7 +12479,7 @@ GameObject:
   - component: {fileID: 1655845863}
   m_Layer: 8
   m_Name: Lava (3)
-  m_TagString: Teren
+  m_TagString: Ceiling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12409,7 +12610,7 @@ GameObject:
   - component: {fileID: 1666491676}
   - component: {fileID: 1666491675}
   - component: {fileID: 1666491674}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lava (2)
   m_TagString: Teren
   m_Icon: {fileID: 0}
@@ -12703,6 +12904,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
@@ -13201,6 +13406,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingSpikeTrigger (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7923060028467944429, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Size.x
       value: 0.12087178
@@ -13462,7 +13671,7 @@ GameObject:
   - component: {fileID: 1856108696}
   m_Layer: 0
   m_Name: Lava
-  m_TagString: Teren
+  m_TagString: Ceiling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13667,6 +13876,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 2
@@ -13784,6 +13997,10 @@ PrefabInstance:
     - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Name
       value: FallingSpikeTrigger (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7923060028467944429, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Size.x
@@ -14452,6 +14669,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 2
@@ -14528,6 +14749,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
@@ -15114,6 +15339,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2353447630534302431, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 2
@@ -15324,6 +15553,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
   m_PrefabInstance: {fileID: 2129108170}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1624167112785179402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+  m_PrefabInstance: {fileID: 1187607851}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5775771926881518217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15484,14 +15718,18 @@ PrefabInstance:
     - target: {fileID: 1288959140910685242, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: spikes
       value: 
-      objectReference: {fileID: 337765896}
+      objectReference: {fileID: 1624167112785179402}
     - target: {fileID: 1288959140910685242, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: fallSpeed
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Name
       value: FallingSpikeTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225656425960950775, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7923060028467944429, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
       propertyPath: m_Size.x
@@ -15514,6 +15752,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b066d9ac20c68649a620d23aab762f8, type: 3}
+--- !u!4 &7758979610166364265 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+  m_PrefabInstance: {fileID: 1187607851}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9197161343485004849 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 662565004934389200}
   - component: {fileID: 1288959140910685242}
   - component: {fileID: 7923060028467944429}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FallingSpikeTrigger
-  m_TagString: Untagged
+  m_TagString: Ceiling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spikes: {fileID: 0}
-  fallSpeed: 5
+  fallSpeed: 2.5
+  resetTime: 1.1
 --- !u!61 &7923060028467944429
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81,7 +82,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.027429938, y: -0.0027430654}
+  m_Offset: {x: -0.071997285, y: 1.3361268}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -91,5 +92,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.21000648, y: 0.4020189}
+  m_Size: {x: 0.12087178, y: 3.0797586}
   m_EdgeRadius: 0

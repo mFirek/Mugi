@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelectionMenuManager : MonoBehaviour
 {
+    public LevelObject[] levelObjects;
     public static int currLevel;
+    public static int UnlockedLevels;
     public void OnClickLevel(int levelNum)
     {   
         currLevel = levelNum;
@@ -16,13 +18,20 @@ public class LevelSelectionMenuManager : MonoBehaviour
     {
         this.gameObject.SetActive(false);
     }
-    // Start is called before the first frame update
+   
     void Start()
     {
-        
+        UnlockedLevels = PlayerPrefs.GetInt("UnlockedLevels", 0);
+        for(int i = 0;i<levelObjects.Length;i++)
+        {
+            if (UnlockedLevels>=i)
+            {
+                levelObjects[i].levelButton.interactable = true;
+            }
+        }
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         

@@ -144,6 +144,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -514,7 +540,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      darkfairy_phase1_createshield_0: -776228026357924805
+      darkfairy_phase1_createshield_1: -4570261321916344766
+      darkfairy_phase1_createshield_10: 7494361428573614895
+      darkfairy_phase1_createshield_11: -3618011911117134009
+      darkfairy_phase1_createshield_12: 4067482679869687142
+      darkfairy_phase1_createshield_13: 8108019882331305619
+      darkfairy_phase1_createshield_14: 1478386531847593377
+      darkfairy_phase1_createshield_15: 5667612940297810307
+      darkfairy_phase1_createshield_16: 7004955939075493328
+      darkfairy_phase1_createshield_2: 6205886306759902025
+      darkfairy_phase1_createshield_3: 6941296572677122471
+      darkfairy_phase1_createshield_4: 532676266154519940
+      darkfairy_phase1_createshield_5: 9198303108326650639
+      darkfairy_phase1_createshield_6: -5639740006531374764
+      darkfairy_phase1_createshield_7: 992218197967074081
+      darkfairy_phase1_createshield_8: -8129867393846701278
+      darkfairy_phase1_createshield_9: -6819803537756461871
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -144,6 +144,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -514,7 +540,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      darkfairy_transformation_into_phase2_0: -5716750555384415641
+      darkfairy_transformation_into_phase2_1: -7616379962313954948
+      darkfairy_transformation_into_phase2_10: 4741967674794019096
+      darkfairy_transformation_into_phase2_11: 4358778944129319418
+      darkfairy_transformation_into_phase2_12: 4230378711903547182
+      darkfairy_transformation_into_phase2_13: -1133481712974248033
+      darkfairy_transformation_into_phase2_14: 1316012221630555292
+      darkfairy_transformation_into_phase2_15: -2939008737446837565
+      darkfairy_transformation_into_phase2_16: -5843008791350433766
+      darkfairy_transformation_into_phase2_2: -2518887122620659359
+      darkfairy_transformation_into_phase2_3: -2248061735593899060
+      darkfairy_transformation_into_phase2_4: 2482149444492456064
+      darkfairy_transformation_into_phase2_5: 6901469230807847577
+      darkfairy_transformation_into_phase2_6: 6150272679519646729
+      darkfairy_transformation_into_phase2_7: 3453653742210181190
+      darkfairy_transformation_into_phase2_8: -3713026181059825819
+      darkfairy_transformation_into_phase2_9: 6004249267367216699
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

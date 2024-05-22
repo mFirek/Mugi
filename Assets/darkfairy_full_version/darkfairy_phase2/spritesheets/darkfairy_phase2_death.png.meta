@@ -204,6 +204,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -994,7 +1020,44 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      darkfairy_phase2_death_0: -6712981714553753361
+      darkfairy_phase2_death_1: -485571106818964163
+      darkfairy_phase2_death_10: 6680555160567325216
+      darkfairy_phase2_death_11: 9179897298853204531
+      darkfairy_phase2_death_12: 3932461465981450556
+      darkfairy_phase2_death_13: -3547254527329281058
+      darkfairy_phase2_death_14: -1222796228564497304
+      darkfairy_phase2_death_15: 9169131763973814384
+      darkfairy_phase2_death_16: 8901383263752234296
+      darkfairy_phase2_death_17: -86653742058390806
+      darkfairy_phase2_death_18: -5135057721777813020
+      darkfairy_phase2_death_19: 2228359431945759285
+      darkfairy_phase2_death_2: -2104452580558690626
+      darkfairy_phase2_death_20: 4792581622476743137
+      darkfairy_phase2_death_21: -7335276615883325032
+      darkfairy_phase2_death_22: 6789836881309518126
+      darkfairy_phase2_death_23: 4215110404791664521
+      darkfairy_phase2_death_24: 5466582749618716676
+      darkfairy_phase2_death_25: 7852351239938422880
+      darkfairy_phase2_death_26: 1453396415536486446
+      darkfairy_phase2_death_27: 7575091705847385410
+      darkfairy_phase2_death_28: -2841202731829134628
+      darkfairy_phase2_death_29: 5330446682273583608
+      darkfairy_phase2_death_3: -5553963409586600165
+      darkfairy_phase2_death_30: 1643568212242589237
+      darkfairy_phase2_death_31: -7837729850339538718
+      darkfairy_phase2_death_32: -5728763177244589188
+      darkfairy_phase2_death_33: -2765404953950345098
+      darkfairy_phase2_death_34: -1511098201597414553
+      darkfairy_phase2_death_35: -1440728639462788780
+      darkfairy_phase2_death_36: -5800284406674709770
+      darkfairy_phase2_death_4: 8649377384843221184
+      darkfairy_phase2_death_5: -5866923729386883460
+      darkfairy_phase2_death_6: 3542418194615376048
+      darkfairy_phase2_death_7: -1677132702008665057
+      darkfairy_phase2_death_8: -6015534562722131559
+      darkfairy_phase2_death_9: 3126393751720072590
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

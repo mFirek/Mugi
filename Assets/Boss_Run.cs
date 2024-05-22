@@ -1,42 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Boss_Run : StateMachineBehaviour
 {
     public float speed = 2.5f;
     public float attackRange = 3f;
-    public float RangeShoot = 30f;
-    public float rangeShootCooldown = 3f; // Czas oczekiwania miêdzy kolejnymi atakami na dystansie
-    public float rangeShootTimer = 0f; // Licznik czasu dla cooldownu
-    private float cooldownTimer = 0f; // Licznik czasu dla cooldownu
-    private bool cooldownActive = false; // Flaga wskazuj¹ca, czy cooldown jest aktywny
+    public float rangeShootCooldown = 3f;
+    public float immuneRange = 10f; // Zasiêg, w jakim mo¿na u¿yæ animacji Immune
+    public float immuneCooldown = 5f; // Cooldown dla animacji Immune
+    private float rangeShootTimer = 0f;
+    private float cooldownTimer = 0f;
+    private bool cooldownActive = false;
+    private bool useShootAnimation = true; // Prze³¹cznik miêdzy animacjami
+    private bool immuneActive = false; // Flaga wskazuj¹ca, czy animacja Immune jest aktywna
+    private float immuneTimer = 0f; // Licznik czasu dla cooldownu Immune
 
-    public Transform firePoint; // Miejsce, z którego ma byæ wystrzelony pocisk
-    public GameObject bulletPrefab; // Prefabrykat pocisku
+    public Transform firePoint;
+    public GameObject bulletPrefab;
 
-    Transform player;
-    Rigidbody2D rb;
-    Boss boss;
+    private Transform player;
+    private Rigidbody2D rb;
+    private Boss boss;
 
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
         boss = animator.GetComponent<Boss>();
 
-        // Zresetuj timer cooldownu
         rangeShootTimer = 0f;
         cooldownActive = false;
 
-        firePoint = GameObject.FindGameObjectWithTag("FirePoint").transform;
+        // Ensure firePoint is correctly assigned
+        if (firePoint == null)
+        {
+            firePoint = animator.transform.Find("FirePoint");
+        }
 
+        if (firePoint == null)
+        {
+            Debug.LogError("FirePoint not found");
+        }
+        else
+        {
+            Debug.Log("FirePoint found: " + firePoint.position);
+        }
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         boss.LookAtPlayer();
@@ -45,82 +54,113 @@ public class Boss_Run : StateMachineBehaviour
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
 
-        // Aktualizuj timer cooldownu
         rangeShootTimer += Time.deltaTime;
 
-        // SprawdŸ, czy player jest w zasiêgu ataku na dystansie
         if (Vector2.Distance(player.position, rb.position) <= attackRange)
         {
             animator.SetTrigger("Attack");
             cooldownActive = true;
-            // Zresetuj timer cooldownu
             cooldownTimer = 0f;
         }
-        // SprawdŸ, czy cooldown dla ataku na dystansie zosta³ zakoñczony
-
         else if (rangeShootTimer >= rangeShootCooldown)
-        {  //------------------------------------------------------
-            animator.SetTrigger("Shoot");
-            Shoot();
+        {
+            if (useShootAnimation)
+            {
+                animator.SetTrigger("Shoot");
+                Shoot();
+            }
+            else
+            {
+                if (Vector2.Distance(player.position, rb.position) >= immuneRange)
+                {
+                    animator.SetTrigger("Immune");
+                    immuneActive = true;
+                    immuneTimer = 0f;
+                }
+                else
+                {
+                    animator.SetTrigger("Glow");
+                    Glow();
+                }
+            }
+
             rangeShootTimer = 0f;
             cooldownActive = true;
-            //this.monoBehaviour.StartCoroutine(DelayedShoot(animator));
+            useShootAnimation = !useShootAnimation; // Prze³¹cz miêdzy animacjami
         }
+
+        if (!cooldownActive && !immuneActive && immuneTimer >= immuneCooldown)
+        {
+            animator.SetTrigger("Immune");
+            immuneActive = true;
+            immuneTimer = 0f;
+        }
+
         if (cooldownActive)
         {
             cooldownTimer += Time.deltaTime;
-            // SprawdŸ, czy cooldown zosta³ zakoñczony
             if (cooldownTimer >= rangeShootCooldown)
             {
                 cooldownActive = false;
             }
         }
 
-
-    }
-
-  
-    public void Shoot()
-    {
-        Vector2 lookDir = player.position - firePoint.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 360f;
-        firePoint.rotation = Quaternion.Euler(0, 0, angle);
-
-        if (Vector2.Distance(player.position, rb.position) <= RangeShoot)
+        if (immuneActive)
         {
-
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
-            rbBullet.AddForce(firePoint.up * 0.2f, ForceMode2D.Impulse);
-
+            immuneTimer += Time.deltaTime;
+            if (immuneTimer >= immuneCooldown)
+            {
+                immuneActive = false;
+            }
         }
     }
 
+    public void Shoot()
+    {
+        if (firePoint == null)
+        {
+            Debug.LogError("FirePoint not assigned");
+            return;
+        }
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+        Vector2 lookDir = player.position - firePoint.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        firePoint.rotation = Quaternion.Euler(0, 0, angle);
+
+        Debug.Log("Shooting from: " + firePoint.position); // Debugging position
+
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+        rbBullet.AddForce(firePoint.right * 20f, ForceMode2D.Impulse); // Adjusted force for better shooting
+    }
+
+    public void Glow()
+    {
+        if (firePoint == null)
+        {
+            Debug.LogError("FirePoint not assigned");
+            return;
+        }
+
+        boss.SetGlowing(true); // Ustaw, ¿e boss œwieci
+
+        Debug.Log("Glowing from: " + firePoint.position); // Debugging position
+        // Tu dodaj funkcjonalnoœæ dla animacji "Glow"
+    }
+
+    public void Immune()
+    {
+        // Dodaj funkcjonalnoœæ dla animacji "Immune"
+        Debug.Log("Immune");
+    }
+
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("Attack");
         animator.ResetTrigger("Shoot");
+        animator.ResetTrigger("Glow");
+        animator.ResetTrigger("Immune");
+        boss.SetGlowing(false); // Resetuj, ¿e boss przesta³ œwieciæ
+        immuneActive = false; // Resetuj flagê Immune
     }
-    //to jest to do opóŸnienia
-    //---------------------------------------------
-    private IEnumerator DelayedShoot(Animator animator)
-    {
-        yield return new WaitForSeconds(0.5f); // OpóŸnienie o 0.5 sekundy (mo¿na dostosowaæ)
-
-        animator.SetTrigger("Shoot");
-        Shoot();
-        rangeShootTimer = 0f;
-        cooldownActive = true;
-    }
-    private MonoBehaviour monoBehaviour = null;
-
-    public Boss_Run(MonoBehaviour monoBehaviour)
-    {
-        this.monoBehaviour = monoBehaviour;
-    }
-    //--------------------------------------------
-
 }
-

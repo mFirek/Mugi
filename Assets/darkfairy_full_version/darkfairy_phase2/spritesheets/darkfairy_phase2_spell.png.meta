@@ -216,6 +216,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1090,7 +1116,48 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      darkfairy_phase2_spell_0: -1636549207044376848
+      darkfairy_phase2_spell_1: 7062530289123265586
+      darkfairy_phase2_spell_10: -1777905940810804250
+      darkfairy_phase2_spell_11: 182195112285876702
+      darkfairy_phase2_spell_12: 1963039987251968222
+      darkfairy_phase2_spell_13: -358874848629000778
+      darkfairy_phase2_spell_14: -2893542845002390966
+      darkfairy_phase2_spell_15: -4963054501855059440
+      darkfairy_phase2_spell_16: 8924124955607923103
+      darkfairy_phase2_spell_17: 955492319276804824
+      darkfairy_phase2_spell_18: 7778997570753998362
+      darkfairy_phase2_spell_19: 9008904826445438369
+      darkfairy_phase2_spell_2: 7520054561831216504
+      darkfairy_phase2_spell_20: 8661566348384857636
+      darkfairy_phase2_spell_21: -669013981094046812
+      darkfairy_phase2_spell_22: 1072854644017019769
+      darkfairy_phase2_spell_23: -7811236807019948398
+      darkfairy_phase2_spell_24: -7491287824165012344
+      darkfairy_phase2_spell_25: -8080116819639685960
+      darkfairy_phase2_spell_26: 8990584228893754708
+      darkfairy_phase2_spell_27: 8537117043972990316
+      darkfairy_phase2_spell_28: -8070558161023094563
+      darkfairy_phase2_spell_29: 3268451389981502729
+      darkfairy_phase2_spell_3: -3559802345964778052
+      darkfairy_phase2_spell_30: 5866545861876492648
+      darkfairy_phase2_spell_31: 7808528229353658896
+      darkfairy_phase2_spell_32: 2019610483091104255
+      darkfairy_phase2_spell_33: -7337209409959559384
+      darkfairy_phase2_spell_34: 6805183754409819744
+      darkfairy_phase2_spell_35: -4318378386449492325
+      darkfairy_phase2_spell_36: 496846692777523404
+      darkfairy_phase2_spell_37: 3484517767205837081
+      darkfairy_phase2_spell_38: -8319871297632378153
+      darkfairy_phase2_spell_39: -9021858811478938624
+      darkfairy_phase2_spell_4: 1480833089107154193
+      darkfairy_phase2_spell_40: 1637106092674888776
+      darkfairy_phase2_spell_5: 4988369540125829302
+      darkfairy_phase2_spell_6: 4687536490509581419
+      darkfairy_phase2_spell_7: 769510037511382674
+      darkfairy_phase2_spell_8: 7503702919883204041
+      darkfairy_phase2_spell_9: 3235342869518939432
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

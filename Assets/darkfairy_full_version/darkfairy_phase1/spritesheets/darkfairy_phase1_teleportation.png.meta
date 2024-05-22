@@ -150,6 +150,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -562,7 +588,26 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      darkfairy_phase1_teleportation_0: 3775383834958592864
+      darkfairy_phase1_teleportation_1: -3927244563265718078
+      darkfairy_phase1_teleportation_10: -2552457335672297666
+      darkfairy_phase1_teleportation_11: 6504967957072166299
+      darkfairy_phase1_teleportation_12: 14869472760907672
+      darkfairy_phase1_teleportation_13: -7717966929065365760
+      darkfairy_phase1_teleportation_14: -8701396007177049773
+      darkfairy_phase1_teleportation_15: 5258836245410365321
+      darkfairy_phase1_teleportation_16: 3429190929597377683
+      darkfairy_phase1_teleportation_17: -826996096592495739
+      darkfairy_phase1_teleportation_18: -7495910394365925643
+      darkfairy_phase1_teleportation_2: 4996039467777919712
+      darkfairy_phase1_teleportation_3: 1185894949430289636
+      darkfairy_phase1_teleportation_4: 869792219374658824
+      darkfairy_phase1_teleportation_5: -7981006408559800764
+      darkfairy_phase1_teleportation_6: -8708904916087284455
+      darkfairy_phase1_teleportation_7: -2766717249654733009
+      darkfairy_phase1_teleportation_8: 4047218846233188231
+      darkfairy_phase1_teleportation_9: -1426137507898731652
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

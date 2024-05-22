@@ -120,6 +120,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -322,7 +348,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      darkfairy_phase1_closeattack_0: 2000822188172148790
+      darkfairy_phase1_closeattack_1: 6172360096914950362
+      darkfairy_phase1_closeattack_2: -8807077716904673659
+      darkfairy_phase1_closeattack_3: -7010591717628458243
+      darkfairy_phase1_closeattack_4: 3457849321775845450
+      darkfairy_phase1_closeattack_5: 6845386935320197489
+      darkfairy_phase1_closeattack_6: -334429419473584367
+      darkfairy_phase1_closeattack_7: -7099664759728992038
+      darkfairy_phase1_closeattack_8: 6000326717128196408
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -19,7 +19,7 @@ public class Bullet3 : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
       
-        if (collision.gameObject.CompareTag("Teren") | collision.gameObject.CompareTag("Ceiling"))
+        if (collision.gameObject.CompareTag("Teren") | collision.gameObject.CompareTag("Ceiling") | collision.gameObject.CompareTag("Boss"))
         {
             Destroy(gameObject); // Destroy the bullet upon collision with an obstacle
         }

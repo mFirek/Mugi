@@ -118,36 +118,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: darkfairy_phase1_shieldhit_0
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 0
-        width: 21
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dd121193e7a4c9910800000000000000
-      internalID: 1845431853298819549
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: darkfairy_phase1_shieldhit_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 8
-        width: 32
-        height: 43
+        x: 10
+        y: 0
+        width: 45
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,27 +134,6 @@ TextureImporter:
       bones: []
       spriteID: e6c925b875b2cb730800000000000000
       internalID: 4016132622707235950
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase1_shieldhit_2
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 0
-        width: 21
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d0fed09653b0ed820800000000000000
-      internalID: 2944803530370576141
       vertices: []
       indices: 
       edges: []
@@ -189,7 +147,7 @@ TextureImporter:
         width: 38
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,36 +160,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: darkfairy_phase1_shieldhit_4
+      name: darkfairy_phase1_shieldhit_5
       rect:
         serializedVersion: 2
         x: 137
         y: 0
-        width: 21
+        width: 45
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c4edff58963b47ed0800000000000000
-      internalID: -2417109834190037428
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase1_shieldhit_5
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 8
-        width: 32
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -243,38 +180,20 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase1_shieldhit_6
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 0
-        width: 21
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e34266e9f4fcfce60800000000000000
-      internalID: 7984828605218038846
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c9d6a1ac79f5a7241b53485166c178d9
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      darkfairy_phase1_shieldhit_1: 4016132622707235950
+      darkfairy_phase1_shieldhit_3: -5335245415370259774
+      darkfairy_phase1_shieldhit_5: -4810558926397641831
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

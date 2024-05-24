@@ -360,8 +360,6 @@ MonoBehaviour:
   speed: 0.9
   attackRange: 0.6
   rangeShootCooldown: 2
-  immuneRange: 1
-  immuneCooldown: 1
   firePoint: {fileID: 0}
   bulletPrefab: {fileID: 291271353929466502, guid: 2c034e950330b7f499caf806e2516621, type: 3}
 --- !u!1101 &1272123331185361834

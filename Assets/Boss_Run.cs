@@ -5,14 +5,10 @@ public class Boss_Run : StateMachineBehaviour
     public float speed = 2.5f;
     public float attackRange = 3f;
     public float rangeShootCooldown = 3f;
-    public float immuneRange = 10f; // Zasiêg, w jakim mo¿na u¿yæ animacji Immune
-    public float immuneCooldown = 5f; // Cooldown dla animacji Immune
     private float rangeShootTimer = 0f;
     private float cooldownTimer = 0f;
     private bool cooldownActive = false;
     private bool useShootAnimation = true; // Prze³¹cznik miêdzy animacjami
-    private bool immuneActive = false; // Flaga wskazuj¹ca, czy animacja Immune jest aktywna
-    private float immuneTimer = 0f; // Licznik czasu dla cooldownu Immune
 
     public Transform firePoint;
     public GameObject bulletPrefab;
@@ -71,29 +67,13 @@ public class Boss_Run : StateMachineBehaviour
             }
             else
             {
-                if (Vector2.Distance(player.position, rb.position) >= immuneRange)
-                {
-                    animator.SetTrigger("Immune");
-                    immuneActive = true;
-                    immuneTimer = 0f;
-                }
-                else
-                {
-                    animator.SetTrigger("Glow");
-                    Glow();
-                }
+                animator.SetTrigger("Glow");
+                Glow();
             }
 
             rangeShootTimer = 0f;
             cooldownActive = true;
             useShootAnimation = !useShootAnimation; // Prze³¹cz miêdzy animacjami
-        }
-
-        if (!cooldownActive && !immuneActive && immuneTimer >= immuneCooldown)
-        {
-            animator.SetTrigger("Immune");
-            immuneActive = true;
-            immuneTimer = 0f;
         }
 
         if (cooldownActive)
@@ -102,15 +82,6 @@ public class Boss_Run : StateMachineBehaviour
             if (cooldownTimer >= rangeShootCooldown)
             {
                 cooldownActive = false;
-            }
-        }
-
-        if (immuneActive)
-        {
-            immuneTimer += Time.deltaTime;
-            if (immuneTimer >= immuneCooldown)
-            {
-                immuneActive = false;
             }
         }
     }
@@ -148,19 +119,11 @@ public class Boss_Run : StateMachineBehaviour
         // Tu dodaj funkcjonalnoœæ dla animacji "Glow"
     }
 
-    public void Immune()
-    {
-        // Dodaj funkcjonalnoœæ dla animacji "Immune"
-        Debug.Log("Immune");
-    }
-
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("Attack");
         animator.ResetTrigger("Shoot");
         animator.ResetTrigger("Glow");
-        animator.ResetTrigger("Immune");
         boss.SetGlowing(false); // Resetuj, ¿e boss przesta³ œwieciæ
-        immuneActive = false; // Resetuj flagê Immune
     }
 }

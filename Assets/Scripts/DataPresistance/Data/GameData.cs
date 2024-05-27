@@ -7,7 +7,7 @@ public class GameData
 {
     public int deathCount;
 
-    public Vector3 playerPosition;
+    public static Vector3 playerPosition;
 
    
     //wartoœci zdefiniowane w tym konstruktorze bêd¹ domyœlnymi wartoœciami

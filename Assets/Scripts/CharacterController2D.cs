@@ -188,13 +188,14 @@ public class CharacterController2D : MonoBehaviour, IDataPresistence
     }
     public void LoadData(GameData gameData)
     {
-        //this.transform.position = DataPresistenceManager.playerPosition;
+        this.transform.position = GameData.playerPosition;
         //wczytuje pozycjê gracza
+        //odwo³anie do GameData 
     }
 
     public void SaveData(ref GameData gameData)
     {
-        //data.playerPosition = this.transform.position;
+        GameData.playerPosition = this.transform.position;
         //zapisuje pozycjê gracza
     }
 }

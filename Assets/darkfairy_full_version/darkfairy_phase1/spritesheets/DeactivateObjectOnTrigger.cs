@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class DeactivateObjectOnTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject objectToDeactivate;
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.gameObject.CompareTag("Player")) // sprawdzenie, czy obiekt jest graczem
+        {
+            objectToDeactivate.SetActive(false); // dezaktywacja innego obiektu
+        }
     }
 }

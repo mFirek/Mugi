@@ -382,13 +382,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   attackRange: 0.6
-  rangeShootCooldown: 0.4
-  glowCooldown: 0.4
-  immuneCooldown: 0.4
+  rangeShootCooldown: 0.8
+  glowCooldown: 1
+  immuneCooldown: 0.5
   maxAngleToShoot: 13
   maxAngleToGlow: 20
-  attackDistanceThreshold1: 2
-  attackDistanceThreshold2: 4
+  attackDistanceThreshold1: 1.5
+  attackDistanceThreshold2: 3
+  immuneDistanceThreshold: 3.5
 --- !u!1101 &1272123331185361834
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

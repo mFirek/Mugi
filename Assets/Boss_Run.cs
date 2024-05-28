@@ -4,19 +4,20 @@ public class Boss_Run : StateMachineBehaviour
 {
     public float speed = 2.5f;
     public float attackRange = 3f;
-    public float rangeShootCooldown = 3f;
-    public float glowCooldown = 5f; // Czas odnowienia animacji "Glow"
-    public float immuneCooldown = 7f; // Czas odnowienia animacji "Immune"
-    public float maxAngleToShoot = 90f; // Maksymalny k¹t, pod jakim boss mo¿e strzelaæ
-    public float maxAngleToGlow = 120f; // Maksymalny k¹t, pod jakim boss mo¿e u¿yæ "Glow"
-    public float attackDistanceThreshold1 = 5f; // Dystans, od którego zaczyna siê pierwszy atak
-    public float attackDistanceThreshold2 = 10f; // Dystans, od którego zaczyna siê drugi atak
+    public float rangeShootCooldown = 0.5f; // Zmieniono na 0.5f dla szybszego testowania
+    public float glowCooldown = 0.6f; // Zmieniono na 0.6f dla szybszego testowania
+    public float immuneCooldown = 0.2f; // Zmieniono na 0.2f dla szybszego testowania
+    public float maxAngleToShoot = 90f;
+    public float maxAngleToGlow = 120f;
+    public float attackDistanceThreshold1 = 1f; // Zmieniono na 1f
+    public float attackDistanceThreshold2 = 4f; // Zmieniono na 4f
+    public float immuneDistanceThreshold = 8f; // Nowy próg odleg³oœci dla animacji Immune
 
     private float rangeShootTimer = 0f;
     private float glowTimer = 0f;
     private float immuneTimer = 0f;
     private bool cooldownActive = false;
-    private int animationCounter = 0; // Zmienna do prze³¹czania animacji
+    private int animationCounter = 0;
 
     private Transform player;
     private Rigidbody2D rb;
@@ -49,7 +50,6 @@ public class Boss_Run : StateMachineBehaviour
         float distanceToPlayer = Vector2.Distance(player.position, rb.position);
         Vector2 playerPosition2D = new Vector2(player.position.x, player.position.y);
 
-        // Sprawdzenie warunków ataków w zale¿noœci od odleg³oœci do gracza
         if (distanceToPlayer <= attackRange)
         {
             animator.SetTrigger("Attack");
@@ -78,7 +78,7 @@ public class Boss_Run : StateMachineBehaviour
                 }
             }
         }
-        else if (distanceToPlayer > attackDistanceThreshold2)
+        else if (distanceToPlayer > attackDistanceThreshold2 && distanceToPlayer <= immuneDistanceThreshold)
         {
             if (immuneTimer >= immuneCooldown)
             {
@@ -90,23 +90,20 @@ public class Boss_Run : StateMachineBehaviour
 
         if (cooldownActive)
         {
-            // Reset cooldowns after action
             cooldownActive = false;
         }
     }
 
     public void Glow()
     {
-        boss.SetGlowing(true); // Ustaw, ¿e boss œwieci
-        Debug.Log("Glowing from: " + rb.position); // Debugging position
-        // Tu dodaj funkcjonalnoœæ dla animacji "Glow"
+        boss.SetGlowing(true);
+        Debug.Log("Glowing from: " + rb.position);
     }
 
     public void Immune()
     {
-        boss.SetImmune(true); // Ustaw, ¿e boss jest odporny
-        Debug.Log("Immune from: " + rb.position); // Debugging position
-        // Tu dodaj funkcjonalnoœæ dla animacji "Immune"
+        boss.SetImmune(true);
+        Debug.Log("Immune from: " + rb.position);
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -115,7 +112,8 @@ public class Boss_Run : StateMachineBehaviour
         animator.ResetTrigger("Shoot");
         animator.ResetTrigger("Glow");
         animator.ResetTrigger("Immune");
-        boss.SetGlowing(false); // Resetuj, ¿e boss przesta³ œwieciæ
-        boss.SetImmune(false); // Resetuj, ¿e boss przesta³ byæ odporny
+
+        boss.SetGlowing(false);
+        boss.SetImmune(false);
     }
 }

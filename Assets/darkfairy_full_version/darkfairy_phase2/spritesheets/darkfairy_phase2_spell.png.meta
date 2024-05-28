@@ -220,36 +220,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: darkfairy_phase2_spell_0
+      name: darkfairy_phase2_spell_1
       rect:
         serializedVersion: 2
         x: 9
         y: 110
-        width: 16
-        height: 10
+        width: 46
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0f63ca0ca2fc949e0800000000000000
-      internalID: -1636549207044376848
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_1
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 110
-        width: 16
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -270,7 +249,7 @@ TextureImporter:
         width: 46
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -291,7 +270,7 @@ TextureImporter:
         width: 46
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -312,7 +291,7 @@ TextureImporter:
         width: 46
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -333,7 +312,7 @@ TextureImporter:
         width: 46
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -354,7 +333,7 @@ TextureImporter:
         width: 46
         height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -375,7 +354,7 @@ TextureImporter:
         width: 46
         height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -392,11 +371,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 457
-        y: 110
+        y: 93
         width: 46
-        height: 10
+        height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -409,120 +388,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: darkfairy_phase2_spell_9
-      rect:
-        serializedVersion: 2
-        x: 482
-        y: 100
-        width: 9
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 825f440c23f36ec20800000000000000
-      internalID: 3235342869518939432
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_10
-      rect:
-        serializedVersion: 2
-        x: 490
-        y: 98
-        width: 9
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6e35ae177fb9357e0800000000000000
-      internalID: -1777905940810804250
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_11
-      rect:
-        serializedVersion: 2
-        x: 462
-        y: 95
-        width: 9
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed1bc934d79478200800000000000000
-      internalID: 182195112285876702
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_12
-      rect:
-        serializedVersion: 2
-        x: 470
-        y: 97
-        width: 10
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed87a00c77e1e3b10800000000000000
-      internalID: 1963039987251968222
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_13
-      rect:
-        serializedVersion: 2
-        x: 479
-        y: 93
-        width: 8
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6b575a00a35050bf0800000000000000
-      internalID: -358874848629000778
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: darkfairy_phase2_spell_14
       rect:
         serializedVersion: 2
         x: 9
-        y: 46
+        y: 21
         width: 46
-        height: 10
+        height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -539,11 +413,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 73
-        y: 46
+        y: 14
         width: 46
-        height: 10
+        height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -560,11 +434,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 137
-        y: 46
+        y: 7
         width: 46
-        height: 10
+        height: 49
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -581,11 +455,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 201
-        y: 46
+        y: 0
         width: 46
-        height: 10
+        height: 56
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -602,11 +476,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 265
-        y: 46
+        y: 0
         width: 46
-        height: 10
+        height: 56
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -618,472 +492,10 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_19
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 25
-        width: 9
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1ad159b553f060d70800000000000000
-      internalID: 9008904826445438369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_20
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 30
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 42ee4f1f3b0143870800000000000000
-      internalID: 8661566348384857636
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_21
-      rect:
-        serializedVersion: 2
-        x: 31
-        y: 22
-        width: 8
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4a39e1b245f27b6f0800000000000000
-      internalID: -669013981094046812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_22
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 31
-        width: 11
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 97b33405d9b83ee00800000000000000
-      internalID: 1072854644017019769
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_23
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 23
-        width: 9
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2969e1d7289e89390800000000000000
-      internalID: -7811236807019948398
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_24
-      rect:
-        serializedVersion: 2
-        x: 78
-        y: 18
-        width: 8
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 88c7f6a1a69990890800000000000000
-      internalID: -7491287824165012344
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_25
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 24
-        width: 9
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8bca7b51098addf80800000000000000
-      internalID: -8080116819639685960
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_26
-      rect:
-        serializedVersion: 2
-        x: 98
-        y: 25
-        width: 10
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4550176d8b8f4cc70800000000000000
-      internalID: 8990584228893754708
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_27
-      rect:
-        serializedVersion: 2
-        x: 94
-        y: 14
-        width: 9
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c6561fb48bee97670800000000000000
-      internalID: 8537117043972990316
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_28
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 16
-        width: 9
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dd0b619bc1e9fff80800000000000000
-      internalID: -8070558161023094563
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_29
-      rect:
-        serializedVersion: 2
-        x: 143
-        y: 11
-        width: 9
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 90daa71e83fdb5d20800000000000000
-      internalID: 3268451389981502729
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_30
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 15
-        width: 11
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 869afab01682a6150800000000000000
-      internalID: 5866545861876492648
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_31
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 7
-        width: 10
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 01a1c31ad077d5c60800000000000000
-      internalID: 7808528229353658896
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_32
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 14
-        width: 11
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ff1ec45b809170c10800000000000000
-      internalID: 2019610483091104255
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_33
-      rect:
-        serializedVersion: 2
-        x: 169
-        y: 7
-        width: 8
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 82ff4b47aeefc2a90800000000000000
-      internalID: -7337209409959559384
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_34
-      rect:
-        serializedVersion: 2
-        x: 207
-        y: 4
-        width: 8
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 06e3bd8b19ed07e50800000000000000
-      internalID: 6805183754409819744
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_35
-      rect:
-        serializedVersion: 2
-        x: 215
-        y: 8
-        width: 8
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b9614fdbcb90214c0800000000000000
-      internalID: -4318378386449492325
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_36
-      rect:
-        serializedVersion: 2
-        x: 226
-        y: 0
-        width: 15
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cc8f4d64f6725e600800000000000000
-      internalID: 496846692777523404
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_37
-      rect:
-        serializedVersion: 2
-        x: 221
-        y: 0
-        width: 9
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 91957df827e7b5030800000000000000
-      internalID: 3484517767205837081
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_38
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 0
-        width: 11
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7d267a7a221e98c80800000000000000
-      internalID: -8319871297632378153
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_39
-      rect:
-        serializedVersion: 2
-        x: 282
-        y: 0
-        width: 16
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 00ce118f53bebc280800000000000000
-      internalID: -9021858811478938624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: darkfairy_phase2_spell_40
-      rect:
-        serializedVersion: 2
-        x: 296
-        y: 0
-        width: 11
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 844b389415b28b610800000000000000
-      internalID: 1637106092674888776
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8065fced112c1dc49bf172fd738947af
     internalID: 0
     vertices: []
     indices: 

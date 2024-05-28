@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+
 public class Enemies_Death : MonoBehaviour
 {
     Rigidbody2D rb;
@@ -18,18 +19,34 @@ public class Enemies_Death : MonoBehaviour
     // Skrypt "Enemy AI", który chcemy wy³¹czyæ podczas migania i po znikniêciu obiektu
     public EnemyAI enemyAI;
 
+    // Odniesienie do skryptu Boss_Golem
+    public Boss_Golem boss;
+
+    // Kolor migania
+    public Color blinkColor = Color.white;
+
     void Start()
     {
         rb = GetComponentInChildren<Rigidbody2D>();
         colliders = GetComponentsInChildren<Collider2D>();
+
+        // ZnajdŸ skrypt Boss_Golem na obiekcie
+        boss = GetComponent<Boss_Golem>();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!isDying && collision.gameObject.CompareTag("Kula"))
+        if (!isDying && collision.CompareTag("Kula"))
         {
             // Zniszcz pocisk
             Destroy(collision.gameObject);
+
+            // SprawdŸ, czy boss jest odporny
+            if (boss != null && boss.isImmune)
+            {
+                StartCoroutine(BlinkOnHit()); // Miga na wybrany kolor, jeœli boss jest odporny
+                return; // WyjdŸ z metody bez zmniejszania liczby kolizji
+            }
 
             // Zwiêksz licznik zderzeñ
             collisionCount++;
@@ -47,6 +64,36 @@ public class Enemies_Death : MonoBehaviour
                     DestroyEnemy();
                 }
             }
+            else
+            {
+                StartCoroutine(BlinkOnHit()); // Miga na wybrany kolor, gdy otrzymuje obra¿enia
+            }
+        }
+    }
+
+    IEnumerator BlinkOnHit()
+    {
+        float blinkTime = 0.1f;
+        Color originalColor = Color.clear; // Zak³adamy, ¿e pierwotny kolor to Color.clear
+        foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+        {
+            originalColor = renderer.material.color;
+        }
+
+        // Miga na wybrany kolor
+        for (int i = 0; i < 3; i++)
+        {
+            foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+            {
+                renderer.material.color = blinkColor;
+            }
+            yield return new WaitForSeconds(blinkTime);
+
+            foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+            {
+                renderer.material.color = originalColor;
+            }
+            yield return new WaitForSeconds(blinkTime);
         }
     }
 
@@ -67,10 +114,10 @@ public class Enemies_Death : MonoBehaviour
         float timer = 0f;
         while (timer < blinkDuration)
         {
-            // Zmieñ kolor wszystkich renderów na bia³y
+            // Zmieñ kolor wszystkich renderów na wybrany kolor
             foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
             {
-                renderer.material.color = Color.white;
+                renderer.material.color = blinkColor;
             }
 
             // Czekaj krótk¹ chwilê

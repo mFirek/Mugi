@@ -5,23 +5,27 @@ public class Boss_Run : StateMachineBehaviour
     public float speed = 2.5f;
     public float attackRange = 3f;
     public float rangeShootCooldown = 3f;
+    public float shootCooldown = 3f; // Czas odnowienia animacji "Shoot"
+    public float glowCooldown = 5f; // Czas odnowienia animacji "Glow"
+    public float immuneCooldown = 7f; // Czas odnowienia animacji "Immune"
+
     private float rangeShootTimer = 0f;
     private float cooldownTimer = 0f;
     private bool cooldownActive = false;
-    private bool useShootAnimation = true; // Prze³¹cznik miêdzy animacjami
+    private int animationCounter = 0; // Zmienna do prze³¹czania animacji
 
     public Transform firePoint;
     public GameObject bulletPrefab;
 
     private Transform player;
     private Rigidbody2D rb;
-    private Boss boss;
+    private Boss_Golem boss;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
-        boss = animator.GetComponent<Boss>();
+        boss = animator.GetComponent<Boss_Golem>();
 
         rangeShootTimer = 0f;
         cooldownActive = false;
@@ -60,20 +64,27 @@ public class Boss_Run : StateMachineBehaviour
         }
         else if (rangeShootTimer >= rangeShootCooldown)
         {
-            if (useShootAnimation)
+            switch (animationCounter % 3)
             {
-                animator.SetTrigger("Shoot");
-                Shoot();
-            }
-            else
-            {
-                animator.SetTrigger("Glow");
-                Glow();
+                case 0:
+                    animator.SetTrigger("Shoot");
+                    Shoot();
+                    rangeShootTimer = shootCooldown;
+                    break;
+                case 1:
+                    animator.SetTrigger("Glow");
+                    Glow();
+                    rangeShootTimer = glowCooldown;
+                    break;
+                case 2:
+                    animator.SetTrigger("Immune");
+                    Immune();
+                    rangeShootTimer = immuneCooldown;
+                    break;
             }
 
-            rangeShootTimer = 0f;
+            animationCounter++;
             cooldownActive = true;
-            useShootAnimation = !useShootAnimation; // Prze³¹cz miêdzy animacjami
         }
 
         if (cooldownActive)
@@ -119,11 +130,27 @@ public class Boss_Run : StateMachineBehaviour
         // Tu dodaj funkcjonalnoœæ dla animacji "Glow"
     }
 
+    public void Immune()
+    {
+        if (firePoint == null)
+        {
+            Debug.LogError("FirePoint not assigned");
+            return;
+        }
+
+        boss.SetImmune(true); // Ustaw, ¿e boss jest odporny
+
+        Debug.Log("Immune from: " + firePoint.position); // Debugging position
+        // Tu dodaj funkcjonalnoœæ dla animacji "Immune"
+    }
+
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("Attack");
         animator.ResetTrigger("Shoot");
         animator.ResetTrigger("Glow");
+        animator.ResetTrigger("Immune");
         boss.SetGlowing(false); // Resetuj, ¿e boss przesta³ œwieciæ
+        boss.SetImmune(false); // Resetuj, ¿e boss przesta³ byæ odporny
     }
 }

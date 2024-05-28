@@ -5,17 +5,18 @@ public class Boss_Run : StateMachineBehaviour
     public float speed = 2.5f;
     public float attackRange = 3f;
     public float rangeShootCooldown = 3f;
-    public float shootCooldown = 3f; // Czas odnowienia animacji "Shoot"
     public float glowCooldown = 5f; // Czas odnowienia animacji "Glow"
     public float immuneCooldown = 7f; // Czas odnowienia animacji "Immune"
+    public float maxAngleToShoot = 90f; // Maksymalny k¹t, pod jakim boss mo¿e strzelaæ
+    public float maxAngleToGlow = 120f; // Maksymalny k¹t, pod jakim boss mo¿e u¿yæ "Glow"
+    public float attackDistanceThreshold1 = 5f; // Dystans, od którego zaczyna siê pierwszy atak
+    public float attackDistanceThreshold2 = 10f; // Dystans, od którego zaczyna siê drugi atak
 
     private float rangeShootTimer = 0f;
-    private float cooldownTimer = 0f;
+    private float glowTimer = 0f;
+    private float immuneTimer = 0f;
     private bool cooldownActive = false;
     private int animationCounter = 0; // Zmienna do prze³¹czania animacji
-
-    public Transform firePoint;
-    public GameObject bulletPrefab;
 
     private Transform player;
     private Rigidbody2D rb;
@@ -28,22 +29,9 @@ public class Boss_Run : StateMachineBehaviour
         boss = animator.GetComponent<Boss_Golem>();
 
         rangeShootTimer = 0f;
+        glowTimer = 0f;
+        immuneTimer = 0f;
         cooldownActive = false;
-
-        // Ensure firePoint is correctly assigned
-        if (firePoint == null)
-        {
-            firePoint = animator.transform.Find("FirePoint");
-        }
-
-        if (firePoint == null)
-        {
-            Debug.LogError("FirePoint not found");
-        }
-        else
-        {
-            Debug.Log("FirePoint found: " + firePoint.position);
-        }
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -55,92 +43,69 @@ public class Boss_Run : StateMachineBehaviour
         rb.MovePosition(newPos);
 
         rangeShootTimer += Time.deltaTime;
+        glowTimer += Time.deltaTime;
+        immuneTimer += Time.deltaTime;
 
-        if (Vector2.Distance(player.position, rb.position) <= attackRange)
+        float distanceToPlayer = Vector2.Distance(player.position, rb.position);
+        Vector2 playerPosition2D = new Vector2(player.position.x, player.position.y);
+
+        // Sprawdzenie warunków ataków w zale¿noœci od odleg³oœci do gracza
+        if (distanceToPlayer <= attackRange)
         {
             animator.SetTrigger("Attack");
             cooldownActive = true;
-            cooldownTimer = 0f;
         }
-        else if (rangeShootTimer >= rangeShootCooldown)
+        else if (distanceToPlayer > attackRange && distanceToPlayer <= attackDistanceThreshold1)
         {
-            switch (animationCounter % 3)
+            float angleToPlayer = Vector2.Angle(rb.transform.right, playerPosition2D - rb.position);
+            if (angleToPlayer <= maxAngleToGlow && glowTimer >= glowCooldown)
             {
-                case 0:
-                    animator.SetTrigger("Shoot");
-                    Shoot();
-                    rangeShootTimer = shootCooldown;
-                    break;
-                case 1:
-                    animator.SetTrigger("Glow");
-                    Glow();
-                    rangeShootTimer = glowCooldown;
-                    break;
-                case 2:
-                    animator.SetTrigger("Immune");
-                    Immune();
-                    rangeShootTimer = immuneCooldown;
-                    break;
+                animator.SetTrigger("Glow");
+                glowTimer = 0f;
+                cooldownActive = true;
             }
-
-            animationCounter++;
-            cooldownActive = true;
+        }
+        else if (distanceToPlayer > attackDistanceThreshold1 && distanceToPlayer <= attackDistanceThreshold2)
+        {
+            if (rangeShootTimer >= rangeShootCooldown)
+            {
+                float angleToPlayer = Vector2.Angle(rb.transform.right, playerPosition2D - rb.position);
+                if (angleToPlayer <= maxAngleToShoot)
+                {
+                    animator.SetTrigger("Shoot");
+                    rangeShootTimer = 0f;
+                    cooldownActive = true;
+                }
+            }
+        }
+        else if (distanceToPlayer > attackDistanceThreshold2)
+        {
+            if (immuneTimer >= immuneCooldown)
+            {
+                animator.SetTrigger("Immune");
+                immuneTimer = 0f;
+                cooldownActive = true;
+            }
         }
 
         if (cooldownActive)
         {
-            cooldownTimer += Time.deltaTime;
-            if (cooldownTimer >= rangeShootCooldown)
-            {
-                cooldownActive = false;
-            }
+            // Reset cooldowns after action
+            cooldownActive = false;
         }
-    }
-
-    public void Shoot()
-    {
-        if (firePoint == null)
-        {
-            Debug.LogError("FirePoint not assigned");
-            return;
-        }
-
-        Vector2 lookDir = player.position - firePoint.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        firePoint.rotation = Quaternion.Euler(0, 0, angle);
-
-        Debug.Log("Shooting from: " + firePoint.position); // Debugging position
-
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
-        rbBullet.AddForce(firePoint.right * 20f, ForceMode2D.Impulse); // Adjusted force for better shooting
     }
 
     public void Glow()
     {
-        if (firePoint == null)
-        {
-            Debug.LogError("FirePoint not assigned");
-            return;
-        }
-
         boss.SetGlowing(true); // Ustaw, ¿e boss œwieci
-
-        Debug.Log("Glowing from: " + firePoint.position); // Debugging position
+        Debug.Log("Glowing from: " + rb.position); // Debugging position
         // Tu dodaj funkcjonalnoœæ dla animacji "Glow"
     }
 
     public void Immune()
     {
-        if (firePoint == null)
-        {
-            Debug.LogError("FirePoint not assigned");
-            return;
-        }
-
         boss.SetImmune(true); // Ustaw, ¿e boss jest odporny
-
-        Debug.Log("Immune from: " + firePoint.position); // Debugging position
+        Debug.Log("Immune from: " + rb.position); // Debugging position
         // Tu dodaj funkcjonalnoœæ dla animacji "Immune"
     }
 

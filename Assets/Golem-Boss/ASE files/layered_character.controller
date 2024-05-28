@@ -42,13 +42,13 @@ AnimatorStateMachine:
     m_Position: {x: 320, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4368759936015710877}
-    m_Position: {x: 310, y: 310, z: 0}
+    m_Position: {x: 250, y: 370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1036661847806670709}
     m_Position: {x: 40, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3592481572050525787}
-    m_Position: {x: 470, y: 380, z: 0}
+    m_Position: {x: 530, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7285301840633853629}
     m_Position: {x: 530, y: 240, z: 0}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838d43e3aaa03ad42ac617d136aaddc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 0.5
+  attackRange: 0.6
   deathTrigger: Death
 --- !u!1101 &-1762499387591636699
 AnimatorStateTransition:
@@ -380,14 +380,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2d5e65f5ef9644e8ce5841dd5ad05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.9
+  speed: 1
   attackRange: 0.6
-  rangeShootCooldown: 2
-  shootCooldown: 1.5
-  glowCooldown: 1
-  immuneCooldown: 0.1
-  firePoint: {fileID: 0}
-  bulletPrefab: {fileID: 291271353929466502, guid: 2c034e950330b7f499caf806e2516621, type: 3}
+  rangeShootCooldown: 0.4
+  glowCooldown: 0.4
+  immuneCooldown: 0.4
+  maxAngleToShoot: 13
+  maxAngleToGlow: 20
+  attackDistanceThreshold1: 2
+  attackDistanceThreshold2: 4
 --- !u!1101 &1272123331185361834
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

@@ -32,16 +32,13 @@ public class Boss_Golem : MonoBehaviour
         }
     }
 
-    // Metoda, aby ustawiæ, ¿e boss œwieci
     public void SetGlowing(bool glowing)
     {
         isGlowing = glowing;
     }
 
-    // Metoda, aby ustawiæ, ¿e boss jest odporny
     public void SetImmune(bool immune)
     {
         isImmune = immune;
-        // Dodaj tutaj kod obs³uguj¹cy efekt "Immune", np. zmiana wygl¹du bossa
     }
 }

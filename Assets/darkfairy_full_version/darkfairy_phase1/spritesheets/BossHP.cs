@@ -14,9 +14,13 @@ public class BossHP : MonoBehaviour
     public int numberOfFlashes = 5; // Number of flashes
     public Text healthText; // UI Text component to display the health
 
+    private Rigidbody2D rb; // Reference to the Rigidbody2D component
+    private Collider2D[] colliders; // Array to hold all Collider2D components
+
     private void Start()
     {
         currentHealth = maxHealth; // Set the initial health points
+
         if (animator == null)
         {
             animator = GetComponent<Animator>(); // Get the Animator component if not assigned
@@ -25,6 +29,10 @@ public class BossHP : MonoBehaviour
         {
             spriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component if not assigned
         }
+
+        rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
+        colliders = GetComponents<Collider2D>(); // Get all Collider2D components attached to the game object
+
         UpdateHealthUI(); // Initialize the health display
     }
 
@@ -32,7 +40,6 @@ public class BossHP : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Kula"))
         {
-            animator.SetTrigger("Hurt"); // Trigger the hurt animation
             TakeDamage(1); // Reduce health by 1
         }
     }
@@ -45,13 +52,13 @@ public class BossHP : MonoBehaviour
         StartCoroutine(FlashSprite()); // Start the flashing coroutine
 
         // Check health thresholds and trigger appropriate methods
-        if (currentHealth == 50%maxHealth)
+        if (currentHealth == maxHealth / 2)
         {
-            Transform(); // Call the Transform method if health points drop to 5
+            Transform(); // Call the Transform method if health points drop to 50% of max health
         }
         else if (currentHealth <= 0)
         {
-            Die(); // Call the Die method if health points drop to zero or below
+            StartCoroutine(Die()); // Call the Die method if health points drop to zero or below
         }
     }
 
@@ -74,15 +81,61 @@ public class BossHP : MonoBehaviour
         // Optionally, handle any other transformation logic here
     }
 
-    // Method to handle the boss's death
-    private void Die()
+    // Coroutine to handle the boss's death
+    private IEnumerator Die()
     {
-        animator.SetTrigger("Die"); // Trigger the death animation (if you have one)
-        gameObject.SetActive(false); // Deactivate the boss object
+        Debug.Log("Boss is dying"); // Log message to debug
+
+        // Disable the Rigidbody2D and all Collider2D components
+        if (rb != null)
+        {
+            rb.simulated = false; // Disable the Rigidbody2D component
+        }
+
+        foreach (var collider in colliders)
+        {
+            collider.enabled = false; // Disable each Collider2D component
+        }
+
+        animator.SetTrigger("Die"); // Trigger the death animation
+
+        // Wait until the death animation is complete
+        float animationLength = GetAnimationLength(animator, "Die");
+        if (animationLength > 0)
+        {
+            yield return new WaitForSeconds(animationLength);
+        }
+        else
+        {
+            Debug.LogWarning("Death animation length is 0 or not found");
+            yield return new WaitForSeconds(1); // Default wait time if animation length is not found
+        }
+
+        // Deactivate the boss object
+        Destroy(gameObject);
+
         if (nextLevelObject != null)
         {
             nextLevelObject.SetActive(true); // Activate the object for the next level
         }
+    }
+
+    // Method to get the length of an animation clip
+    private float GetAnimationLength(Animator animator, string clipName)
+    {
+        if (animator != null)
+        {
+            // Get the duration of the animation
+            foreach (AnimationClip clip in animator.runtimeAnimatorController.animationClips)
+            {
+                if (clip.name == clipName)
+                {
+                    return clip.length;
+                }
+            }
+        }
+        Debug.LogWarning($"Animation clip {clipName} not found in animator");
+        return 0f;
     }
 
     // Method to update the health display
@@ -94,4 +147,3 @@ public class BossHP : MonoBehaviour
         }
     }
 }
-

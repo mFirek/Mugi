@@ -48,7 +48,7 @@ AnimatorStateMachine:
     m_Position: {x: 40, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3592481572050525787}
-    m_Position: {x: 530, y: 310, z: 0}
+    m_Position: {x: 380, y: 320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7285301840633853629}
     m_Position: {x: 530, y: 240, z: 0}
@@ -388,8 +388,8 @@ MonoBehaviour:
   maxAngleToShoot: 13
   maxAngleToGlow: 20
   attackDistanceThreshold1: 1.5
-  attackDistanceThreshold2: 3
-  immuneDistanceThreshold: 3.5
+  attackDistanceThreshold2: 2.8
+  immuneDistanceThreshold: 3
 --- !u!1101 &1272123331185361834
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

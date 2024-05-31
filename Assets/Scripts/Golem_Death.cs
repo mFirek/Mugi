@@ -8,17 +8,8 @@ public class Golem_Death : MonoBehaviour
     Collider2D[] colliders;
     bool isDying = false;
 
-    // Licznik zderzeñ z obiektem o tagu "Kula"
-    private int collisionCount = 0;
-
-    // Maksymalna liczba zderzeñ przed znikniêciem obiektu
-    public int maxCollisions = 3;
-
     // Czas trwania migania postaci
     public float blinkDuration = 0.5f;
-
-    // Skrypt "Enemy AI", który chcemy wy³¹czyæ podczas migania i po znikniêciu obiektu
-    public EnemyAI enemyAI;
 
     // Odniesienie do skryptu Boss_Golem
     public Boss_Golem boss;
@@ -115,12 +106,6 @@ public class Golem_Death : MonoBehaviour
     {
         isDying = true;
 
-        // Wy³¹cz skrypt "Enemy AI"
-        if (enemyAI != null)
-        {
-            enemyAI.enabled = false;
-        }
-
         // Zatrzymaj ruch obiektu
         rb.velocity = Vector2.zero;
 
@@ -156,12 +141,6 @@ public class Golem_Death : MonoBehaviour
 
     void DestroyEnemy()
     {
-        // Wy³¹cz skrypt "Enemy AI"
-        if (enemyAI != null)
-        {
-            enemyAI.enabled = false;
-        }
-
         Animator animator = GetComponentInChildren<Animator>();
 
         if (animator != null && HasDeathAnimation(animator))

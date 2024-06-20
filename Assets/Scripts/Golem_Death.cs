@@ -7,7 +7,7 @@ public class Golem_Death : MonoBehaviour
     Rigidbody2D rb;
     Collider2D[] colliders;
     bool isDying = false;
-
+    public GameObject nextLevelObject;
     // Czas trwania migania postaci
     public float blinkDuration = 0.5f;
 
@@ -167,6 +167,10 @@ public class Golem_Death : MonoBehaviour
         {
             // Jeœli nie znaleziono animatora lub animacji "Death", zniszcz obiekt natychmiast
             Destroy(gameObject);
+        }
+        if (nextLevelObject != null)
+        {
+            nextLevelObject.SetActive(true); // Activate the object for the next level
         }
     }
 

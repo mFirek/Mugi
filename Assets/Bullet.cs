@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-
     public float speed = 5f;
     public Rigidbody2D rb;
 
@@ -15,4 +12,8 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+            Destroy(gameObject); 
+    }
 }

@@ -1,42 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Boss_Run : StateMachineBehaviour
 {
     public float speed = 2.5f;
     public float attackRange = 3f;
-    public float RangeShoot = 30f;
-    public float rangeShootCooldown = 3f; // Czas oczekiwania miêdzy kolejnymi atakami na dystansie
-    public float rangeShootTimer = 0f; // Licznik czasu dla cooldownu
-    private float cooldownTimer = 0f; // Licznik czasu dla cooldownu
-    private bool cooldownActive = false; // Flaga wskazuj¹ca, czy cooldown jest aktywny
+    public float rangeShootCooldown = 0.5f; // Zmieniono na 0.5f dla szybszego testowania
+    public float glowCooldown = 0.6f; // Zmieniono na 0.6f dla szybszego testowania
+    public float immuneCooldown = 0.2f; // Zmieniono na 0.2f dla szybszego testowania
+    public float maxAngleToShoot = 90f;
+    public float maxAngleToGlow = 120f;
+    public float attackDistanceThreshold1 = 1f; // Zmieniono na 1f
+    public float attackDistanceThreshold2 = 4f; // Zmieniono na 4f
+    public float immuneDistanceThreshold = 8f; // Nowy próg odleg³oœci dla animacji Immune
 
-    public Transform firePoint; // Miejsce, z którego ma byæ wystrzelony pocisk
-    public GameObject bulletPrefab; // Prefabrykat pocisku
+    private float rangeShootTimer = 0f;
+    private float glowTimer = 0f;
+    private float immuneTimer = 0f;
+    private bool cooldownActive = false;
+    private int animationCounter = 0;
 
-    Transform player;
-    Rigidbody2D rb;
-    Boss boss;
+    private Transform player;
+    private Rigidbody2D rb;
+    private Boss_Golem boss;
 
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
-        boss = animator.GetComponent<Boss>();
+        boss = animator.GetComponent<Boss_Golem>();
 
-        // Zresetuj timer cooldownu
         rangeShootTimer = 0f;
+        glowTimer = 0f;
+        immuneTimer = 0f;
         cooldownActive = false;
-
-        firePoint = GameObject.FindGameObjectWithTag("FirePoint").transform;
-
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         boss.LookAtPlayer();
@@ -45,82 +43,77 @@ public class Boss_Run : StateMachineBehaviour
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
 
-        // Aktualizuj timer cooldownu
         rangeShootTimer += Time.deltaTime;
+        glowTimer += Time.deltaTime;
+        immuneTimer += Time.deltaTime;
 
-        // SprawdŸ, czy player jest w zasiêgu ataku na dystansie
-        if (Vector2.Distance(player.position, rb.position) <= attackRange)
+        float distanceToPlayer = Vector2.Distance(player.position, rb.position);
+        Vector2 playerPosition2D = new Vector2(player.position.x, player.position.y);
+
+        if (distanceToPlayer <= attackRange)
         {
             animator.SetTrigger("Attack");
             cooldownActive = true;
-            // Zresetuj timer cooldownu
-            cooldownTimer = 0f;
         }
-        // SprawdŸ, czy cooldown dla ataku na dystansie zosta³ zakoñczony
-
-        else if (rangeShootTimer >= rangeShootCooldown)
-        {  //------------------------------------------------------
-            animator.SetTrigger("Shoot");
-            Shoot();
-            rangeShootTimer = 0f;
-            cooldownActive = true;
-            //this.monoBehaviour.StartCoroutine(DelayedShoot(animator));
-        }
-        if (cooldownActive)
+        else if (distanceToPlayer > attackRange && distanceToPlayer <= attackDistanceThreshold1)
         {
-            cooldownTimer += Time.deltaTime;
-            // SprawdŸ, czy cooldown zosta³ zakoñczony
-            if (cooldownTimer >= rangeShootCooldown)
+            float angleToPlayer = Vector2.Angle(rb.transform.right, playerPosition2D - rb.position);
+            if (angleToPlayer <= maxAngleToGlow && glowTimer >= glowCooldown)
             {
-                cooldownActive = false;
+                animator.SetTrigger("Glow");
+                glowTimer = 0f;
+                cooldownActive = true;
+            }
+        }
+        else if (distanceToPlayer > attackDistanceThreshold1 && distanceToPlayer <= attackDistanceThreshold2)
+        {
+            if (rangeShootTimer >= rangeShootCooldown)
+            {
+                float angleToPlayer = Vector2.Angle(rb.transform.right, playerPosition2D - rb.position);
+                if (angleToPlayer <= maxAngleToShoot)
+                {
+                    animator.SetTrigger("Shoot");
+                    rangeShootTimer = 0f;
+                    cooldownActive = true;
+                }
+            }
+        }
+        else if (distanceToPlayer > attackDistanceThreshold2 && distanceToPlayer <= immuneDistanceThreshold)
+        {
+            if (immuneTimer >= immuneCooldown)
+            {
+                animator.SetTrigger("Immune");
+                immuneTimer = 0f;
+                cooldownActive = true;
             }
         }
 
-
-    }
-
-  
-    public void Shoot()
-    {
-        Vector2 lookDir = player.position - firePoint.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 360f;
-        firePoint.rotation = Quaternion.Euler(0, 0, angle);
-
-        if (Vector2.Distance(player.position, rb.position) <= RangeShoot)
+        if (cooldownActive)
         {
-
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
-            rbBullet.AddForce(firePoint.up * 0.2f, ForceMode2D.Impulse);
-
+            cooldownActive = false;
         }
     }
 
+    public void Glow()
+    {
+        boss.SetGlowing(true);
+        Debug.Log("Glowing from: " + rb.position);
+    }
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+    public void Immune()
+    {
+        boss.SetImmune(true);
+        Debug.Log("Immune from: " + rb.position);
+    }
+
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("Attack");
         animator.ResetTrigger("Shoot");
-    }
-    //to jest to do opóŸnienia
-    //---------------------------------------------
-    private IEnumerator DelayedShoot(Animator animator)
-    {
-        yield return new WaitForSeconds(0.5f); // OpóŸnienie o 0.5 sekundy (mo¿na dostosowaæ)
+        animator.ResetTrigger("Glow");
+        animator.ResetTrigger("Immune");
 
-        animator.SetTrigger("Shoot");
-        Shoot();
-        rangeShootTimer = 0f;
-        cooldownActive = true;
+        boss.SetGlowing(false);
+        boss.SetImmune(false);
     }
-    private MonoBehaviour monoBehaviour = null;
-
-    public Boss_Run(MonoBehaviour monoBehaviour)
-    {
-        this.monoBehaviour = monoBehaviour;
-    }
-    //--------------------------------------------
-
 }
-

@@ -53,6 +53,11 @@ public class CharacterController2D : MonoBehaviour, IDataPresistence
 
     private void FixedUpdate()
     {
+        if(DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            return;
+        }   
+
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
         m_HitCeiling = false;
@@ -93,7 +98,7 @@ public class CharacterController2D : MonoBehaviour, IDataPresistence
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X) && m_CanDash)
+        if (Input.GetKeyDown(KeyCode.C) && m_CanDash)
         {
             Dash();
         }
@@ -101,7 +106,16 @@ public class CharacterController2D : MonoBehaviour, IDataPresistence
 
     public void Move(float move, bool jump)
     {
-        if (m_Grounded || m_AirControl)
+        // Jeœli dialog jest aktywny, gracz nie mo¿e siê poruszaæ
+        if (DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            // Upewnij siê, ¿e prêdkoœæ postaci jest zerowa, aby zapobiec dalszemu ruchowi
+            m_Rigidbody2D.velocity = Vector2.zero;
+            return;
+            jump= false;
+        }
+
+            if (m_Grounded || m_AirControl)
         {
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
             m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
@@ -146,6 +160,10 @@ public class CharacterController2D : MonoBehaviour, IDataPresistence
 
     private void Attack()
     {
+        if (DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            return; // Blokuj atak, jeœli dialog jest aktywny
+        }
         if (m_Animator != null)
         {
             m_Animator.Play(m_AttackAnimationName);

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2527394873639819566}
   - component: {fileID: 9201538231982157800}
   - component: {fileID: 1383163895999758301}
-  m_Layer: 0
-  m_Name: zakem_podloga
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: Zamek_podloga
+  m_TagString: Teren
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1682827459, guid: a782a3e05df432f478df721f783ed277, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -44,7 +44,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         // Obs³uga przycisku do kontynuowania dialogu
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X)) 
         {
             ContinueStory();
         }
@@ -55,8 +55,6 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
-
-        ContinueStory();
     }
 
     public void ExitDialogueMode()
@@ -70,11 +68,12 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
+            string text = currentStory.Continue();
+            dialogueText.text = text;
         }
         else
         {
-            ExitDialogueMode(); // Po zakoñczeniu opowieœci zakoñcz dialog
-        }
+            ExitDialogueMode();
+        }   
     }
 }

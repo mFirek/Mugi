@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour 
+public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
     public Animator animator;
@@ -15,23 +15,45 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
 
-    void Update () {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+    void Update()
+    {
+        // Sprawdü, czy dialog jest aktywny
+        bool isDialogueActive = DialogueManager.GetInstance() != null && DialogueManager.GetInstance().dialogueIsPlaying;
 
-        if (Input.GetButtonDown("Jump")) {
-            jump = true;
-            animator.SetBool("IsJumping", true);
+        // Tylko aktualizuj ruch i animacje, jeúli dialog nie jest aktywny
+        if (!isDialogueActive)
+        {
+            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                jump = true;
+                animator.SetBool("IsJumping", true);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                animator.Play("Attack", -1, 0f);
+                Shoot();
+            }
         }
-
-        if (Input.GetKeyDown(KeyCode.Z)) {
-            animator.Play("Attack", -1, 0f);
-            Shoot();
+        else
+        {
+            // Ustaw animacjÍ na idle podczas dialogu
+            animator.SetFloat("Speed", 0);
+            animator.SetBool("IsJumping", false);
         }
     }
 
     void Shoot()
     {
+        // Sprawdü, czy dialog jest aktywny
+        if (DialogueManager.GetInstance() != null && DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            return; // Nie wykonuj strza≥u, jeúli dialog jest aktywny
+        }
+
         // Wybieramy odpowiedni firePoint w zaleønoúci od ostatniego kierunku patrzenia
         Transform firePoint = lastDirection == Vector2.right ? firePointR : firePointL;
 
@@ -55,12 +77,18 @@ public class PlayerMovement : MonoBehaviour
         bulletRb.velocity = shootDirection * bulletSpeed;
     }
 
-    public void OnLanding() {
+    public void OnLanding()
+    {
         animator.SetBool("IsJumping", false);
     }
 
-    void FixedUpdate() {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
+    void FixedUpdate()
+    {
+        // Jeúli dialog jest aktywny, zablokuj ruch
+        if (DialogueManager.GetInstance() == null || !DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
+        }
         jump = false;
     }
 }

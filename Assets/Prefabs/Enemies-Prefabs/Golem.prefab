@@ -16,10 +16,10 @@ GameObject:
   - component: {fileID: 7095652471783544020}
   - component: {fileID: 4531594286922828837}
   - component: {fileID: 4501074341866149162}
-  - component: {fileID: 247506122601250157}
-  - component: {fileID: 6028857146888627512}
   - component: {fileID: 8702537618456829819}
-  m_Layer: 0
+  - component: {fileID: 2928560428129124636}
+  - component: {fileID: 9004940195467868437}
+  m_Layer: 10
   m_Name: Golem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,9 +157,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae9211203a76f42ba944b9c8707605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCollisions: 6
+  maxCollisions: 8
   blinkDuration: 0.5
   enemyAI: {fileID: 4531594286922828837}
+  boss: {fileID: 0}
+  blinkColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &7095652471783544020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,10 +186,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63d6691e47c5f34fa178e51ce9dc542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  activateDistance: 5
+  playerTag: Player
+  activateDistance: 2
   pathUpdateSeconds: 0.5
-  speed: 1.2
+  speed: 1.5
   jumpForce: 100
   nextWaypointDistance: 3
   jumpNodeHeightRequirement: 0.8
@@ -224,9 +226,21 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &247506122601250157
+--- !u!114 &8702537618456829819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3295006125080057722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6b2c2ef83c3fe041af047d0a2f518b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &2928560428129124636
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,10 +271,10 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 1
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00087431073, y: -0.003496945}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -270,9 +284,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.48, y: 0.43}
+  m_Size: {x: 0.32825142, y: 0.3830061}
   m_EdgeRadius: 0
---- !u!60 &6028857146888627512
+--- !u!60 &9004940195467868437
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,32 +332,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.19450392, y: 0.17316943}
-      - {x: -0.24, y: -0.015}
-      - {x: -0.24, y: -0.044999998}
-      - {x: -0.22999999, y: -0.074999996}
-      - {x: -0.24, y: -0.114999995}
-      - {x: -0.22452939, y: -0.17694505}
-      - {x: -0.0075107515, y: -0.17753041}
-      - {x: 0.2417814, y: -0.17485233}
-      - {x: 0.24, y: -0.044999998}
-      - {x: 0.14999999, y: 0.185}
-    - - {x: 0.04, y: -0.125}
-      - {x: 0.049999997, y: -0.105}
-      - {x: 0.04, y: -0.114999995}
-      - {x: 0.06, y: -0.145}
-      - {x: 0.07, y: -0.155}
-      - {x: 0.07, y: -0.145}
+    - - {x: 0.105, y: 0.185}
+      - {x: 0.065, y: 0.195}
+      - {x: -0.044999998, y: 0.195}
+      - {x: -0.145, y: 0.114999995}
+      - {x: -0.16499999, y: 0.074999996}
+      - {x: -0.16499999, y: -0.085}
+      - {x: -0.145, y: -0.195}
+      - {x: 0.155, y: -0.195}
+      - {x: 0.17199376, y: -0.145}
+      - {x: 0.17549065, y: 0.063251555}
+      - {x: 0.155, y: 0.16499999}
   m_UseDelaunayMesh: 0
---- !u!114 &8702537618456829819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3295006125080057722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6b2c2ef83c3fe041af047d0a2f518b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

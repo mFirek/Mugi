@@ -10,18 +10,18 @@ public class GameEventsManager : MonoBehaviour
         if (instance != null)
         {
             Debug.LogError("Found more than one Game Events Manager in the scene.");
+            Destroy(gameObject); // Zniszcz duplikat
+            return; // Zakoñcz metodê
         }
-        instance = this;
+        instance = this; // Przypisz instancjê
+        DontDestroyOnLoad(gameObject); // Nie niszcz przy zmianie scen
     }
 
     public event Action onPlayerDeath;
-    public void PlayerDeath() 
-    {
-        if (onPlayerDeath != null) 
-        {
-            onPlayerDeath();
-        }
-    }
 
-    
+    public void PlayerDeath()
+    {
+        Debug.Log("Wywo³ano zdarzenie œmierci gracza."); // Debug log
+        onPlayerDeath?.Invoke(); // Wywo³aj zdarzenie
+    }
 }

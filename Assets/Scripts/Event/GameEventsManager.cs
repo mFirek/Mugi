@@ -1,27 +1,32 @@
-using System;
+using System;  // Add this to have access to Action
+using System.Collections;
 using UnityEngine;
 
 public class GameEventsManager : MonoBehaviour
 {
-    public static GameEventsManager instance { get; private set; }
+    public static GameEventsManager instance;
+
+    public event Action onPlayerDeath;  // We use Action for events without parameters
 
     private void Awake()
     {
-        if (instance != null)
+        // Ensures that there is only one instance of GameEventsManager
+        if (instance == null)
         {
-            Debug.LogError("Found more than one Game Events Manager in the scene.");
-            Destroy(gameObject); // Zniszcz duplikat
-            return; // Zakoñcz metodê
+            instance = this;
         }
-        instance = this; // Przypisz instancjê
-        DontDestroyOnLoad(gameObject); // Nie niszcz przy zmianie scen
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    public event Action onPlayerDeath;
-
-    public void PlayerDeath()
+    // Method to trigger player death event
+    public void PlayerDied()
     {
-        Debug.Log("Wywo³ano zdarzenie œmierci gracza."); // Debug log
-        onPlayerDeath?.Invoke(); // Wywo³aj zdarzenie
+        if (onPlayerDeath != null)
+        {
+            onPlayerDeath.Invoke();
+        }
     }
 }

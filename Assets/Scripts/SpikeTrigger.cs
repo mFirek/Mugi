@@ -25,9 +25,12 @@ public class SpikeTrigger : MonoBehaviour
 }
 */
 
+
+
 public class SpikeTrigger : MonoBehaviour
 {
-    private GameObject player; 
+    private GameObject player;
+    private bool isDead = false;  // Flag to prevent multiple counting of deaths
 
     void Start()
     {
@@ -36,10 +39,36 @@ public class SpikeTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isDead)
         {
+            // Protect against multiple billing deaths
+            isDead = true;
+
+            // Get a player's revival point
             Vector2 respawnPoint = GameManager.Instance.GetSpawnPoint();
+
+            // Move the player to the revival point
             player.transform.position = respawnPoint;
+
+            // Invoke the player death event through the PlayerDied method in GameEventsManager
+            if (GameEventsManager.instance != null)
+            {
+                GameEventsManager.instance.PlayerDied();
+            }
+            else
+            {
+                Debug.LogError("Nie znaleziono instancji GameEventsManager!");
+            }
+
+            // Reset flag before 1 sec
+            StartCoroutine(ResetDeathFlag());
         }
+    }
+
+    // Coroutine, for reseting the flag
+    IEnumerator ResetDeathFlag()
+    {
+        yield return new WaitForSeconds(1f);  // Wait 1 sec before flag reset
+        isDead = false;  // Reset flag 
     }
 }

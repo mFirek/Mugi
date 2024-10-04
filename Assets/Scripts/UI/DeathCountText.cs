@@ -5,12 +5,12 @@ using TMPro;
 
 public class DeathCountText : MonoBehaviour, IDataPresistence
 {
-    private int deathCount = 0;  // Licznik zgonów
-    private TextMeshProUGUI deathCountText;  // Referencja do komponentu TextMeshProUGUI
+    private int deathCount = 0;  
+    private TextMeshProUGUI deathCountText;  // TextMeshProUGUI component reference
 
     private void Awake()
     {
-        // Pobierz komponent TextMeshProUGUI
+        // Download TextMeshProUGUI component
         deathCountText = GetComponent<TextMeshProUGUI>();
 
         if (deathCountText == null)
@@ -19,23 +19,23 @@ public class DeathCountText : MonoBehaviour, IDataPresistence
         }
     }
 
-    // Metoda do ³adowania danych
+    // Method to load data
     public void LoadData(GameData gameData)
     {
-        this.deathCount = gameData.deathCount;  // Przypisz wartoœæ zgonów z GameData
+        this.deathCount = gameData.deathCount;  // Assign the value of deaths from GameData
         Debug.Log("Za³adowano dane: liczba zgonów = " + this.deathCount);
-        UpdateDeathCountText();  // Zaktualizuj tekst
+        UpdateDeathCountText();  // Update text
     }
 
-    // Metoda do zapisywania danych
+    // Method to record data
     public void SaveData(ref GameData data)
     {
-        data.deathCount = this.deathCount;  // Zapisz wartoœæ zgonów do GameData
+        data.deathCount = this.deathCount;  // Save the value of deaths to GameData
     }
 
     private void Start()
     {
-        // Subskrybuj zdarzenie œmierci gracza
+        // Subscribe to player death event
         if (GameEventsManager.instance != null)
         {
             GameEventsManager.instance.onPlayerDeath += OnPlayerDeath;
@@ -46,13 +46,13 @@ public class DeathCountText : MonoBehaviour, IDataPresistence
             Debug.LogError("Nie znaleziono instancji GameEventsManager!");
         }
 
-        // Inicjalizuj tekst na starcie
+        // Initialize text at startup
         UpdateDeathCountText();
     }
 
     private void OnDestroy()
     {
-        // Odsubskrybuj zdarzenie œmierci gracza
+        // Unsubscribe player death event
         if (GameEventsManager.instance != null)
         {
             GameEventsManager.instance.onPlayerDeath -= OnPlayerDeath;
@@ -60,15 +60,16 @@ public class DeathCountText : MonoBehaviour, IDataPresistence
     }
 
     private void OnPlayerDeath()
+
     {
-        deathCount++;  // Zwiêksz licznik zgonów
-        Debug.Log("Gracz zgin¹³. Liczba zgonów: " + deathCount);  // Loguj liczbê zgonów
-        UpdateDeathCountText();  // Zaktualizuj tekst
+        deathCount++;  // Increase death count
+        Debug.Log("Gracz zgin¹³. Liczba zgonów: " + deathCount);  // Log deaths
+        UpdateDeathCountText();  // Update text
     }
 
     private void UpdateDeathCountText()
     {
-        // Ustaw tekst na "Deaths: X"
+        // Set text on "Deaths: X"
         deathCountText.text = "Deaths: " + deathCount;
     }
 }

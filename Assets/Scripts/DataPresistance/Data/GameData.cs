@@ -6,6 +6,8 @@ using UnityEngine;
 public class GameData 
 {
     public int deathCount;
+          
+    public int globalDeathCount;   
 
     public static Vector3 playerPosition;
 

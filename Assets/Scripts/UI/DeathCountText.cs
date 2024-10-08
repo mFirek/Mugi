@@ -8,7 +8,7 @@ public class DeathCountText : MonoBehaviour
 
     private void Awake()
     {
-        // ZnajdŸ komponent TextMeshProUGUI
+        // Find the TextMeshProUGUI component
         deathCountText = GetComponent<TextMeshProUGUI>();
 
         if (deathCountText == null)
@@ -19,10 +19,10 @@ public class DeathCountText : MonoBehaviour
 
     private void Start()
     {
-        // Za³aduj globaln¹ liczbê zgonów
+        // Load the global number of deaths
         LoadDeathCount();
 
-        // Zarejestruj zdarzenie zgonu
+        // Register a death event
         if (GameEventsManager.instance != null)
         {
             GameEventsManager.instance.onPlayerDeath += OnPlayerDeath;
@@ -41,8 +41,8 @@ public class DeathCountText : MonoBehaviour
 
     private void OnPlayerDeath()
     {
-        deathCount++;  // Zwiêksz lokaln¹ liczbê zgonów
-        GlobalDeathCounter.IncrementGlobalDeathCount(); // Zwiêksz globaln¹ liczbê zgonów
+        deathCount++;  // Increase the local number of deaths
+        GlobalDeathCounter.IncrementGlobalDeathCount(); // Increase the global death toll
         Debug.Log("Gracz zgin¹³. Liczba zgonów: " + deathCount);
         UpdateDeathCountText();
     }
@@ -54,9 +54,9 @@ public class DeathCountText : MonoBehaviour
 
     private void LoadDeathCount()
     {
-        // £adowanie lokalnej liczby zgonów
-        deathCount = PlayerPrefs.GetInt("LocalDeathCount", 0); // Domyœlnie 0
-        UpdateDeathCountText(); // Uaktualnij tekst
+        // Loading local death count
+        deathCount = PlayerPrefs.GetInt("LocalDeathCount", 0); // Default 0
+        UpdateDeathCountText(); // Update text
     }
 
     public void SaveLocalDeathCount()

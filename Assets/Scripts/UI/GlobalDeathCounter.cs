@@ -3,14 +3,14 @@ using TMPro;
 
 public class GlobalDeathCounter : MonoBehaviour
 {
-    private static int globalDeathCount = 0; // Statyczna zmienna do przechowywania globalnych zgonów
-    private TextMeshProUGUI globalDeathCountText; // Komponent TextMeshProUGUI do wyœwietlania liczby zgonów
+    private static int globalDeathCount = 0; // Static variable to store global deaths
+    private TextMeshProUGUI globalDeathCountText; // TextMeshProUGUI component to display number of deaths
 
     private void Awake()
     {
-        LoadGlobalDeathCount(); // £adowanie globalnych zgonów podczas uruchamiania
+        LoadGlobalDeathCount(); // Loading global deaths at startup
 
-        // Pobierz komponent TextMeshProUGUI
+        // Download TextMeshProUGUI component
         globalDeathCountText = GetComponent<TextMeshProUGUI>();
         if (globalDeathCountText == null)
         {
@@ -20,41 +20,41 @@ public class GlobalDeathCounter : MonoBehaviour
 
     public static void SaveGlobalDeathCount()
     {
-        PlayerPrefs.SetInt("GlobalDeathCount", globalDeathCount); // Zapisz globaln¹ liczbê zgonów
-        PlayerPrefs.Save(); // Upewnij siê, ¿e zmiany s¹ zapisane
+        PlayerPrefs.SetInt("GlobalDeathCount", globalDeathCount); // Record the global number of deaths
+        PlayerPrefs.Save(); // Make sure the changes are saved
     }
 
     public void LoadGlobalDeathCount()
     {
-        globalDeathCount = PlayerPrefs.GetInt("GlobalDeathCount", 0); // £aduj globaln¹ liczbê zgonów
+        globalDeathCount = PlayerPrefs.GetInt("GlobalDeathCount", 0); // Load global death count
     }
 
     public static void IncrementGlobalDeathCount()
     {
-        globalDeathCount++; // Inkrementacja globalnych zgonów
-        UpdateGlobalDeathCountText(); // Aktualizacja tekstu po inkrementacji
+        globalDeathCount++; // Incremental global deaths
+        UpdateGlobalDeathCountText(); // Update text after incrementation
     }
 
     public static void UpdateGlobalDeathCountText()
     {
-        // ZnajdŸ wszystkie obiekty typu GlobalDeathCounter w scenie
+        // Find all objects of type GlobalDeathCounter in the scene
         GlobalDeathCounter[] counters = FindObjectsOfType<GlobalDeathCounter>();
         foreach (var counter in counters)
         {
             if (counter.globalDeathCountText != null)
             {
-                counter.globalDeathCountText.text = "Global Deaths: " + globalDeathCount; // Ustaw tekst
+                counter.globalDeathCountText.text = "Global Deaths: " + globalDeathCount; // Set text
             }
         }
     }
 
     private void Start()
     {
-        UpdateGlobalDeathCountText(); // Zaktualizuj tekst na pocz¹tku
+        UpdateGlobalDeathCountText(); // Update the text at the beginning
     }
 
     private void OnApplicationQuit()
     {
-        SaveGlobalDeathCount(); // Zapisz globalne zgony przy zamykaniu aplikacji
+        SaveGlobalDeathCount(); // Save global deaths on application shutdown
     }
 }

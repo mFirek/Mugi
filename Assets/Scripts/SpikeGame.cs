@@ -3,23 +3,23 @@ using System.Collections;
 
 public class SpikeGame : MonoBehaviour
 {
-    public GameObject spikePrefab; // Prefabrykat kolca
-    public Transform[] spikePositions; // Pozycje, w których mog¹ pojawiæ siê kolce
-    public float spikeCycleTime = 2f; // Czas cyklu pojawiania siê i znikania kolców (w sekundach)
+    public GameObject spikePrefab; // Prefabricated spike
+    public Transform[] spikePositions; // Positions in which spikes may appear
+    public float spikeCycleTime = 2f; // Cycle time of appearance and disappearance of spikes (in seconds)
 
-    private bool spikesVisible = true; // Flaga okreœlaj¹ca, czy kolce s¹ widoczne
+    private bool spikesVisible = true; // Flag to determine whether spikes are visible
 
-    private Coroutine spikeCoroutine; // Referencja do coroutine
+    private Coroutine spikeCoroutine; // Reference to coroutine
 
     void Start()
     {
-        // Uruchomienie coroutine i zachowanie referencji do niego
+        // Running a coroutine and keeping a reference to it
         spikeCoroutine = StartCoroutine(SpikeCycle());
     }
 
     void OnDestroy()
     {
-        // Zatrzymanie coroutine, gdy obiekt jest niszczony
+        // Stop coroutine when object is destroyed
         if (spikeCoroutine != null)
         {
             StopCoroutine(spikeCoroutine);
@@ -53,7 +53,7 @@ public class SpikeGame : MonoBehaviour
     {
         foreach (Transform position in spikePositions)
         {
-            // Sprawdzenie, czy prefabrykat kolca nie zosta³ zniszczony
+            // Check that the prefabricated spike has not been destroyed
             if (spikePrefab != null)
             {
                 GameObject spikeInstance = Instantiate(spikePrefab, position.position, Quaternion.Euler(0, 0, -90));

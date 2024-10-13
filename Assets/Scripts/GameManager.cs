@@ -35,4 +35,10 @@ public class GameManager : MonoBehaviour
     {
         return currentSpawnPoint;
     }
+
+    // Dodaj tê metodê, aby wywo³aæ zapis globalnych zgonów
+    public void SaveGlobalDeathCount()
+    {
+        GlobalDeathCounter.SaveGlobalDeathCount(); // Wywo³anie metody statycznej
+    }
 }

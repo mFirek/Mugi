@@ -6,12 +6,14 @@ using UnityEngine;
 public class GameData 
 {
     public int deathCount;
+          
+    public int globalDeathCount;   
 
     public static Vector3 playerPosition;
 
-   
-    //wartoœci zdefiniowane w tym konstruktorze bêd¹ domyœlnymi wartoœciami
-    //gra uruchomi siê gdy nie bêdzie ¿adnych danych do wczytania
+
+    //values defined in this constructor will be the default values
+    //game will start when there is no data to load
     public GameData()
     {
         this.deathCount = 0;

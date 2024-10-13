@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
     public string nextLevelName; // Nazwa kolejnej sceny
     public string playerTag = "Player"; // Tag gracza
 
+
     void OnTriggerEnter2D(Collider2D other)
     {
         // Sprawdü, czy obiekt kolidujπcy ma tag "Player"
@@ -13,6 +14,11 @@ public class LevelManager : MonoBehaviour
         {
             // Jeúli tak, za≥aduj kolejny poziom
             SceneManager.LoadScene(nextLevelName);
+            GlobalDeathCounter.SaveGlobalDeathCount();
+            
         }
     }
+
+
+
 }

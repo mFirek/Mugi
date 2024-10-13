@@ -78,7 +78,7 @@ public class DemonBoss : MonoBehaviour
     {
         if (bossHealthText != null)
         {
-            bossHealthText.text = "HP: " + Mathf.Max(0, health).ToString(); // Zapobiegaj wyœwietlaniu ujemnych wartoœci
+            bossHealthText.text = "Demon HP: " + Mathf.Max(0, health).ToString(); // Zapobiegaj wyœwietlaniu ujemnych wartoœci
         }
     }
 

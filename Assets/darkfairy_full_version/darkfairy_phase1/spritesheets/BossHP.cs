@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI; // Include the UI namespace
-
+using TMPro;
 public class BossHP : MonoBehaviour
 {
     public int maxHealth = 10; // Maximum health points of the boss
@@ -12,7 +12,7 @@ public class BossHP : MonoBehaviour
     public SpriteRenderer spriteRenderer; // SpriteRenderer component for the boss
     public float flashDuration = 0.1f; // Duration for each flash
     public int numberOfFlashes = 5; // Number of flashes
-    public Text healthText; // UI Text component to display the health
+    public TextMeshProUGUI healthText; // UI Text component to display the health
 
     private Rigidbody2D rb; // Reference to the Rigidbody2D component
     private Collider2D[] colliders; // Array to hold all Collider2D components

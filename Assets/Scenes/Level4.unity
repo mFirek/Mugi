@@ -1792,7 +1792,7 @@ Transform:
   m_GameObject: {fileID: 382129332}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.970013, y: 0.8122, z: 0}
+  m_LocalPosition: {x: -12.730014, y: 0.8122, z: 0}
   m_LocalScale: {x: 2, y: 2.517, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2193,7 +2193,7 @@ Transform:
   m_GameObject: {fileID: 474960201}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.620028, y: 0.8485001, z: 0}
+  m_LocalPosition: {x: -12.480029, y: 0.8485001, z: 0}
   m_LocalScale: {x: 2, y: 2.4596, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4987,6 +4987,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6875879166870245530, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
+      propertyPath: m_AirControl
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6943349026217623572, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
       propertyPath: m_Material
       value: 
@@ -5875,7 +5879,7 @@ Transform:
   m_GameObject: {fileID: 1305868747}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.23861, y: 0.83329993, z: 0}
+  m_LocalPosition: {x: -11.757489, y: 0.83329993, z: 0}
   m_LocalScale: {x: 3.3294, y: 2.6126, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6040,7 +6044,7 @@ Transform:
   m_GameObject: {fileID: 1314790020}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.790004, y: 0.7914, z: 0}
+  m_LocalPosition: {x: -11.740004, y: 0.7914, z: 0}
   m_LocalScale: {x: 2, y: 2.517, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

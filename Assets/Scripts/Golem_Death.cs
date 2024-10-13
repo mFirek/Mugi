@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
+using TMPro;  // Dodaj to, aby uzyskaæ dostêp do TextMeshPro
 
 public class Golem_Death : MonoBehaviour
 {
@@ -8,6 +8,7 @@ public class Golem_Death : MonoBehaviour
     Collider2D[] colliders;
     bool isDying = false;
     public GameObject nextLevelObject;
+
     // Czas trwania migania postaci
     public float blinkDuration = 0.5f;
 
@@ -17,7 +18,8 @@ public class Golem_Death : MonoBehaviour
     // Kolor migania
     public Color blinkColor = Color.white;
 
-    public Text healthText;
+    // Zmiana na TextMeshProUGUI
+    public TextMeshProUGUI healthText; // Zmiana z Text na TextMeshProUGUI
 
     // Nowe zmienne zdrowia
     public int maxHealth = 10; // Maksymalne zdrowie bossa

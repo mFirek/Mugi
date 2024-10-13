@@ -83,7 +83,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxCollisions: 3
   blinkDuration: 0.5
-  enemyAI: {fileID: 0}
+  enemyAI: {fileID: 2049959633096492879}
+  boss: {fileID: 0}
+  blinkColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &755079218069329725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
-  activateDistance: 1.6
+  activateDistance: 3
   pathUpdateSeconds: 0.5
   speed: 1
   jumpForce: 1
@@ -306,7 +308,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0065612495, y: 0.0023003817}
+  m_Offset: {x: 0.0057548434, y: 0.0023003817}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -316,7 +318,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.2618602, y: 0.14160824}
+  m_Size: {x: 0.237228, y: 0.14160824}
   m_EdgeRadius: 0
 --- !u!114 &8207280417974278980
 MonoBehaviour:

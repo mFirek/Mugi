@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Shoot()
     {
+
         // SprawdŸ, czy dialog jest aktywny
         if (DialogueManager.GetInstance() != null && DialogueManager.GetInstance().dialogueIsPlaying)
         {
@@ -67,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Jeœli gracz stoi w miejscu, kierunek patrzenia zostaje zachowany
             shootDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+            
         }
         else if (horizontalMove < 0)
         {

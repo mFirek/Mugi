@@ -309,14 +309,17 @@ MonoBehaviour:
     m_Bits: 383
   m_GroundCheck: {fileID: 6324423924206824175}
   m_CeilingCheck: {fileID: 5822751369979980528}
-  m_MaxAirJumps: 1
-  animator: {fileID: 0}
+  m_MaxAirJumps: 2
+  animator: {fileID: 1280796850274760536}
   m_AttackAnimationName: Attack
   bulletPrefab: {fileID: 7305103508064788049, guid: 9a9925dea31c6624fbe5fdec23ca05d1, type: 3}
   firePointR: {fileID: 1120810877874676628}
   firePointL: {fileID: 7627716084701829233}
-  bulletSpeed: 1
+  bulletSpeed: 3
   runSpeed: 10
+  resetJumpTags:
+  - Teren
+  - Ceiling
 --- !u!50 &4983985356538049192
 Rigidbody2D:
   serializedVersion: 4

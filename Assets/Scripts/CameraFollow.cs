@@ -16,6 +16,10 @@ public class CameraFollow : MonoBehaviour
     public float minX; // Minimalna wartoœæ X kamery
     public float maxX; // Maksymalna wartoœæ X kamery
 
+    // Granice pionowe kamery
+    public float minY; // Minimalna wartoœæ Y kamery
+    public float maxY; // Maksymalna wartoœæ Y kamery
+
     // Update is called once per frame
     void Update()
     {
@@ -36,11 +40,12 @@ public class CameraFollow : MonoBehaviour
             yOffset = Mathf.Lerp(yOffset, 0f, FollowSpeed * Time.deltaTime);
         }
 
-        // Ustaw now¹ pozycjê kamery z ograniczeniem bocznych œcian
+        // Ustaw now¹ pozycjê kamery
         Vector3 newPos = new Vector3(target.position.x, target.position.y + yOffset, -10f);
 
-        // Ograniczenie ruchu kamery w osi X do wartoœci minX i maxX
+        // Ograniczenie ruchu kamery w osi X i Y do granic mapy
         newPos.x = Mathf.Clamp(newPos.x, minX, maxX);
+        newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
 
         // Przypisz now¹ pozycjê kamery
         transform.position = Vector3.Lerp(transform.position, newPos, FollowSpeed * Time.deltaTime);

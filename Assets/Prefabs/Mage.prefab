@@ -184,7 +184,6 @@ GameObject:
   - component: {fileID: 1280796850274760536}
   - component: {fileID: 6875879166870245530}
   - component: {fileID: 4983985356538049192}
-  - component: {fileID: 5201313701002005343}
   - component: {fileID: 5781829040166737559}
   - component: {fileID: 754580458538845405}
   - component: {fileID: 6943349026217623572}
@@ -304,36 +303,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_JumpForce: 150
   m_MovementSmoothing: 0
-  m_AirControl: 0
+  m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 383
   m_GroundCheck: {fileID: 6324423924206824175}
   m_CeilingCheck: {fileID: 5822751369979980528}
-  m_Animator: {fileID: 1280796850274760536}
-  m_AttackAnimationName: Attack
   m_MaxAirJumps: 1
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 2
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5201313701002005343}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OnLanding
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_CanDash: 0
-  m_DashForce: 2
-  m_DashDuration: 0.15
-  m_DashSmoothness: 0.1
+  animator: {fileID: 0}
+  m_AttackAnimationName: Attack
+  bulletPrefab: {fileID: 7305103508064788049, guid: 9a9925dea31c6624fbe5fdec23ca05d1, type: 3}
+  firePointR: {fileID: 1120810877874676628}
+  firePointL: {fileID: 7627716084701829233}
+  bulletSpeed: 1
+  runSpeed: 10
 --- !u!50 &4983985356538049192
 Rigidbody2D:
   serializedVersion: 4
@@ -361,25 +344,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &5201313701002005343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9143355098252780229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eb5ffd8c0889b740af9a3ce496d7f9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 6875879166870245530}
-  animator: {fileID: 1280796850274760536}
-  bulletPrefab: {fileID: 7305103508064788049, guid: 9a9925dea31c6624fbe5fdec23ca05d1, type: 3}
-  firePointR: {fileID: 1120810877874676628}
-  firePointL: {fileID: 7627716084701829233}
-  bulletSpeed: 3
-  runSpeed: 10
 --- !u!70 &5781829040166737559
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

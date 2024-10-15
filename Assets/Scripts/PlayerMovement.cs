@@ -1,96 +1,69 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
-    public CharacterController2D controller;
-    public Animator animator;
-    public GameObject bulletPrefab;
-    public Transform firePointR;
-    public Transform firePointL;
-    public float bulletSpeed = 1f;
-    public float runSpeed = 10f;
-    private Vector2 lastDirection = Vector2.right;
-    float horizontalMove = 0f;
-    bool jump = false;
+//public class PlayerMovement : MonoBehaviour
+//{
+//    public CharacterController2D controller;
+//    public Animator animator;
+//    public float runSpeed = 40f;
 
-    void Update()
-    {
-        // SprawdŸ, czy dialog jest aktywny
-        bool isDialogueActive = DialogueManager.GetInstance() != null && DialogueManager.GetInstance().dialogueIsPlaying;
+//    private float horizontalMove = 0f;
+//    private bool jump = false;
+//    private bool isAttacking = false;
 
-        // Tylko aktualizuj ruch i animacje, jeœli dialog nie jest aktywny
-        if (!isDialogueActive)
-        {
-            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+//    void Update()
+//    {
+//        // Ruch postaci (poziomy)
+//        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-            if (Input.GetButtonDown("Jump"))
-            {
-                jump = true;
-                animator.SetBool("IsJumping", true);
-            }
+//        // Ustaw animacjê biegu
+//        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                animator.Play("Attack", -1, 0f);
-                Shoot();
-            }
-        }
-        else
-        {
-            // Ustaw animacjê na idle podczas dialogu
-            animator.SetFloat("Speed", 0);
-            animator.SetBool("IsJumping", false);
-        }
-    }
+//        // Skakanie
+//        if (Input.GetButtonDown("Jump"))
+//        {
+//            jump = true;
+//            animator.SetBool("IsJumping", true);
+//        }
 
-    void Shoot()
-    {
+//        // Atak (Z)
+//        if (Input.GetKeyDown(KeyCode.Z))
+//        {
+//            Attack();
+//        }
 
-        // SprawdŸ, czy dialog jest aktywny
-        if (DialogueManager.GetInstance() != null && DialogueManager.GetInstance().dialogueIsPlaying)
-        {
-            return; // Nie wykonuj strza³u, jeœli dialog jest aktywny
-        }
+//        // Dash (C)
+//        if (Input.GetKeyDown(KeyCode.C))
+//        {
+//            controller.Dash();
+//        }
+//    }
 
-        // Wybieramy odpowiedni firePoint w zale¿noœci od ostatniego kierunku patrzenia
-        Transform firePoint = lastDirection == Vector2.right ? firePointR : firePointL;
+//    void FixedUpdate()
+//    {
+//        // Ruch i skok postaci
+//        controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
+//        jump = false;
+//    }
 
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+//    public void OnLanding()
+//    {
+//        // Po wyl¹dowaniu wy³¹cz animacjê skoku
+//        animator.SetBool("IsJumping", false);
+//    }
 
-        // Ustalamy kierunek strza³u na podstawie kierunku patrzenia
-        Vector2 shootDirection = lastDirection;
+//    private void Attack()
+//    {
+//        if (!isAttacking)
+//        {
+//            isAttacking = true;
+//            animator.Play("Attack");
+//            controller.Shoot();
+//            Invoke("ResetAttack", 0.5f); // Resetowanie ataku po 0.5 sekundy
+//        }
+//    }
 
-        if (horizontalMove == 0)
-        {
-            // Jeœli gracz stoi w miejscu, kierunek patrzenia zostaje zachowany
-            shootDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-            
-        }
-        else if (horizontalMove < 0)
-        {
-            // Jeœli gracz porusza siê w lewo, kierunek strza³u równie¿ zostaje zmieniony na lewo
-            shootDirection = Vector2.left;
-        }
-
-        bulletRb.velocity = shootDirection * bulletSpeed;
-    }
-
-    public void OnLanding()
-    {
-        animator.SetBool("IsJumping", false);
-    }
-
-    void FixedUpdate()
-    {
-        // Jeœli dialog jest aktywny, zablokuj ruch
-        if (DialogueManager.GetInstance() == null || !DialogueManager.GetInstance().dialogueIsPlaying)
-        {
-            controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
-        }
-        jump = false;
-    }
-}
+//    private void ResetAttack()
+//    {
+//        isAttacking = false;
+//    }
+//}

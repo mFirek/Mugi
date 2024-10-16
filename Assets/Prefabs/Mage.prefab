@@ -318,8 +318,10 @@ MonoBehaviour:
   bulletSpeed: 3
   runSpeed: 10
   resetJumpTags:
-  - Teren
   - Ceiling
+  - Teren
+  - Spike
+  - platform
 --- !u!50 &4983985356538049192
 Rigidbody2D:
   serializedVersion: 4

@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 53838101}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -5.16, y: 1.33, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2563,6 +2563,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1710262949}
   m_SourcePrefab: {fileID: 100100000, guid: c8426378777c973488097a9bf048926e, type: 3}
+--- !u!1 &1316034567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1316034568}
+  m_Layer: 0
+  m_Name: scena koncowa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1316034568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316034567}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.15443832, y: 1.2417784, z: -0.014378485}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1337501061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2922,7 +2953,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab03e938d7ce94740abdf485a85afd4a, type: 2}
   m_sharedMaterial: {fileID: -8464954133391912550, guid: ab03e938d7ce94740abdf485a85afd4a, type: 2}
@@ -4442,8 +4473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8847f9b995ea58d499145cfe8f242baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  nextLevelObject: {fileID: 0}
+  maxHealth: 50
+  nextLevelObject: {fileID: 1316034567}
   animator: {fileID: 1977300899}
   spriteRenderer: {fileID: 1977300897}
   flashDuration: 0.1
@@ -4680,3 +4711,4 @@ SceneRoots:
   - {fileID: 446351374}
   - {fileID: 1469040698}
   - {fileID: 1408105907}
+  - {fileID: 1316034568}

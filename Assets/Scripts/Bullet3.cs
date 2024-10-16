@@ -17,7 +17,7 @@ public class Bullet3 : MonoBehaviour
         circleCollider = GetComponent<CircleCollider2D>(); // Get the CircleCollider2D component
 
         // Destroy the bullet after 2 seconds if no collision occurs
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 0.8f);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

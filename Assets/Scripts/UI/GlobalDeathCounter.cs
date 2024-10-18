@@ -3,14 +3,15 @@ using TMPro;
 
 public class GlobalDeathCounter : MonoBehaviour
 {
-    private static int globalDeathCount = 0; // Static variable to store global deaths
-    private TextMeshProUGUI globalDeathCountText; // TextMeshProUGUI component to display number of deaths
+    private static int globalDeathCount = 0; // Statyczna zmienna przechowuj¹ca globaln¹ liczbê zgonów
+    private TextMeshProUGUI globalDeathCountText; // TextMeshProUGUI komponent do wyœwietlania liczby zgonów
+    private static bool playerJustDied = false; // Flaga, aby unikn¹æ wielokrotnego naliczania tego samego zgonu
 
     private void Awake()
     {
-        LoadGlobalDeathCount(); // Loading global deaths at startup
+        LoadGlobalDeathCount(); // £adowanie globalnej liczby zgonów przy starcie
 
-        // Download TextMeshProUGUI component
+        // Pobierz komponent TextMeshProUGUI
         globalDeathCountText = GetComponent<TextMeshProUGUI>();
         if (globalDeathCountText == null)
         {
@@ -20,41 +21,52 @@ public class GlobalDeathCounter : MonoBehaviour
 
     public static void SaveGlobalDeathCount()
     {
-        PlayerPrefs.SetInt("GlobalDeathCount", globalDeathCount); // Record the global number of deaths
-        PlayerPrefs.Save(); // Make sure the changes are saved
+        PlayerPrefs.SetInt("GlobalDeathCount", globalDeathCount); // Zapisz liczbê zgonów globalnych
+        PlayerPrefs.Save(); // Zapisz zmiany
     }
 
     public void LoadGlobalDeathCount()
     {
-        globalDeathCount = PlayerPrefs.GetInt("GlobalDeathCount", 0); // Load global death count
+        globalDeathCount = PlayerPrefs.GetInt("GlobalDeathCount", 0); // Za³aduj liczbê globalnych zgonów
     }
 
     public static void IncrementGlobalDeathCount()
     {
-        globalDeathCount++; // Incremental global deaths
-        UpdateGlobalDeathCountText(); // Update text after incrementation
+        // Zwiêksz licznik zgonów tylko, jeœli gracz faktycznie zgin¹³ i naliczono tylko raz
+        if (!playerJustDied)
+        {
+            globalDeathCount++; // Zwiêksz liczbê zgonów globalnych
+            playerJustDied = true; // Ustaw flagê, ¿e gracz w³aœnie zgin¹³
+            UpdateGlobalDeathCountText(); // Zaktualizuj tekst po zwiêkszeniu
+        }
     }
 
     public static void UpdateGlobalDeathCountText()
     {
-        // Find all objects of type GlobalDeathCounter in the scene
+        // ZnajdŸ wszystkie obiekty typu GlobalDeathCounter w scenie
         GlobalDeathCounter[] counters = FindObjectsOfType<GlobalDeathCounter>();
         foreach (var counter in counters)
         {
             if (counter.globalDeathCountText != null)
             {
-                counter.globalDeathCountText.text = "Global Deaths: " + globalDeathCount; // Set text
+                counter.globalDeathCountText.text = "Global Deaths: " + globalDeathCount; // Ustaw tekst
             }
         }
     }
 
     private void Start()
     {
-        UpdateGlobalDeathCountText(); // Update the text at the beginning
+        UpdateGlobalDeathCountText(); // Zaktualizuj tekst na pocz¹tku
+    }
+
+    // Ta funkcja musi byæ wywo³ana, gdy gracz siê odrodzi
+    public static void ResetDeathFlag()
+    {
+        playerJustDied = false; // Resetujemy flagê przy odrodzeniu gracza, aby mog³y byæ naliczane kolejne zgony
     }
 
     private void OnApplicationQuit()
     {
-        SaveGlobalDeathCount(); // Save global deaths on application shutdown
+        SaveGlobalDeathCount(); // Zapisz globalne zgony przy wy³¹czaniu aplikacji
     }
 }

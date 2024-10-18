@@ -27,6 +27,13 @@ public class GameEventsManager : MonoBehaviour
         if (onPlayerDeath != null)
         {
             onPlayerDeath.Invoke();
+            GlobalDeathCounter.ResetDeathFlag();
         }
     }
+    void RespawnPlayer()
+    {
+        
+        GlobalDeathCounter.ResetDeathFlag(); // Reset the flag
+    }
+
 }

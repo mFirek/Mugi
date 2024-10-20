@@ -25,8 +25,12 @@ public class Golem_Death : MonoBehaviour
     public int maxHealth = 10;
     private int currentHealth;
 
+    // Odniesienie do AudioManager
+    public AudioManager audioManager;
     void Start()
     {
+        audioManager = AudioManager.GetInstance();
+
         rb = GetComponentInChildren<Rigidbody2D>();
         colliders = GetComponentsInChildren<Collider2D>();
 
@@ -48,7 +52,7 @@ public class Golem_Death : MonoBehaviour
     void HandleCollisionWithProjectile(Collider2D collision)
     {
         // Zniszcz pocisk
-      
+
 
         // Jeúli boss jest odporny, migaj i wyjdü z metody
         if (boss != null && boss.isImmune)
@@ -140,6 +144,8 @@ public class Golem_Death : MonoBehaviour
     void DestroyEnemy()
     {
         Animator animator = GetComponentInChildren<Animator>();
+
+        audioManager.PlaySFX(audioManager.bossDefeat);
 
         if (animator != null && HasDeathAnimation(animator))
         {

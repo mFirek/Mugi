@@ -4652,13 +4652,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8847f9b995ea58d499145cfe8f242baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 2
   nextLevelObject: {fileID: 1316034567}
   animator: {fileID: 1977300899}
   spriteRenderer: {fileID: 1977300897}
   flashDuration: 0.1
   numberOfFlashes: 2
   healthText: {fileID: 1385877185}
+  audioManager: {fileID: 0}
 --- !u!1001 &1993298308
 PrefabInstance:
   m_ObjectHideFlags: 0

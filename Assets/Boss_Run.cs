@@ -23,17 +23,24 @@ public class Boss_Run : StateMachineBehaviour
     private Rigidbody2D rb;
     private Boss_Golem boss;
 
+    public AudioManager audioManager;
+
+
+
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
         boss = animator.GetComponent<Boss_Golem>();
 
+        audioManager = AudioManager.GetInstance();  // Inicjalizacja AudioManager tutaj
+
         rangeShootTimer = 0f;
         glowTimer = 0f;
         immuneTimer = 0f;
         cooldownActive = false;
     }
+
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -53,6 +60,7 @@ public class Boss_Run : StateMachineBehaviour
         if (distanceToPlayer <= attackRange)
         {
             animator.SetTrigger("Attack");
+            //audioManager.PlaySFX(audioManager.Punch); // Play attack sound
             cooldownActive = true;
         }
         else if (distanceToPlayer > attackRange && distanceToPlayer <= attackDistanceThreshold1)
@@ -60,7 +68,7 @@ public class Boss_Run : StateMachineBehaviour
             float angleToPlayer = Vector2.Angle(rb.transform.right, playerPosition2D - rb.position);
             if (angleToPlayer <= maxAngleToGlow && glowTimer >= glowCooldown)
             {
-                animator.SetTrigger("Glow");
+                animator.SetTrigger("Glow");              
                 glowTimer = 0f;
                 cooldownActive = true;
             }

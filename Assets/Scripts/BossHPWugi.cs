@@ -18,10 +18,14 @@ public class BossHPWugi : MonoBehaviour
     private Rigidbody2D rb; // Reference to the Rigidbody2D component
     private Collider2D[] colliders; // Array to hold all Collider2D components
 
+    public AudioManager audioManager;
+
     private void Start()
     {
-        currentHealth = maxHealth; // Set the initial health points
+        
 
+        currentHealth = maxHealth; // Set the initial health points
+        audioManager = AudioManager.GetInstance();
         if (animator == null)
         {
             animator = GetComponent<Animator>(); // Get the Animator component if not assigned
@@ -87,6 +91,8 @@ public class BossHPWugi : MonoBehaviour
     private IEnumerator Die()
     {
         Debug.Log("Boss is dying"); // Log message to debug
+
+        audioManager.PlaySFX(audioManager.bossDefeat);
 
         // Disable Rigidbody2D to stop all movement
         if (rb != null)

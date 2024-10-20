@@ -16,8 +16,11 @@ public class DemonBoss : MonoBehaviour
     private bool isAttacking = false; // Zmienna kontroluj¹ca, czy demon jest w trakcie ataku
     private float attackTimer = 0f; // Timer do cooldownu ataku
 
+    AudioManager audioManager;
+
     void Start()
     {
+        audioManager = AudioManager.GetInstance();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -141,6 +144,7 @@ public class DemonBoss : MonoBehaviour
         animator.SetTrigger("Die");
         Debug.Log("Demon zgin¹³!");
 
+        AudioManager.GetInstance().PlaySFX(audioManager.bossDefeat);
         // Additional death logic
         GetComponent<Collider2D>().enabled = false; // Wy³¹czenie kolizji
         this.enabled = false; // Wy³¹czenie skryptu, aby demon przesta³ siê poruszaæ i reagowaæ

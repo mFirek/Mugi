@@ -17,8 +17,12 @@ public class BossHP : MonoBehaviour
     private Rigidbody2D rb; // Reference to the Rigidbody2D component
     private Collider2D[] colliders; // Array to hold all Collider2D components
 
+    public AudioManager audioManager;
+
     private void Start()
     {
+        audioManager = AudioManager.GetInstance();
+
         currentHealth = maxHealth; // Set the initial health points
 
         if (animator == null)
@@ -85,6 +89,8 @@ public class BossHP : MonoBehaviour
     private IEnumerator Die()
     {
         Debug.Log("Boss is dying"); // Log message to debug
+
+        audioManager.PlaySFX(audioManager.bossDefeat);
 
         // Disable the Rigidbody2D and all Collider2D components
         if (rb != null)

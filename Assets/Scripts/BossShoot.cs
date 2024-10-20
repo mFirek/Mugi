@@ -8,9 +8,13 @@ public class BossShoot : MonoBehaviour
 
     private Transform player;
 
+    public AudioManager audioManager;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        audioManager = AudioManager.GetInstance();
 
         // Ensure firePoint is correctly assigned
         if (firePoint == null)
@@ -41,5 +45,6 @@ public class BossShoot : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
         rbBullet.AddForce(firePoint.right * bulletForce, ForceMode2D.Impulse); // Adjusted force for better shooting
+        audioManager.PlaySFX(audioManager.enemyAttack); // Play shooting sound
     }
 }

@@ -1,38 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
     [Header("Visual Cue")]
-    [SerializeField] private GameObject visualCue; // Wizualna wskazówka, która ma siê pojawiæ
+    [SerializeField] private GameObject visualCue;
 
     [Header("Ink JSON")]
-    [SerializeField] private TextAsset inkJSON; // Plik JSON z dialogiem
+    [SerializeField] private TextAsset inkJSON;
 
-    private bool playerInRange = false; // Flaga informuj¹ca, czy gracz jest w zasiêgu dialogu
+    private bool playerInRange = false;
+    private bool dialogueStarted = false; // Flaga do kontroli czy dialog ju¿ siê rozpocz¹³
 
     private void Awake()
     {
-        playerInRange = false; // Na pocz¹tku ustawiamy, ¿e gracz nie jest w zasiêgu dialogu
-        visualCue.SetActive(false); // Ukrywamy wizualn¹ wskazówkê na pocz¹tku
+        playerInRange = false;
+        visualCue.SetActive(false);
     }
 
     private void Update()
     {
-        // Sprawdzenie, czy gracz jest w zasiêgu dialogu i dialog nie jest w trakcie odtwarzania
-        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
+        // Sprawdzenie, czy gracz jest w zasiêgu dialogu i dialog nie jest odtwarzany
+        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying && !dialogueStarted)
         {
-            visualCue.SetActive(true); // Pokazujemy wizualn¹ wskazówkê
+            visualCue.SetActive(true);
+
             if (Input.GetKeyDown(KeyCode.X))
             {
-                visualCue.SetActive(false); // Ukrywamy wskazówkê po rozpoczêciu dialogu
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON); // Rozpoczynamy dialog
+                visualCue.SetActive(false);
+                DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                dialogueStarted = true; // Zablokowanie ponownego uruchomienia dialogu
             }
         }
         else
         {
-            visualCue.SetActive(false); // Ukrywamy wskazówkê, gdy dialog jest odtwarzany
+            visualCue.SetActive(false);
         }
     }
 
@@ -40,7 +41,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = true; // Gdy gracz wejdzie w zasiêg dialogu, ustawiamy flagê na true
+            playerInRange = true;
         }
     }
 
@@ -48,8 +49,9 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = false; // Gdy gracz opuœci zasiêg dialogu, ustawiamy flagê na false
-            visualCue.SetActive(false); // Ukrywamy wizualn¹ wskazówkê
+            playerInRange = false;
+            visualCue.SetActive(false);
+            dialogueStarted = false; // Resetowanie flagi po opuszczeniu zasiêgu
         }
     }
 }

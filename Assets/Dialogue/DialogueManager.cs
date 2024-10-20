@@ -31,7 +31,6 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-
     public static DialogueManager GetInstance()
     {
         return instance;
@@ -51,7 +50,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         // Obs³uga przycisku do kontynuowania dialogu
-        if (Input.GetKeyDown(KeyCode.X)) 
+        if (Input.GetKeyDown(KeyCode.X))
         {
             ContinueStory();
         }
@@ -59,16 +58,22 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
+        // Resetuj historiê, aby zaczynaæ dialog od pocz¹tku
         currentStory = new Story(inkJSON.text);
+
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+
+        // Automatyczne pokazanie pierwszej linii dialogu od razu po wejœciu w tryb dialogu
+        ContinueStory();
     }
 
     public void ExitDialogueMode()
     {
-        dialogueIsPlaying = false;
+        dialogueIsPlaying = false; // Wa¿ne, aby zakoñczyæ tryb dialogu
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+        Debug.Log("Dialogue mode exited.");
     }
 
     private void ContinueStory()
@@ -80,7 +85,8 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("Dialogue ended. Exiting dialogue mode.");
             ExitDialogueMode();
-        }   
+        }
     }
 }

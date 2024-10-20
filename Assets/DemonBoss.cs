@@ -150,4 +150,9 @@ public class DemonBoss : MonoBehaviour
         this.enabled = false; // Wy³¹czenie skryptu, aby demon przesta³ siê poruszaæ i reagowaæ
         Destroy(gameObject, 2f); // Zniszczenie obiektu po 2 sekundach (opcjonalnie)
     }
+    public void PlayAttackSound()
+    {
+        audioManager.PlaySFX(audioManager.enemyAttack2); 
+    }
+
 }

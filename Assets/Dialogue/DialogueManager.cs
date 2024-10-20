@@ -18,12 +18,19 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null)
+        if (instance != null && instance != this)
         {
-            Debug.LogWarning("More than one instance of DialogueManager found!");
+            Debug.LogWarning("Destroying duplicate DialogueManager instance");
+            Destroy(gameObject);
         }
-        instance = this;
+        else
+        {
+            Debug.Log("DialogueManager instance created");
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
+
 
     public static DialogueManager GetInstance()
     {

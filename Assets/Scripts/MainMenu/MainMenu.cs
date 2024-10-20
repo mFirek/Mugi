@@ -21,10 +21,10 @@ public class MainMenu : MonoBehaviour
     public void NewGame()
     {
         
-        DisableMenuButtons();
+        //DisableMenuButtons();
         //stwórz now¹ grê co rozpocznie inicjalizacjê danych gry
         DataPresistenceManager.instance.NewGame();
-        SceneManager.LoadSceneAsync("SampleScene");
+        SceneManager.LoadSceneAsync("Level1");
     }
 
 
@@ -37,7 +37,12 @@ public class MainMenu : MonoBehaviour
     public void LoadGame()
     {   
         DisableMenuButtons();
-        SceneManager.LoadSceneAsync("SampleScene");
+        //SceneManager.LoadSceneAsync("SampleScene");
+    }
+    public void NewGameOpen()
+    {
+        //DisableMenuButtons();
+        SceneManager.LoadSceneAsync("Level2");
     }
     private void DisableMenuButtons()
     {

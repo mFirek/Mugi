@@ -309,6 +309,8 @@ public class CharacterController2D : MonoBehaviour
         // Sprawdzenie, czy dialog manager istnieje i czy dialog jest odtwarzany
         if (DialogueManager.GetInstance() != null && DialogueManager.GetInstance().dialogueIsPlaying)
         {
+            horizontalMove = 0; // Zatrzymaj ruch
+            animator.SetFloat("Speed", 0); // Ustaw animacjê na idle
             return;
         }
 
@@ -334,6 +336,8 @@ public class CharacterController2D : MonoBehaviour
         // Sprawdzenie, czy dialog manager istnieje i czy dialog jest odtwarzany
         if (DialogueManager.GetInstance() != null && DialogueManager.GetInstance().dialogueIsPlaying)
         {
+            // Zatrzymaj ruch
+            Move(0, false); // Nie wykonuj ruchu
             return;
         }
 
@@ -361,6 +365,9 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
+
+
+
     private bool CanPerformAction()
     {
         return DialogueManager.GetInstance() == null || !DialogueManager.GetInstance().dialogueIsPlaying;
@@ -368,8 +375,10 @@ public class CharacterController2D : MonoBehaviour
 
     public void Move(float move, bool jump)
     {
-        if (!CanPerformAction())
+        // Nie wykonuj ruchu, jeœli dialog jest aktywny
+        if (DialogueManager.GetInstance() != null && DialogueManager.GetInstance().dialogueIsPlaying)
         {
+            m_Rigidbody2D.velocity = new Vector2(0f, m_Rigidbody2D.velocity.y); // Ustaw prêdkoœæ w osi X na 0
             return;
         }
 

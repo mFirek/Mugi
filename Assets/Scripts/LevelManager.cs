@@ -4,6 +4,9 @@ using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
+
+
+
     public string nextLevelName; // Nazwa kolejnej sceny
     public string playerTag = "Player"; // Tag gracza
     public Transform absorptionPoint; // Punkt wch³aniania w œrodku portalu
@@ -13,12 +16,21 @@ public class LevelManager : MonoBehaviour
     private bool isAbsorbing = false;
     private Vector3 velocity = Vector3.zero; // Zmienna dla SmoothDamp
 
+    AudioManager audioManager;
+
+    void Start()
+    {
+        audioManager = AudioManager.GetInstance();
+    }   
+
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(playerTag) && !isAbsorbing)
         {
             isAbsorbing = true; // Zabezpieczenie, aby efekt nie aktywowa³ siê wielokrotnie
             StartCoroutine(AbsorbAndLoadLevel(other.transform));
+            AudioManager.GetInstance().PlaySFX(audioManager.Portal); // Odtwórz dŸwiêk portalu z g³oœnoœci¹ 1.5   
         }
     }
 

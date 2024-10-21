@@ -56,6 +56,9 @@ MonoBehaviour:
   enemyAttack: {fileID: 8300000, guid: 0c235b774e209d245823c72fd02062a4, type: 3}
   enemyAttack2: {fileID: 8300000, guid: 9ce27a0d1eb01534b8289312fcf89ed2, type: 3}
   Attack: {fileID: 8300000, guid: 355659407646ff64d886eab77e1ebb2b, type: 3}
+  Punch: {fileID: 8300000, guid: 0f486d9a8cdea4d429a49abca3903c8f, type: 3}
+  Portal: {fileID: 8300000, guid: 0223ce8194dc395439aebad18cd7e7eb, type: 3}
+  PickUp: {fileID: 8300000, guid: c9714163753289649a11cdeeca090578, type: 3}
 --- !u!1 &5562329987029067691
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip enemyAttack2;
     public AudioClip Attack;
     public AudioClip Punch;
+    public AudioClip Portal;
+    public AudioClip PickUp;
 
     private void Awake()
     {

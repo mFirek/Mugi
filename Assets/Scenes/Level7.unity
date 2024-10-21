@@ -11527,11 +11527,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5975658969130223078, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.47
+      value: -6.09
       objectReference: {fileID: 0}
     - target: {fileID: 5975658969130223078, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.28
+      value: -4.52
       objectReference: {fileID: 0}
     - target: {fileID: 5975658969130223078, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11839,6 +11839,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextLevelName: Level8
   playerTag: Player
+  absorptionPoint: {fileID: 0}
+  absorptionDuration: 2
+  smoothTime: 0.3
 --- !u!1 &1978475241 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2967690096414032880, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}

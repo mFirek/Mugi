@@ -7,21 +7,26 @@ public class DeactivateObjectOnTrigger : MonoBehaviour
     public GameObject keyUI; // Referencja do UI, które informuje o zebraniu klucza
     private bool isCollected = false;
 
+    AudioManager audioManager;
+
     private void Start()
     {
         // Upewnij siê, ¿e UI jest ukryte na starcie gry
         keyUI.SetActive(false);
+        audioManager = AudioManager.GetInstance();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !isCollected) // sprawdzenie, czy obiekt jest graczem i klucz nie zosta³ wczeœniej podniesiony
+        if (collision.gameObject.CompareTag("Player") && !isCollected)
         {
             objectToDeactivate.SetActive(false); // dezaktywacja klucza
+            AudioManager.GetInstance().PlaySFX(audioManager.PickUp);
             keyUI.SetActive(true); // Poka¿ UI informuj¹ce o zebraniu klucza
             isCollected = true; // oznaczenie klucza jako podniesionego
         }
     }
+
 
     // Metoda do ponownej aktywacji klucza
     public void RespawnKey()

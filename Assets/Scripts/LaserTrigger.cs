@@ -1,10 +1,18 @@
 using UnityEngine;
 using System.Collections;
+
 public class LaserTrigger : MonoBehaviour
 {
     public GameObject laserPrefab;  // Prefab lasera, który pojawi siê po kolizji
     public Transform laserSpawnPoint;  // Punkt, w którym pojawi siê laser
     private GameObject currentLaser;  // Aktualny obiekt lasera
+
+    AudioManager audioManager;
+
+    void Start()
+    {
+        audioManager = AudioManager.GetInstance();
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,7 +26,16 @@ public class LaserTrigger : MonoBehaviour
 
             // Uruchomienie metody, która usunie obiekt po zakoñczeniu animacji
             StartCoroutine(DestroyLaserAfterAnimation(laserAnimator));
+
+            // Odtwarzanie dŸwiêku z opóŸnieniem
+            StartCoroutine(PlayLaserSFXWithDelay(0.5f)); // 1 sekunda opóŸnienia
         }
+    }
+
+    private IEnumerator PlayLaserSFXWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AudioManager.GetInstance().PlaySFX(audioManager.laserAttack);
     }
 
     private IEnumerator DestroyLaserAfterAnimation(Animator laserAnimator)

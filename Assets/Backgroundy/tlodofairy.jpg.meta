@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b73055f04fff5834689d630503618191
+guid: 10a139a602403c24da323886bfceaf4a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -548361080881072038
-    second: background_4_0
+      213: 7240620812679074642
+    second: tlodofairy_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,64 +100,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: background_4_0
+      name: tlodofairy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 344
-        height: 546
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a583f659084d368f0800000000000000
-      internalID: -548361080881072038
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: background_4_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 95
-        height: 89
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e93e83586d31b2c4e83b22d0871dd004
-      internalID: 1889558014
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: background_4_2
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 511
-        width: 343
-        height: 35
+        width: 564
+        height: 282
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7a0d340f69d71dc4c8a829da57097750
-      internalID: 1638157364
+      spriteID: 2535905444adb7460800000000000000
+      internalID: 7240620812679074642
       vertices: []
       indices: 
       edges: []
@@ -165,17 +123,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e720d014994a0ac42a2480c4d5f9a990
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      background_4_0: -548361080881072038
-      background_4_1: 1889558014
-      background_4_2: 1638157364
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

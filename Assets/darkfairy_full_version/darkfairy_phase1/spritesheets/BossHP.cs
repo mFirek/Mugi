@@ -149,7 +149,7 @@ public class BossHP : MonoBehaviour
     {
         if (healthText != null)
         {
-            healthText.text = "Dark Fairy HP: " + currentHealth; // Update the text with the current health
+            healthText.text = "Fairy HP: " + currentHealth; // Update the text with the current health
         }
     }
 }

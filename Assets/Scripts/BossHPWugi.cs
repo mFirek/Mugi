@@ -22,10 +22,10 @@ public class BossHPWugi : MonoBehaviour
 
     private void Start()
     {
-        
-
         currentHealth = maxHealth; // Set the initial health points
+        
         audioManager = AudioManager.GetInstance();
+       
         if (animator == null)
         {
             animator = GetComponent<Animator>(); // Get the Animator component if not assigned

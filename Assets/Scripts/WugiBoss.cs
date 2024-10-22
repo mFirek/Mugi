@@ -16,12 +16,22 @@ public class WugiBoss : MonoBehaviour
     private bool canSpecialAttack = true;
     public float specialAttackCooldown = 1f; // Czas odnowienia ataku specjalnego
 
+    AudioManager audioManager;
+
     void Start()
     {
         // Znajduje gracza na podstawie tagu "Player"
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        audioManager = AudioManager.GetInstance();
     }
-
+    public void PlayAttackSoundWugi()
+    {
+        audioManager.PlaySFX(audioManager.WugiSpell);
+    }
+    public void PlayAttackSoundWugi2()
+    {
+        audioManager.PlaySFX(audioManager.WugiAttack);
+    }
     void Update()
     {
         if (isDead) return;

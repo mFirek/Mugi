@@ -22,6 +22,14 @@ public class AudioManager : MonoBehaviour
     public AudioClip Punch;
     public AudioClip Portal;
     public AudioClip PickUp;
+    public AudioClip PowerUp;
+    public AudioClip Fmelee;
+    public AudioClip Summon;
+    public AudioClip SpellPhase2;
+    public AudioClip WugiSpell;
+    public AudioClip FairyShield;
+    public AudioClip WugiAttack;
+
 
     private void Awake()
     {

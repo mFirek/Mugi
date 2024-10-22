@@ -59,6 +59,13 @@ MonoBehaviour:
   Punch: {fileID: 8300000, guid: 0f486d9a8cdea4d429a49abca3903c8f, type: 3}
   Portal: {fileID: 8300000, guid: 0223ce8194dc395439aebad18cd7e7eb, type: 3}
   PickUp: {fileID: 8300000, guid: c9714163753289649a11cdeeca090578, type: 3}
+  PowerUp: {fileID: 8300000, guid: d1e986af679f4a54f9436ebafb436072, type: 3}
+  Fmelee: {fileID: 8300000, guid: 3988f435e3ba37e4ebead5d846f3866c, type: 3}
+  Summon: {fileID: 8300000, guid: 89a404e69117b5045a52e8d030189a19, type: 3}
+  SpellPhase2: {fileID: 8300000, guid: f3168176c337da9488dbd0f5666dad24, type: 3}
+  WugiSpell: {fileID: 8300000, guid: 6d62af30c4e07d64faebcf1cd98ae697, type: 3}
+  FairyShield: {fileID: 8300000, guid: 56c816f56e57fa04c858a364706c1911, type: 3}
+  WugiAttack: {fileID: 8300000, guid: 6585742c15d06824587242a6b58751ab, type: 3}
 --- !u!1 &5562329987029067691
 GameObject:
   m_ObjectHideFlags: 0

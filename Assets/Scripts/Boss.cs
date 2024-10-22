@@ -10,6 +10,8 @@ public class Boss : MonoBehaviour
 
     public bool isFlipped = false;
 
+    AudioManager audioManager;
+
     // public float fireRate = 0.5f; // Okreœl, jak czêsto boss strzela
     //   private float nextFireTime = 0f;
 
@@ -33,6 +35,36 @@ public class Boss : MonoBehaviour
     public float lastSpecialAttackTime = -Mathf.Infinity;
     [HideInInspector]
     public float lastShieldTime = -Mathf.Infinity;
+
+    private void Start()
+    {
+        audioManager = AudioManager.GetInstance();
+    }
+
+    public void PlayAttackSound()
+    {
+        audioManager.PlaySFX(audioManager.Fmelee);
+    }
+
+    public void PlayAttackPhase2()
+    {
+        audioManager.PlaySFX(audioManager.SpellPhase2);
+    }
+
+    public void PlayTransform()
+    {
+        audioManager.PlaySFX(audioManager.PowerUp);
+    }
+
+    public void PlaySummonSound()
+    {
+        audioManager.PlaySFX(audioManager.Summon);
+    }
+    public void PlayShieldSound()
+    {
+        audioManager.PlaySFX(audioManager.FairyShield);
+    }
+
     public void LookAtPlayer()
     {
         Vector3 flipped = transform.localScale;

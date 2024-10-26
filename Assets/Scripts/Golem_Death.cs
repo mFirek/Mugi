@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.UI;
 
 public class Golem_Death : MonoBehaviour
 {
@@ -9,24 +10,22 @@ public class Golem_Death : MonoBehaviour
     bool isDying = false;
     public GameObject nextLevelObject;
 
-    // Czas trwania migania postaci
     public float blinkDuration = 0.5f;
 
-    // Odniesienie do skryptu Boss_Golem
     public Boss_Golem boss;
 
-    // Kolor migania
     public Color blinkColor = Color.white;
 
-    // Zmiana na TextMeshProUGUI
     public TextMeshProUGUI healthText;
 
-    // Nowe zmienne zdrowia
     public int maxHealth = 10;
     private int currentHealth;
 
-    // Odniesienie do AudioManager
+    public Slider healthSlider; // Pasek zdrowia
+    public GameObject healthBarUI; // UI paska zdrowia
+
     public AudioManager audioManager;
+
     void Start()
     {
         audioManager = AudioManager.GetInstance();
@@ -37,6 +36,12 @@ public class Golem_Death : MonoBehaviour
         boss = GetComponent<Boss_Golem>();
 
         currentHealth = maxHealth;
+
+        // Inicjalizacja UI paska zdrowia
+        healthSlider.maxValue = maxHealth;
+        healthSlider.value = currentHealth;
+        healthBarUI.SetActive(true);
+
         UpdateHealthUI();
     }
 
@@ -48,20 +53,14 @@ public class Golem_Death : MonoBehaviour
         }
     }
 
-    // Nowa metoda do obs≥ugi kolizji z pociskiem
     void HandleCollisionWithProjectile(Collider2D collision)
     {
-        // Zniszcz pocisk
-
-
-        // Jeúli boss jest odporny, migaj i wyjdü z metody
         if (boss != null && boss.isImmune)
         {
             StartCoroutine(BlinkOnHit());
             return;
         }
 
-        // Zmniejsz zdrowie bossa
         currentHealth--;
         UpdateHealthUI();
 
@@ -75,7 +74,6 @@ public class Golem_Death : MonoBehaviour
         }
     }
 
-    // Nowa metoda do obs≥ugi úmierci bossa
     void HandleBossDeath()
     {
         Animator animator = GetComponentInChildren<Animator>();
@@ -167,6 +165,8 @@ public class Golem_Death : MonoBehaviour
             Destroy(gameObject);
         }
 
+        healthBarUI.SetActive(false); // Wy≥πczenie paska zdrowia po úmierci
+
         if (nextLevelObject != null)
         {
             nextLevelObject.SetActive(true);
@@ -205,6 +205,13 @@ public class Golem_Death : MonoBehaviour
 
     private void UpdateHealthUI()
     {
-        healthText.text = "Golem HP: " + currentHealth;
+        if (healthText != null)
+        {
+            healthText.text = "Golem HP: " + currentHealth;
+        }
+        if (healthSlider != null)
+        {
+            healthSlider.value = currentHealth;
+        }
     }
 }

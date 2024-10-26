@@ -1,21 +1,25 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI; // Include the UI namespace
+using UnityEngine.UI;
 using TMPro;
+
 public class BossHP : MonoBehaviour
 {
-    public int maxHealth = 10; // Maximum health points of the boss
-    private int currentHealth; // Current health points of the boss
+    public int maxHealth = 10;
+    private int currentHealth;
 
-    public GameObject nextLevelObject; // Object to activate after the boss is destroyed
-    public Animator animator; // Animator component for the boss
-    public SpriteRenderer spriteRenderer; // SpriteRenderer component for the boss
-    public float flashDuration = 0.1f; // Duration for each flash
-    public int numberOfFlashes = 5; // Number of flashes
-    public TextMeshProUGUI healthText; // UI Text component to display the health
+    public GameObject nextLevelObject;
+    public Animator animator;
+    public SpriteRenderer spriteRenderer;
+    public float flashDuration = 0.1f;
+    public int numberOfFlashes = 5;
 
-    private Rigidbody2D rb; // Reference to the Rigidbody2D component
-    private Collider2D[] colliders; // Array to hold all Collider2D components
+    public TextMeshProUGUI healthText;
+    public Slider healthSlider; // Pasek zdrowia
+    public GameObject healthBarUI; // UI paska zdrowia
+
+    private Rigidbody2D rb;
+    private Collider2D[] colliders;
 
     public AudioManager audioManager;
 
@@ -23,89 +27,86 @@ public class BossHP : MonoBehaviour
     {
         audioManager = AudioManager.GetInstance();
 
-        currentHealth = maxHealth; // Set the initial health points
+        currentHealth = maxHealth;
 
         if (animator == null)
         {
-            animator = GetComponent<Animator>(); // Get the Animator component if not assigned
+            animator = GetComponent<Animator>();
         }
         if (spriteRenderer == null)
         {
-            spriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component if not assigned
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
-        colliders = GetComponents<Collider2D>(); // Get all Collider2D components attached to the game object
+        rb = GetComponent<Rigidbody2D>();
+        colliders = GetComponents<Collider2D>();
 
-        UpdateHealthUI(); // Initialize the health display
+        // Inicjalizacja UI paska zdrowia
+        healthSlider.maxValue = maxHealth;
+        healthSlider.value = currentHealth;
+        healthBarUI.SetActive(true);
+
+        UpdateHealthUI();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Kula"))
         {
-            TakeDamage(1); // Reduce health by 1
+            TakeDamage(1);
         }
     }
 
-    // Method to reduce the boss's health points
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount; // Reduce the health points
-        UpdateHealthUI(); // Update the health display
-        StartCoroutine(FlashSprite()); // Start the flashing coroutine
+        currentHealth -= amount;
+        UpdateHealthUI();
+        StartCoroutine(FlashSprite());
 
-        // Check health thresholds and trigger appropriate methods
         if (currentHealth == maxHealth / 2)
         {
-            Transform(); // Call the Transform method if health points drop to 50% of max health
+            Transform();
         }
         else if (currentHealth <= 0)
         {
-            StartCoroutine(Die()); // Call the Die method if health points drop to zero or below
+            StartCoroutine(Die());
         }
     }
 
-    // Coroutine to flash the sprite
     private IEnumerator FlashSprite()
     {
         for (int i = 0; i < numberOfFlashes; i++)
         {
-            spriteRenderer.enabled = false; // Disable the sprite renderer
-            yield return new WaitForSeconds(flashDuration); // Wait for the flash duration
-            spriteRenderer.enabled = true; // Enable the sprite renderer
-            yield return new WaitForSeconds(flashDuration); // Wait for the flash duration
+            spriteRenderer.enabled = false;
+            yield return new WaitForSeconds(flashDuration);
+            spriteRenderer.enabled = true;
+            yield return new WaitForSeconds(flashDuration);
         }
     }
 
-    // Method to handle the boss's transformation
     private void Transform()
     {
-        animator.SetTrigger("Transform"); // Trigger the transformation animation
-        // Optionally, handle any other transformation logic here
+        animator.SetTrigger("Transform");
     }
 
-    // Coroutine to handle the boss's death
     private IEnumerator Die()
     {
-        Debug.Log("Boss is dying"); // Log message to debug
+        Debug.Log("Boss is dying");
 
         audioManager.PlaySFX(audioManager.bossDefeat);
 
-        // Disable the Rigidbody2D and all Collider2D components
         if (rb != null)
         {
-            rb.simulated = false; // Disable the Rigidbody2D component
+            rb.simulated = false;
         }
 
         foreach (var collider in colliders)
         {
-            collider.enabled = false; // Disable each Collider2D component
+            collider.enabled = false;
         }
 
-        animator.SetTrigger("Die"); // Trigger the death animation
+        animator.SetTrigger("Die");
 
-        // Wait until the death animation is complete
         float animationLength = GetAnimationLength(animator, "Die");
         if (animationLength > 0)
         {
@@ -114,24 +115,22 @@ public class BossHP : MonoBehaviour
         else
         {
             Debug.LogWarning("Death animation length is 0 or not found");
-            yield return new WaitForSeconds(1); // Default wait time if animation length is not found
+            yield return new WaitForSeconds(1);
         }
 
-        // Deactivate the boss object
         Destroy(gameObject);
+        healthBarUI.SetActive(false); // Wy³¹czenie paska zdrowia po œmierci bossa
 
         if (nextLevelObject != null)
         {
-            nextLevelObject.SetActive(true); // Activate the object for the next level
+            nextLevelObject.SetActive(true);
         }
     }
 
-    // Method to get the length of an animation clip
     private float GetAnimationLength(Animator animator, string clipName)
     {
         if (animator != null)
         {
-            // Get the duration of the animation
             foreach (AnimationClip clip in animator.runtimeAnimatorController.animationClips)
             {
                 if (clip.name == clipName)
@@ -144,12 +143,15 @@ public class BossHP : MonoBehaviour
         return 0f;
     }
 
-    // Method to update the health display
     private void UpdateHealthUI()
     {
         if (healthText != null)
         {
-            healthText.text = "Fairy HP: " + currentHealth; // Update the text with the current health
+            healthText.text = "Boss HP: " + currentHealth;
+        }
+        if (healthSlider != null)
+        {
+            healthSlider.value = currentHealth;
         }
     }
 }

@@ -1,15 +1,18 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DemonBoss : MonoBehaviour
 {
     public float speed = 4f;
-    public float health = 100f;
+    public float maxHealth = 100f;
+    private float currentHealth;
     public float attackRange = 2f;
     public float attackCooldown = 1f;
     public TextMeshProUGUI bossHealthText;
+    public Slider healthSlider; // Pasek zdrowia bossa
+    public GameObject healthBarUI; // UI paska zdrowia bossa
 
-    // Dodaj referencjê do obiektu, który ma siê pojawiæ po œmierci bossa
     public GameObject objectToActivateOnDeath;
 
     private Transform player;
@@ -26,6 +29,11 @@ public class DemonBoss : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        currentHealth = maxHealth; // Ustawienie pocz¹tkowego zdrowia
+        healthSlider.maxValue = maxHealth; // Maksymalna wartoœæ paska zdrowia
+        healthSlider.value = currentHealth;
+        healthBarUI.SetActive(true); // Pokazanie paska zdrowia na pocz¹tku
 
         UpdateBossHealthUI();
     }
@@ -47,7 +55,7 @@ public class DemonBoss : MonoBehaviour
             ChasePlayer();
         }
 
-        if (health <= 0 && isAlive)
+        if (currentHealth <= 0 && isAlive)
         {
             Die();
         }
@@ -55,14 +63,14 @@ public class DemonBoss : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (health > 0)
+        if (currentHealth > 0)
         {
-            health -= damage;
-            Debug.Log("Demon HP: " + health);
+            currentHealth -= damage;
+            Debug.Log("Demon HP: " + currentHealth);
 
             UpdateBossHealthUI();
 
-            if (health <= 0)
+            if (currentHealth <= 0)
             {
                 Die();
             }
@@ -73,7 +81,11 @@ public class DemonBoss : MonoBehaviour
     {
         if (bossHealthText != null)
         {
-            bossHealthText.text = "Demon HP: " + Mathf.Max(0, health).ToString();
+            bossHealthText.text = "Demon HP: " + Mathf.Max(0, currentHealth).ToString();
+        }
+        if (healthSlider != null)
+        {
+            healthSlider.value = currentHealth;
         }
     }
 
@@ -131,9 +143,8 @@ public class DemonBoss : MonoBehaviour
         animator.SetTrigger("Die");
         Debug.Log("Demon zgin¹³!");
 
-        AudioManager.GetInstance().PlaySFX(audioManager.bossDefeat);
+        audioManager.PlaySFX(audioManager.bossDefeat);
 
-        // Wy³¹czenie tylko koliderów, które s¹ IsTrigger
         Collider2D[] colliders = GetComponents<Collider2D>();
         foreach (Collider2D collider in colliders)
         {
@@ -143,9 +154,10 @@ public class DemonBoss : MonoBehaviour
             }
         }
 
+        healthBarUI.SetActive(false); // Wy³¹czenie paska zdrowia po œmierci bossa
+
         this.enabled = false;
 
-        // Aktywacja obiektu po œmierci bossa
         if (objectToActivateOnDeath != null)
         {
             objectToActivateOnDeath.SetActive(true);

@@ -349,10 +349,23 @@ public class CharacterController2D : MonoBehaviour
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 
-        Collider2D[] groundColliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, 0.2f, m_WhatIsGround);
-        for (int i = 0; i < groundColliders.Length; i++)
+        Collider2D[] groundColliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, 0.01f, m_WhatIsGround);
+        //for (int i = 0; i < groundColliders.Length; i++)
+        //{
+        //    if (groundColliders[i].gameObject != gameObject)
+        //    {
+        //        m_Grounded = true;
+        //        if (!wasGrounded)
+        //        {
+        //            m_CanAirJump = true;
+        //            m_CurrentJumps = 0;
+        //            animator.SetBool("IsJumping", false);
+        //        }
+        //    }
+        //}
+        foreach (var collider in groundColliders)
         {
-            if (groundColliders[i].gameObject != gameObject)
+            if (collider.gameObject != gameObject && m_GroundCheck.position.y > collider.bounds.center.y)
             {
                 m_Grounded = true;
                 if (!wasGrounded)
@@ -361,8 +374,10 @@ public class CharacterController2D : MonoBehaviour
                     m_CurrentJumps = 0;
                     animator.SetBool("IsJumping", false);
                 }
+                break;
             }
         }
+
     }
 
 
@@ -447,16 +462,48 @@ public class CharacterController2D : MonoBehaviour
         bulletRb.velocity = lastDirection * bulletSpeed;
     }
 
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    foreach (string tag in resetJumpTags)
+    //    {
+    //        if (collision.gameObject.CompareTag(tag))
+    //        {
+    //            animator.SetBool("IsJumping", false);
+    //            break;
+    //        }
+    //    }
+    //}
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    foreach (string tag in resetJumpTags)
+    //    {
+    //        if (collision.gameObject.CompareTag(tag))
+    //        {
+    //            // Sprawdzenie, czy gracz uderzy³ platformê od góry
+    //            if (collision.contacts[0].point.y > transform.position.y)
+    //            {
+    //                animator.SetBool("IsJumping", false);
+    //                break;
+    //            }
+    //        }
+    //    }
+    //}
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        foreach (string tag in resetJumpTags)
+        if (collision.gameObject.CompareTag("platform"))
         {
-            if (collision.gameObject.CompareTag(tag))
+            foreach (ContactPoint2D contact in collision.contacts)
             {
-                animator.SetBool("IsJumping", false);
-                break;
+                if (contact.normal.y > 0.5f) // tylko jeœli kontakt jest z góry
+                {
+                    m_Grounded = true;
+                    m_CurrentJumps = 0; // Reset skoku tylko po wyl¹dowaniu z góry
+                    animator.SetBool("IsJumping", false);
+                    break;
+                }
             }
         }
     }
+
 }
 

@@ -35,13 +35,24 @@ public class MovingPlatform : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
     }
 
-private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.position.y > transform.position.y-0.3f)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            collision.transform.SetParent(transform);
+            ContactPoint2D[] contacts = new ContactPoint2D[collision.contactCount];
+            collision.GetContacts(contacts);
+
+            foreach (ContactPoint2D contact in contacts)
+            {
+                if (contact.point.y > transform.position.y) // Sprawdzenie, czy punkt kolizji jest powy¿ej platformy
+                {
+                    collision.transform.SetParent(transform);
+                    break;
+                }
+            }
         }
     }
+
 
     void OnCollisionExit2D(Collision2D collision)
     {

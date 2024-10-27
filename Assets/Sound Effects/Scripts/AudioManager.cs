@@ -29,6 +29,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip WugiSpell;
     public AudioClip FairyShield;
     public AudioClip WugiAttack;
+    public AudioClip laserCharging;
 
 
     private void Awake()

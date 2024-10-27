@@ -94,13 +94,20 @@ public class Boss_Golem : MonoBehaviour
     {
         isImmune = immune;
     }
-
+    public void PlayLaserChargingSound()
+    {
+        audioManager.PlaySFX(audioManager.laserCharging);
+    }
     public void PlayGlowSound()
     {
-        audioManager.PlaySFX(audioManager.laserAttack); // Odtwarzanie dŸwiêku
+        audioManager.PlaySFX(audioManager.laserAttack); 
     }
     public void PlayAttackSound()
     {
-        audioManager.PlaySFX(audioManager.Punch); // Odtwarzanie dŸwiêku
+        audioManager.PlaySFX(audioManager.Punch); 
     }
+
+
+
+
 }

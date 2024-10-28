@@ -20,7 +20,7 @@ public class Enemies_Death : MonoBehaviour
     public EnemyAI enemyAI;
 
     // Odniesienie do skryptu Boss_Golem
-    public Boss_Golem boss;
+     Boss_Golem boss;
 
     // Kolor migania
     public Color blinkColor = Color.white;

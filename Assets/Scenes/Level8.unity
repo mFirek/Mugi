@@ -20978,28 +20978,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1210561659441122563, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
-      propertyPath: m_SpriteTilingProperty.drawMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1556531131811874982, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1556531131811874982, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
       propertyPath: m_Color.b
-      value: 0.042792797
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1556531131811874982, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
       propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1556531131811874982, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1556531131811874982, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
-      propertyPath: m_DrawMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2916819833537453093, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
@@ -21042,29 +21026,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4671574526393272812, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4671574526393272812, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
-      propertyPath: activateDistance
-      value: 2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4954605746971495624, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
       propertyPath: m_Name
       value: blob_minion_punch-removebg-preview_0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4954605746971495624, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6025687681950718131, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
-      propertyPath: m_SpriteTilingProperty.drawMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7426621497689249156, guid: 40d2834587afc9e42a18273ec2613502, type: 3}
-      propertyPath: maxCollisions
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

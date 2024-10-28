@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 640989363766887001}
   - component: {fileID: 2027382572073176994}
   - component: {fileID: 7760358388315579001}
+  - component: {fileID: 5823553624959536458}
+  - component: {fileID: 6793153807619233690}
   m_Layer: 10
   m_Name: Goblin
   m_TagString: Untagged
@@ -159,7 +161,6 @@ MonoBehaviour:
   maxCollisions: 2
   blinkDuration: 0.5
   enemyAI: {fileID: 6353321915711284166}
-  boss: {fileID: 0}
   blinkColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1719474117561068416
 MonoBehaviour:
@@ -325,3 +326,51 @@ PolygonCollider2D:
       - {x: 0.08615246, y: -0.07086225}
       - {x: 0.089999996, y: 0.08}
   m_UseDelaunayMesh: 0
+--- !u!58 &5823553624959536458
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491892736835036731}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.041602373, y: -0.032357037}
+  m_Radius: 0.114869416
+--- !u!114 &6793153807619233690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491892736835036731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f338aef95c56744b13dff6a36380dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

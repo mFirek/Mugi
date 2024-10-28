@@ -16,9 +16,9 @@ public class DeactivateObjectOnTrigger : MonoBehaviour
         audioManager = AudioManager.GetInstance();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Player") && !isCollected)
+        if (other.CompareTag("Player") && !isCollected)
         {
             objectToDeactivate.SetActive(false); // dezaktywacja klucza
             AudioManager.GetInstance().PlaySFX(audioManager.PickUp);

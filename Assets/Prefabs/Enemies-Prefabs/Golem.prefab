@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 7095652471783544020}
   - component: {fileID: 4531594286922828837}
   - component: {fileID: 4501074341866149162}
-  - component: {fileID: 8702537618456829819}
   - component: {fileID: 2928560428129124636}
   - component: {fileID: 9004940195467868437}
+  - component: {fileID: 1965917356289382504}
   m_Layer: 10
   m_Name: Golem
   m_TagString: Untagged
@@ -160,7 +160,6 @@ MonoBehaviour:
   maxCollisions: 8
   blinkDuration: 0.5
   enemyAI: {fileID: 4531594286922828837}
-  boss: {fileID: 0}
   blinkColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &7095652471783544020
 MonoBehaviour:
@@ -228,18 +227,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &8702537618456829819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3295006125080057722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6b2c2ef83c3fe041af047d0a2f518b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &2928560428129124636
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -344,3 +331,15 @@ PolygonCollider2D:
       - {x: 0.17549065, y: 0.063251555}
       - {x: 0.155, y: 0.16499999}
   m_UseDelaunayMesh: 0
+--- !u!114 &1965917356289382504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3295006125080057722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f338aef95c56744b13dff6a36380dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

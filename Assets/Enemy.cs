@@ -7,14 +7,14 @@ public class Enemy : StateMachineBehaviour
     private Transform player;
     private Rigidbody2D rb;
     private Animator animator;
-    private AudioManager audioManager; // Dodajemy AudioManager
+    //private AudioManager audioManager; // Dodajemy AudioManager
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         this.animator = animator;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponentInChildren<Rigidbody2D>();
-        audioManager = AudioManager.GetInstance(); // Pobranie instancji AudioManager
+        //audioManager = AudioManager.GetInstance(); // Pobranie instancji AudioManager
 
 
     }
@@ -24,7 +24,7 @@ public class Enemy : StateMachineBehaviour
         if (Vector2.Distance(player.position, rb.position) <= attackRange)
         {
             animator.SetTrigger("Attack");
-            audioManager.PlaySFX(audioManager.enemyAttack2); // Odtwórz dŸwiêk ataku
+            //audioManager.PlaySFX(audioManager.enemyAttack2); // Odtwórz dŸwiêk ataku
         }
     }
 

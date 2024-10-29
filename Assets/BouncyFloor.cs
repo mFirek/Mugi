@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BouncyFloor : MonoBehaviour
 {
-    public float bounceForce = 20f; // Si³a wybicia gracza w górê
+    public float bounceForce = 10f; // Si³a wybicia gracza w górê
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -20,11 +20,11 @@ public class ResolutionControl : MonoBehaviour
 
         resolutionDropdown.ClearOptions();
         currentRefreshRate = (float)Screen.currentResolution.refreshRateRatio.value;
-        Debug.Log("RefreshRate: " + currentRefreshRate);
+        //Debug.Log("RefreshRate: " + currentRefreshRate);
 
         for (int i = 0; i < resolutions.Length; i++)
         {   
-            Debug.Log("Resolution: " + resolutions[i]);
+            //Debug.Log("Resolution: " + resolutions[i]);
             if ((float)resolutions[i].refreshRateRatio.value == currentRefreshRate)
             {
                 filteredResolutions.Add(resolutions[i]);

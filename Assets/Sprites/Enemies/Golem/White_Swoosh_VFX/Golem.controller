@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 0.6
-  deathTrigger: Hit
+  deathTrigger: Death
 --- !u!1102 &-595651235597875361
 AnimatorState:
   serializedVersion: 6

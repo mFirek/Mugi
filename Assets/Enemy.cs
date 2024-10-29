@@ -32,13 +32,13 @@ public class Enemy : StateMachineBehaviour
 
 
     // Metoda wywo³ywana przy kolizji z innym obiektem
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Kula"))
-        {
-            animator.SetTrigger(deathTrigger);
-            Destroy(animator.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
-        }
-    }
+    //void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Kula"))
+    //    {
+    //        animator.SetTrigger(deathTrigger);
+    //        Destroy(animator.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
+    //    }
+    //}
 }
 

@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6918978778599450960, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8373587425172016015, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.545
@@ -644,6 +648,10 @@ PrefabInstance:
     - target: {fileID: 5026897643070474523, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
       propertyPath: m_Name
       value: Pendulum (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191910183039659846, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1648,6 +1656,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8558497416568261141, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.3
@@ -2168,11 +2180,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5975658969130223078, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.826
+      value: -2.83
       objectReference: {fileID: 0}
     - target: {fileID: 5975658969130223078, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.741
+      value: -0.71
       objectReference: {fileID: 0}
     - target: {fileID: 5975658969130223078, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2322,6 +2334,7 @@ Transform:
   m_Children:
   - {fileID: 2043167302}
   - {fileID: 447759012}
+  - {fileID: 540239750}
   - {fileID: 1967289307}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2674,6 +2687,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pochodnia (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.078
@@ -2730,6 +2747,10 @@ PrefabInstance:
     - target: {fileID: 4501969818455355751, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_Name
       value: Pochodnia (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2841,6 +2862,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
   m_PrefabInstance: {fileID: 134573158}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &247105464
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 186386788}
+    m_Modifications:
+    - target: {fileID: 2614858206954749137, guid: 0676632d947720246b599cf397cec22d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614858206954749137, guid: 0676632d947720246b599cf397cec22d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.816
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614858206954749137, guid: 0676632d947720246b599cf397cec22d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614858206954749137, guid: 0676632d947720246b599cf397cec22d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614858206954749137, guid: 0676632d947720246b599cf397cec22d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614858206954749137, guid: 0676632d947720246b599cf397cec22d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614858206954749137, guid: 0676632d947720246b599cf397cec22d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614858206954749137, guid: 0676632d947720246b599cf397cec22d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614858206954749137, guid: 0676632d947720246b599cf397cec22d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614858206954749137, guid: 0676632d947720246b599cf397cec22d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210056992945675231, guid: 0676632d947720246b599cf397cec22d, type: 3}
+      propertyPath: m_Name
+      value: CheckPoint (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210056992945675231, guid: 0676632d947720246b599cf397cec22d, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3878994882449335268, guid: 0676632d947720246b599cf397cec22d, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0676632d947720246b599cf397cec22d, type: 3}
 --- !u!1 &248276993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3434,6 +3517,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6918978778599450960, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8373587425172016015, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.831
@@ -3458,6 +3545,10 @@ PrefabInstance:
     - target: {fileID: 4501969818455355751, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_Name
       value: Pochodnia (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3658,6 +3749,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8558497416568261141, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.3
@@ -3685,7 +3780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4640,6 +4735,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8558497416568261141, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.3
@@ -4664,6 +4763,10 @@ PrefabInstance:
     - target: {fileID: 4501969818455355751, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_Name
       value: Pochodnia (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4704,6 +4807,10 @@ PrefabInstance:
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170215639681883616, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4761,6 +4868,10 @@ PrefabInstance:
     - target: {fileID: 5026897643070474523, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
       propertyPath: m_Name
       value: Pendulum (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191910183039659846, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5126,6 +5237,10 @@ PrefabInstance:
     - target: {fileID: 5026897643070474523, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
       propertyPath: m_Name
       value: Pendulum (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191910183039659846, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6362,6 +6477,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2527394873639819566, guid: c8426378777c973488097a9bf048926e, type: 3}
   m_PrefabInstance: {fileID: 446960630}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &540239750 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614858206954749137, guid: 0676632d947720246b599cf397cec22d, type: 3}
+  m_PrefabInstance: {fileID: 247105464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &542207160
 GameObject:
   m_ObjectHideFlags: 0
@@ -6981,6 +7101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pochodnia (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.141
@@ -7365,6 +7489,10 @@ PrefabInstance:
     - target: {fileID: 4501969818455355751, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_Name
       value: Pochodnia (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8037,6 +8165,10 @@ PrefabInstance:
     - target: {fileID: 4501969818455355751, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_Name
       value: Pochodnia (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9204,6 +9336,10 @@ PrefabInstance:
     - target: {fileID: 6437561273555333714, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918978778599450960, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8373587425172016015, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10414,6 +10550,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pochodnia (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.32
@@ -10470,6 +10610,10 @@ PrefabInstance:
     - target: {fileID: 4501969818455355751, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_Name
       value: Pochodnia (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12185,6 +12329,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.3882353
       objectReference: {fileID: 0}
+    - target: {fileID: 9201538231982157800, guid: c8426378777c973488097a9bf048926e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12258,6 +12406,10 @@ PrefabInstance:
     - target: {fileID: 4501969818455355751, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_Name
       value: Pochodnia (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12487,6 +12639,10 @@ PrefabInstance:
     - target: {fileID: 5026897643070474523, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
       propertyPath: m_Name
       value: Pendulum (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191910183039659846, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12885,6 +13041,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6918978778599450960, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8373587425172016015, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.09
@@ -13127,6 +13287,10 @@ PrefabInstance:
     - target: {fileID: 4501969818455355751, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_Name
       value: Pochodnia (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13631,6 +13795,10 @@ PrefabInstance:
     - target: {fileID: 4501969818455355751, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_Name
       value: Pochodnia (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15194,6 +15362,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pochodnia (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.757
@@ -15290,6 +15462,10 @@ PrefabInstance:
     - target: {fileID: 5026897643070474523, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
       propertyPath: m_Name
       value: Pendulum
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191910183039659846, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17693,6 +17869,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pochodnia (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.615
@@ -18347,6 +18527,10 @@ PrefabInstance:
     - target: {fileID: 5026897643070474523, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
       propertyPath: m_Name
       value: Pendulum (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191910183039659846, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19028,6 +19212,10 @@ PrefabInstance:
     - target: {fileID: 4501969818455355751, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_Name
       value: Pochodnia (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20113,6 +20301,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pochodnia (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.174
@@ -20215,6 +20407,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pendulum (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7191910183039659846, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20284,6 +20480,10 @@ PrefabInstance:
     - target: {fileID: 6437561273555333714, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918978778599450960, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8373587425172016015, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20704,6 +20904,10 @@ PrefabInstance:
     - target: {fileID: 6437561273555333714, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918978778599450960, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8373587425172016015, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21323,6 +21527,10 @@ PrefabInstance:
     - target: {fileID: 6437561273555333714, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918978778599450960, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8373587425172016015, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22978,6 +23186,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6918978778599450960, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8373587425172016015, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.545
@@ -23715,6 +23927,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pochodnia (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.32
@@ -24112,6 +24328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pochodnia (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.03
@@ -24374,6 +24594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pendulum (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7191910183039659846, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24545,6 +24769,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.3882353
       objectReference: {fileID: 0}
+    - target: {fileID: 9201538231982157800, guid: c8426378777c973488097a9bf048926e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24566,6 +24794,10 @@ PrefabInstance:
     - target: {fileID: 4501969818455355751, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_Name
       value: Pochodnia (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24689,6 +24921,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pochodnia (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.902
@@ -24802,6 +25038,10 @@ PrefabInstance:
     - target: {fileID: 4501969818455355751, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_Name
       value: Pochodnia
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538968355713723802, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5751287503667978132, guid: b4e728bd7f3d32c4ab9c5c059141ccf9, type: 3}
       propertyPath: m_LocalPosition.x

@@ -7178,6 +7178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 886780764}
+  optionsMenuUI: {fileID: 1106137478}
 --- !u!114 &886780766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15367,6 +15368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 886780764}
+  optionsMenuUI: {fileID: 1106137478}
 --- !u!1001 &1651701199
 PrefabInstance:
   m_ObjectHideFlags: 0

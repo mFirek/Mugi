@@ -8,12 +8,22 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject optionsMenuUI;  // Dodane: okno opcji
 
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            TogglePause();
+            // Jeœli okno opcji jest aktywne, wy³¹cz je i wznow grê
+            if (optionsMenuUI.activeSelf)
+            {
+                CloseOptionsMenu();
+                Resume();
+            }
+            else
+            {
+                TogglePause();
+            }
         }
     }
 
@@ -41,6 +51,16 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+    }
+
+    public void OpenOptionsMenu()
+    {
+        optionsMenuUI.SetActive(true); // W³¹cza okno opcji
+    }
+
+    public void CloseOptionsMenu()
+    {
+        optionsMenuUI.SetActive(false); // Wy³¹cza okno opcji
     }
 
     public void QuitGame()

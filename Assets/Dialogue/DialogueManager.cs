@@ -7,30 +7,23 @@ using Ink.Runtime;
 public class DialogueManager : MonoBehaviour
 {
     [Header("Dialogue UI")]
-    [SerializeField] private GameObject dialoguePanel; // Panel z dialogiem
-    [SerializeField] private TextMeshProUGUI dialogueText; // Tekst dialogu
-
+    [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private float typingSpeed = 0.04f;
     private Story currentStory;
-
     public bool dialogueIsPlaying { get; private set; }
+
+    private Coroutine DisplayLineCoroutine;
 
     private static DialogueManager instance;
 
-    private bool canContinue = true; 
-
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (instance != null)
         {
-            Debug.LogWarning("Destroying duplicate DialogueManager instance");
-            Destroy(gameObject);
+            Debug.LogWarning("Found more than one Dialogue Manager in the scene");
         }
-        else
-        {
-            Debug.Log("DialogueManager instance created");
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        instance = this;
     }
 
     public static DialogueManager GetInstance()
@@ -43,20 +36,16 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
     }
-    private IEnumerator WaitForNextLine()
-    {
-        canContinue = false;
-        yield return new WaitForSeconds(0.1f); // Krótkie opóŸnienie, np. 0.1 sekundy
-        canContinue = true;
-    }
+
     private void Update()
     {
+        // Jeœli dialog nie jest aktywny, nie robi nic
         if (!dialogueIsPlaying)
         {
             return;
         }
 
-        // Obs³uga przycisku do kontynuowania dialogu
+        // Kontynuacja dialogu po naciœniêciu klawisza X
         if (Input.GetKeyDown(KeyCode.X))
         {
             ContinueStory();
@@ -65,37 +54,44 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
-        // Resetuj historiê, aby zaczynaæ dialog od pocz¹tku
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
-        // U¿yj ContinueStory() do wyœwietlenia pierwszej linii dialogu
         ContinueStory();
     }
 
-    public void ExitDialogueMode()
+    private IEnumerator ExitDialogueMode()
     {
-        dialogueIsPlaying = false; // Wa¿ne, aby zakoñczyæ tryb dialogu
+        yield return new WaitForSeconds(0.2f);
+
+        dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
-        Debug.Log("Dialogue mode exited.");
     }
 
     private void ContinueStory()
     {
         if (currentStory.canContinue)
         {
-            string text = currentStory.Continue();
-            dialogueText.text = text;
-            Debug.Log("Continued story: " + text);
+            if (DisplayLineCoroutine != null)
+            {
+                StopCoroutine(DisplayLineCoroutine);
+            }
+            DisplayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
         }
         else
         {
-            Debug.Log("Dialogue ended. Exiting dialogue mode.");
-            ExitDialogueMode();
+            StartCoroutine(ExitDialogueMode());
         }
     }
-
-
+    private IEnumerator DisplayLine(string line)
+    {
+        dialogueText.text = "";
+        foreach (char letter in line.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+    }
 }

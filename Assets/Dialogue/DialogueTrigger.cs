@@ -1,34 +1,29 @@
+using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class DialogueTrigger : MonoBehaviour
 {
     [Header("Visual Cue")]
     [SerializeField] private GameObject visualCue;
-
-    [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
-
-    private bool playerInRange = false;
-    private bool dialogueStarted = false; // Flaga do kontroli czy dialog ju¿ siê rozpocz¹³
-
+    private bool playerInRange;
     private void Awake()
     {
         playerInRange = false;
         visualCue.SetActive(false);
     }
-
     private void Update()
     {
-        // Sprawdzenie, czy gracz jest w zasiêgu dialogu i dialog nie jest odtwarzany
-        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying && !dialogueStarted)
+        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
             visualCue.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.X))
+            if(Input.GetKeyDown(KeyCode.X))
             {
-                visualCue.SetActive(false);
+                //visualCue.SetActive(false);
+                //DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                //Debug.Log(inkJSON.text);
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
-                dialogueStarted = true; // Zablokowanie ponownego uruchomienia dialogu
             }
         }
         else
@@ -36,22 +31,20 @@ public class DialogueTrigger : MonoBehaviour
             visualCue.SetActive(false);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             playerInRange = true;
+            
         }
     }
-
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             playerInRange = false;
-            visualCue.SetActive(false);
-            dialogueStarted = false; // Resetowanie flagi po opuszczeniu zasiêgu
+            
         }
     }
 }

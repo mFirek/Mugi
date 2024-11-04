@@ -16,6 +16,8 @@ public class DialogueManager : MonoBehaviour
 
     private static DialogueManager instance;
 
+    private bool canContinue = true; 
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -41,7 +43,12 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
     }
-
+    private IEnumerator WaitForNextLine()
+    {
+        canContinue = false;
+        yield return new WaitForSeconds(0.1f); // Krótkie opóŸnienie, np. 0.1 sekundy
+        canContinue = true;
+    }
     private void Update()
     {
         if (!dialogueIsPlaying)
@@ -60,11 +67,10 @@ public class DialogueManager : MonoBehaviour
     {
         // Resetuj historiê, aby zaczynaæ dialog od pocz¹tku
         currentStory = new Story(inkJSON.text);
-
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
-        // Automatyczne pokazanie pierwszej linii dialogu od razu po wejœciu w tryb dialogu
+        // U¿yj ContinueStory() do wyœwietlenia pierwszej linii dialogu
         ContinueStory();
     }
 
@@ -82,6 +88,7 @@ public class DialogueManager : MonoBehaviour
         {
             string text = currentStory.Continue();
             dialogueText.text = text;
+            Debug.Log("Continued story: " + text);
         }
         else
         {
@@ -89,4 +96,6 @@ public class DialogueManager : MonoBehaviour
             ExitDialogueMode();
         }
     }
+
+
 }

@@ -5,11 +5,7 @@ public class GlobalDeathCounter : MonoBehaviour
 {
     private static int globalDeathCount = 0; // Statyczna zmienna przechowuj¹ca globaln¹ liczbê zgonów
     private TextMeshProUGUI globalDeathCountText; // TextMeshProUGUI komponent do wyœwietlania liczby zgonów
-    private static bool playerJustDied = false; // Flaga, aby unikn¹æ wielokrotnego naliczania tego samego zgonu
     private static bool isDeathIncremented = false; // Flaga do ochrony przed podwójnym naliczaniem przy pierwszym zgonie
-
-    [SerializeField]
-    private static float deathFlagDuration = 1.0f; // Czas trwania flagi, edytowalny w inspektorze Unity
 
     private void Awake()
     {
@@ -22,8 +18,7 @@ public class GlobalDeathCounter : MonoBehaviour
             Debug.LogError("TextMeshProUGUI nie zosta³ znaleziony na obiekcie GlobalDeathCounter!");
         }
 
-        // Resetuj flagi na pocz¹tku
-        playerJustDied = false;
+        // Resetuj flagê na pocz¹tku
         isDeathIncremented = false; // Flaga do zabezpieczenia przed podwójnym naliczaniem
     }
 
@@ -43,11 +38,10 @@ public class GlobalDeathCounter : MonoBehaviour
         Debug.Log("Wywo³ano IncrementGlobalDeathCount"); // Debugowanie wywo³ania funkcji
 
         // SprawdŸ, czy liczba zgonów ju¿ nie zosta³a zwiêkszona
-        if (!playerJustDied && !isDeathIncremented)
+        if (!isDeathIncremented)
         {
-            Debug.Log("Gracz w³aœnie zgin¹³ po raz pierwszy, zwiêkszamy licznik zgonów.");
+            Debug.Log("Gracz w³aœnie zgin¹³, zwiêkszamy licznik zgonów.");
             globalDeathCount++; // Zwiêksz liczbê zgonów globalnych
-            playerJustDied = true; // Ustaw flagê, ¿e gracz w³aœnie zgin¹³
             isDeathIncremented = true; // Zapobiega podwójnemu naliczaniu
             UpdateGlobalDeathCountText(); // Zaktualizuj tekst po zwiêkszeniu
         }
@@ -73,7 +67,6 @@ public class GlobalDeathCounter : MonoBehaviour
     public static void ResetDeathFlag()
     {
         Debug.Log("Resetowanie flagi zgonu. Gracz siê odrodzi³.");
-        playerJustDied = false; // Resetujemy flagê przy odrodzeniu gracza, aby mog³y byæ naliczane kolejne zgony
         isDeathIncremented = false; // Resetujemy dodatkow¹ flagê do zabezpieczenia
     }
 

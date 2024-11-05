@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1092155696494934240}
   - component: {fileID: 4047035299195216499}
   - component: {fileID: 6266233350931474638}
-  - component: {fileID: 6418439263393551849}
   m_Layer: 0
   m_Name: Next_Level
   m_TagString: Untagged
@@ -101,7 +100,7 @@ MonoBehaviour:
   absorptionDuration: 2
   smoothTime: 0.3
   fadePanel: {fileID: 0}
-  fadeDuration: 1
+  fadeDuration: 1.5
 --- !u!95 &4047035299195216499
 Animator:
   serializedVersion: 7
@@ -168,7 +167,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2881094504456313649, guid: bca8ea14166a4fc4c94582231a0180d3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5079576, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -178,19 +177,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6418439263393551849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128333792088904067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0cf999385653cc42826d16b8a3ff31f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volume: {fileID: 0}
 --- !u!1 &9137468809986876847
 GameObject:
   m_ObjectHideFlags: 0

@@ -166,11 +166,11 @@ public class LevelManager : MonoBehaviour
         while (fadeElapsed < fadeDuration)
         {
             float alpha = Mathf.Lerp(0, 1, fadeElapsed / fadeDuration);
-            fadePanel.color = new Color(0, 0, 0, alpha);
+            fadePanel.color = new Color(0, 119, 255, alpha);
             fadeElapsed += Time.deltaTime;
             yield return null;
         }
-        fadePanel.color = new Color(0, 0, 0, 1);
+        fadePanel.color = new Color(0, 119, 255, 1);
     }
 }
 

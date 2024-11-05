@@ -42,7 +42,7 @@ public class DeathCountText : MonoBehaviour
     private void OnPlayerDeath()
     {
         deathCount++;  // Increase the local number of deaths
-      
+
         Debug.Log("Gracz zgin¹³. Liczba zgonów: " + deathCount);
         UpdateDeathCountText();
     }

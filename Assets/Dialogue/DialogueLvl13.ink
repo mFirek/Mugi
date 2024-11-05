@@ -1,7 +1,8 @@
 Mugi
-before we dive into uncertainty again,
+Mugi 
+Before we dive into uncertainty again,
 I have to tell you something.
-Thank you for stopping Mugi from destroying the world.
+Thank you for stopping Wugi from destroying the world.
 Your courage and determination saved the whole world.
 I know that the decision you had to make was terribly difficult.
 Killing your own brother is a burden 

@@ -10,12 +10,14 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private float typingSpeed = 0.04f;
+    [SerializeField] private float skipHoldDuration = 2.0f;  // czas przytrzymania Space do pominiêcia ca³ego dialogu
     private Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
 
-    private Coroutine DisplayLineCoroutine;
-
+    private Coroutine displayLineCoroutine;
     private static DialogueManager instance;
+    private float holdTime = 0f;  // czas przytrzymania Space
+    private bool skipTriggered = false;  // flaga dla jednorazowego wy³¹czenia
 
     private void Awake()
     {
@@ -39,16 +41,33 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        // Jeœli dialog nie jest aktywny, nie robi nic
         if (!dialogueIsPlaying)
         {
+            holdTime = 0f;
+            skipTriggered = false;
             return;
         }
 
-        // Kontynuacja dialogu po naciœniêciu klawisza X
+        // Przewijanie dialogu przyciskiem X
         if (Input.GetKeyDown(KeyCode.X))
         {
             ContinueStory();
+        }
+
+        // Sprawdzanie przytrzymania Space dla pominiêcia dialogu
+        if (Input.GetKey(KeyCode.Space))
+        {
+            holdTime += Time.deltaTime;
+
+            if (holdTime >= skipHoldDuration && !skipTriggered)
+            {
+                skipTriggered = true;  // flaga dla jednorazowego wy³¹czenia
+                StartCoroutine(ExitDialogueMode());
+            }
+        }
+        else
+        {
+            holdTime = 0f;
         }
     }
 
@@ -74,20 +93,22 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            if (DisplayLineCoroutine != null)
+            if (displayLineCoroutine != null)
             {
-                StopCoroutine(DisplayLineCoroutine);
+                StopCoroutine(displayLineCoroutine);
             }
-            DisplayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
+            displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
         }
         else
         {
             StartCoroutine(ExitDialogueMode());
         }
     }
+
     private IEnumerator DisplayLine(string line)
     {
         dialogueText.text = "";
+
         foreach (char letter in line.ToCharArray())
         {
             dialogueText.text += letter;

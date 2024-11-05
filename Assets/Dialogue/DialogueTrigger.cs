@@ -20,9 +20,6 @@ public class DialogueTrigger : MonoBehaviour
             visualCue.SetActive(true);
             if(Input.GetKeyDown(KeyCode.X))
             {
-                //visualCue.SetActive(false);
-                //DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
-                //Debug.Log(inkJSON.text);
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
             }
         }

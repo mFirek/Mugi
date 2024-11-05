@@ -11,7 +11,8 @@ public class SceneTransition : MonoBehaviour
     {
         if (fadePanel != null)
         {
-            fadePanel.color = new Color(0, 0, 0, 1); // Ustaw pe³ne zaciemnienie
+            // Ustawienie koloru zielonego przy pe³nej przezroczystoœci (zielony = 0,255,0)
+            fadePanel.color = new Color(0f / 255f, 255f / 255f, 0f / 255f, 1); // Pe³ne zaciemnienie zielone
             StartCoroutine(FadeIn()); // Rozpocznij fade-in przy starcie
         }
     }
@@ -23,10 +24,10 @@ public class SceneTransition : MonoBehaviour
         {
             // U¿ycie SmoothStep dla p³ynniejszej zmiany przezroczystoœci
             float alpha = Mathf.SmoothStep(1, 0, fadeElapsed / fadeDuration);
-            fadePanel.color = new Color(0, 0, 0, alpha);
+            fadePanel.color = new Color(0f / 255f, 255f / 255f, 0f / 255f, alpha); // Utrzymanie koloru zielonego, zmiana przezroczystoœci
             fadeElapsed += Time.deltaTime;
             yield return null;
         }
-        fadePanel.color = new Color(0, 0, 0, 0);
+        fadePanel.color = new Color(0f / 255f, 255f / 255f, 0f / 255f, 0); // Ustawienie ca³kowitej przezroczystoœci
     }
 }

@@ -99,6 +99,8 @@ MonoBehaviour:
   absorptionPoint: {fileID: 4745668652112592594}
   absorptionDuration: 2
   smoothTime: 0.3
+  fadePanel: {fileID: 0}
+  fadeDuration: 1.5
 --- !u!95 &4047035299195216499
 Animator:
   serializedVersion: 7
@@ -165,7 +167,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2881094504456313649, guid: bca8ea14166a4fc4c94582231a0180d3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5079576, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -200,7 +202,7 @@ Transform:
   m_GameObject: {fileID: 9137468809986876847}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 0, z: 0}
+  m_LocalPosition: {x: 0.43, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

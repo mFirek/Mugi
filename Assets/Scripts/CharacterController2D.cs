@@ -50,7 +50,6 @@ public class CharacterController2D : MonoBehaviour
 
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
-
     private void Update()
     {
         if (DialogueManager.GetInstance() != null && DialogueManager.GetInstance().dialogueIsPlaying)
@@ -63,15 +62,15 @@ public class CharacterController2D : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
-        if (Input.GetButtonDown("Jump") && (m_Grounded || m_CurrentJumps < m_MaxAirJumps))
+        if (Input.GetButtonDown("Jump") && (m_Grounded || m_CurrentJumps < m_MaxAirJumps) && !animator.GetBool("isAttacking"))
         {
             audioManager.PlaySFX(audioManager.Jump);
             jump = true;
             animator.SetBool("IsJumping", true);
-            isFalling = false;  // Zresetowanie IsFalling
+            isFalling = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && !animator.GetBool("isAttacking"))
         {
             Attack();
         }
@@ -126,6 +125,7 @@ public class CharacterController2D : MonoBehaviour
             animator.SetBool("IsFalling", false);
         }
     }
+
 
 
     private void Move(float move, bool jump)
@@ -184,8 +184,30 @@ public class CharacterController2D : MonoBehaviour
         }
 
         audioManager.PlaySFX(audioManager.Attack);
+        animator.SetBool("isAttacking", true);  // Ustawienie flagi ataku
         animator.Play(m_AttackAnimationName);
+
         Shoot();
+    }
+
+    public void EndAttack()
+    {
+        animator.SetBool("isAttacking", false);
+
+        // Powrót do animacji skoku lub spadania, jeœli gracz jest w powietrzu
+        if (!m_Grounded)
+        {
+            if (m_Rigidbody2D.velocity.y > 0)
+            {
+                animator.SetBool("IsJumping", true);
+                animator.SetBool("IsFalling", false);
+            }
+            else
+            {
+                animator.SetBool("IsJumping", false);
+                animator.SetBool("IsFalling", true);
+            }
+        }
     }
 
     private void Shoot()

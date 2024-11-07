@@ -2739,7 +2739,7 @@ Transform:
   m_GameObject: {fileID: 382129332}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.05003, y: 0.8122, z: 0}
+  m_LocalPosition: {x: -12.810031, y: 0.8122, z: 0}
   m_LocalScale: {x: 2, y: 2.517, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3662,7 +3662,7 @@ Transform:
   m_GameObject: {fileID: 474960201}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.800075, y: 0.8485001, z: 0}
+  m_LocalPosition: {x: -15.500075, y: 0.8485001, z: 0}
   m_LocalScale: {x: 2, y: 2.4596, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6542,6 +6542,18 @@ MonoBehaviour:
       - m_Target: {fileID: 414056892}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 414056892}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: TogglePause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9570,7 +9582,7 @@ Transform:
   m_GameObject: {fileID: 1305868747}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.493768, y: 0.83329993, z: 0}
+  m_LocalPosition: {x: -24.993767, y: 0.83329993, z: 0}
   m_LocalScale: {x: 3.3294, y: 2.6126, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9890,7 +9902,7 @@ Transform:
   m_GameObject: {fileID: 1314790020}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.240012, y: 0.7914, z: 0}
+  m_LocalPosition: {x: -16.190012, y: 0.7914, z: 0}
   m_LocalScale: {x: 2, y: 2.517, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

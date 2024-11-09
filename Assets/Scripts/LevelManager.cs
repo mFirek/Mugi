@@ -71,7 +71,10 @@ public class LevelManager : MonoBehaviour
         // Uruchom efekt fade-out
         yield return StartCoroutine(FadeOut());
 
+        
+
         SceneManager.LoadScene(nextLevelName);
+        LevelUnlockManager.Instance.UnlockNextLevel(SceneManager.GetActiveScene().buildIndex);
         GlobalDeathCounter.SaveGlobalDeathCount();
     }
 

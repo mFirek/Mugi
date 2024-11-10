@@ -43,7 +43,7 @@ public class DeathCountText : MonoBehaviour
     {
         deathCount++;  // Increase the local number of deaths
 
-        Debug.Log("Gracz zgin¹³. Liczba zgonów: " + deathCount);
+        
         UpdateDeathCountText();
     }
 

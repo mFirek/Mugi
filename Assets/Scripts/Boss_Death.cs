@@ -128,6 +128,8 @@ public class Boss_Death : MonoBehaviour
         {
             // Jeœli nie znaleziono animatora lub animacji "Death", zniszcz obiekt natychmiast
             Destroy(gameObject);
+            PlayerBossAnalytics.Instance.SendBossDefeatEvent();
+
         }
     }
 

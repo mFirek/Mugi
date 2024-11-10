@@ -171,6 +171,7 @@ public class Golem_Death : MonoBehaviour
         {
             nextLevelObject.SetActive(true);
         }
+        PlayerBossAnalytics.Instance.SendBossDefeatEvent();
     }
 
     bool HasDeathAnimation(Animator animator)

@@ -35,19 +35,19 @@ public class GlobalDeathCounter : MonoBehaviour
 
     public static void IncrementGlobalDeathCount()
     {
-        Debug.Log("Wywo³ano IncrementGlobalDeathCount"); // Debugowanie wywo³ania funkcji
+        
 
         // SprawdŸ, czy liczba zgonów ju¿ nie zosta³a zwiêkszona
         if (!isDeathIncremented)
         {
-            Debug.Log("Gracz w³aœnie zgin¹³, zwiêkszamy licznik zgonów.");
+           
             globalDeathCount++; // Zwiêksz liczbê zgonów globalnych
             isDeathIncremented = true; // Zapobiega podwójnemu naliczaniu
             UpdateGlobalDeathCountText(); // Zaktualizuj tekst po zwiêkszeniu
         }
         else
         {
-            Debug.Log("Gracz ju¿ wczeœniej zgin¹³, nie naliczamy ponownie.");
+            
         }
     }
 
@@ -66,7 +66,7 @@ public class GlobalDeathCounter : MonoBehaviour
 
     public static void ResetDeathFlag()
     {
-        Debug.Log("Resetowanie flagi zgonu. Gracz siê odrodzi³.");
+        
         isDeathIncremented = false; // Resetujemy dodatkow¹ flagê do zabezpieczenia
     }
 

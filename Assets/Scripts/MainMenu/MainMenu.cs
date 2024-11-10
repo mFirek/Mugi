@@ -42,7 +42,7 @@ public class MainMenu : MonoBehaviour
     public void NewGameOpen()
     {
         //DisableMenuButtons();
-        SceneManager.LoadSceneAsync("Level2");
+        SceneManager.LoadSceneAsync("Level1");
     }
     private void DisableMenuButtons()
     {

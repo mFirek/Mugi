@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 93f8e2c0f27ef4341b028d5d9c54ad79
+guid: 5fb95574f185e494f8e7f64158ddbc7f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6345082514573911126
-    second: Wooden_0
-  - first:
-      213: 1359884212437413644
-    second: Wooden_1
-  - first:
-      213: 1414455896583610072
-    second: Wooden_2
-  - first:
-      213: -4664259307571733155
-    second: Wooden_3
+      213: -406496011657995516
+    second: Vines_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -135,127 +126,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wooden_0
+      name: Vines_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 140
-        width: 116
-        height: 116
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aab9748121db1f7a0800000000000000
-      internalID: -6345082514573911126
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wooden_1
-      rect:
-        serializedVersion: 2
-        x: 151
-        y: 141
-        width: 223
-        height: 114
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c0f6ef97c774fd210800000000000000
-      internalID: 1359884212437413644
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wooden_2
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 5
-        width: 129
-        height: 125
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8de9252d42821a310800000000000000
-      internalID: 1414455896583610072
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wooden_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 5
-        width: 237
-        height: 125
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d5d90ef3fd8354fb0800000000000000
-      internalID: -4664259307571733155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wooden_4
-      rect:
-        serializedVersion: 2
-        x: 368
-        y: 16
-        width: 11
-        height: 101
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b049d3f46f6a6454385b44f87b8ddc48
-      internalID: -468916775
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wooden_5
-      rect:
-        serializedVersion: 2
-        x: 159
-        y: 85
-        width: 206
-        height: 32
+        x: 64
+        y: 0
+        width: 132
+        height: 260
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ceeaa355bd383d54780bd21bed9e2717
-      internalID: 1563396882
+      spriteID: 40b1386f706db5af0800000000000000
+      internalID: -406496011657995516
       vertices: []
       indices: 
       edges: []
@@ -263,16 +149,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c5b506b581eeab044ae29afe25214384
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Wooden_4: -468916775
-      Wooden_5: 1563396882
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

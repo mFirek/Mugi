@@ -1,71 +1,69 @@
 using UnityEngine;
-using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
 public class PlayerBossAnalytics : MonoBehaviour
 {
-    // Singleton – statyczna instancja klasy
-    public static PlayerBossAnalytics Instance { get; private set; }
+    private static PlayerBossAnalytics instance;
 
-    private int bossAttempts = 0;
-
-    private void Awake()
+    public static PlayerBossAnalytics Instance
     {
-        // Singleton setup
-        if (Instance == null)
+        get
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // Zachowanie obiektu miêdzy scenami
+            if (instance == null)
+            {
+                instance = FindObjectOfType<PlayerBossAnalytics>();
+            }
+            return instance;
+        }
+    }
+
+    private int attemptsCount = 0; // Liczba prób (równa liczbie zgonów)
+    private int currentLevel = 1; // Numer poziomu
+
+    // Referencja do skryptu licz¹cego zgony
+    private DeathCountText deathCountTextScript;
+
+    private void Start()
+    {
+        // Pobierz numer poziomu z nazwy sceny
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (int.TryParse(sceneName.Substring(sceneName.Length - 1), out currentLevel))
+        {
+            Debug.Log("Aktualny poziom: " + currentLevel);
         }
         else
         {
-            Destroy(gameObject);
+            Debug.LogError("Nie uda³o siê uzyskaæ numeru poziomu z nazwy sceny!");
+            currentLevel = 1; // Domyœlny poziom, jeœli nie uda³o siê wyci¹gn¹æ numeru
         }
-    }
 
-    private void OnEnable()
-    {
-        // Subskrybuj zdarzenie œmierci gracza
-        if (GameEventsManager.instance != null)
+        // Pobierz referencjê do skryptu licz¹cego zgony
+        deathCountTextScript = FindObjectOfType<DeathCountText>();
+        if (deathCountTextScript != null)
         {
-            GameEventsManager.instance.onPlayerDeath += OnPlayerDeath;
+            // Ustaw liczbê prób na liczbê zgonów
+            attemptsCount = deathCountTextScript.GetDeathCount();
+            Debug.Log("Pobrana liczba zgonów (prób): " + attemptsCount);
         }
-    }
-
-    private void OnDisable()
-    {
-        // Wyrejestruj zdarzenie œmierci gracza
-        if (GameEventsManager.instance != null)
+        else
         {
-            GameEventsManager.instance.onPlayerDeath -= OnPlayerDeath;
+            Debug.LogError("Nie znaleziono skryptu DeathCountText!");
         }
     }
 
-    // Zwiêksz licznik prób przy ka¿dym zgonie gracza
-    private void OnPlayerDeath()
-    {
-        bossAttempts++;
-        Debug.Log("Podejœcie do walki z bossem: " + bossAttempts);
-    }
-
-    // Metoda wysy³aj¹ca zdarzenie po pokonaniu bossa
+    // Metoda wywo³ywana przy pokonaniu bossa
     public void SendBossDefeatEvent()
     {
-        int currentLevel = SceneManager.GetActiveScene().buildIndex;
-
-        // Przygotowanie danych zdarzenia
-        Dictionary<string, object> bossDefeatData = new Dictionary<string, object>()
+        // Pobierz aktualn¹ liczbê zgonów, aby odœwie¿yæ attemptsCount
+        if (deathCountTextScript != null)
         {
-            { "level", currentLevel },
-            { "attempts", bossAttempts }
-        };
+            attemptsCount = deathCountTextScript.GetDeathCount();
+        }
 
-        // Wysy³anie zdarzenia do Unity Analytics
-        AnalyticsResult result = Analytics.CustomEvent("boss_defeat", bossDefeatData);
-        Debug.Log($"Boss pokonany po {bossAttempts} podejœciach na poziomie {currentLevel}. Wynik Analytics: {result}");
+        // Wyœwietl dane
+        Debug.Log($"Boss pokonany po {attemptsCount} podejœciu na poziomie {currentLevel}.");
 
-        // Zresetuj licznik po pokonaniu bossa
-        bossAttempts = 0;
+        // Zapisz dane do PlayerPrefs, jeœli jest to potrzebne
+        PlayerPrefs.SetInt($"BossDefeatAttempts_Level{currentLevel}", attemptsCount);
     }
 }

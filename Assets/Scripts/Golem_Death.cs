@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 using UnityEngine.UI;
+using System.Security.Cryptography;
 
 public class Golem_Death : MonoBehaviour
 {
@@ -85,7 +86,12 @@ public class Golem_Death : MonoBehaviour
         {
             DestroyEnemy();
         }
+        if (PlayerBossAnalytics.Instance != null)
+        {
+            PlayerBossAnalytics.Instance.SendBossDefeatEvent(); // Wyœlij dane o pokonaniu bossa
+        }
     }
+   
 
     IEnumerator BlinkOnHit()
     {
@@ -171,7 +177,15 @@ public class Golem_Death : MonoBehaviour
         {
             nextLevelObject.SetActive(true);
         }
-        PlayerBossAnalytics.Instance.SendBossDefeatEvent();
+        if (PlayerBossAnalytics.Instance != null)
+        {
+            PlayerBossAnalytics.Instance.SendBossDefeatEvent();
+        }
+        else
+        {
+            Debug.LogError("PlayerBossAnalytics instance is null! Make sure it's assigned in the scene.");
+        }
+
     }
 
     bool HasDeathAnimation(Animator animator)

@@ -63,4 +63,8 @@ public class DeathCountText : MonoBehaviour
     {
         PlayerPrefs.SetInt("LocalDeathCount", deathCount);
     }
+    public int GetDeathCount()
+    {
+        return deathCount;
+    }
 }

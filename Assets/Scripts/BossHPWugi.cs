@@ -102,6 +102,14 @@ public class BossHPWugi : MonoBehaviour
     {
         Destroy(gameObject);
         if (nextLevelObject != null) nextLevelObject.SetActive(true);
+        if (PlayerBossAnalytics.Instance != null)
+        {
+            PlayerBossAnalytics.Instance.SendBossDefeatEvent();
+        }
+        else
+        {
+            Debug.LogError("PlayerBossAnalytics instance is null! Make sure it's assigned in the scene.");
+        }
     }
 
     private void UpdateHealthUI()

@@ -86,10 +86,7 @@ public class Golem_Death : MonoBehaviour
         {
             DestroyEnemy();
         }
-        if (PlayerBossAnalytics.Instance != null)
-        {
-            PlayerBossAnalytics.Instance.SendBossDefeatEvent(); // Wyœlij dane o pokonaniu bossa
-        }
+        
     }
    
 

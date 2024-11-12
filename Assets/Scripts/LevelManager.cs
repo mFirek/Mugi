@@ -10,17 +10,25 @@ public class LevelManager : MonoBehaviour
     public Transform absorptionPoint;
     public float absorptionDuration = 2f;
     public float smoothTime = 0.3f;
-    public Image fadePanel; // Panel u¿ywany tylko do efektu fade-out
+    public Image fadePanel;
     public float fadeDuration = 1f;
 
     private bool isAbsorbing = false;
     private Vector3 velocity = Vector3.zero;
 
-    AudioManager audioManager;
+    private AudioManager audioManager;
+    private PlayerLevelAnalytics playerLevelAnalytics;
 
     void Start()
     {
         audioManager = AudioManager.GetInstance();
+        playerLevelAnalytics = GetComponent<PlayerLevelAnalytics>();
+
+        // Sprawdzenie czy skrypt PlayerLevelAnalytics zosta³ znaleziony
+        if (playerLevelAnalytics == null)
+        {
+            Debug.LogError("PlayerLevelAnalytics nie zosta³ znaleziony na tym obiekcie!");
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -29,7 +37,7 @@ public class LevelManager : MonoBehaviour
         {
             isAbsorbing = true;
             StartCoroutine(AbsorbAndFadeOut(other.transform));
-            AudioManager.GetInstance().PlaySFX(audioManager.Portal);
+            audioManager.PlaySFX(audioManager.Portal);
         }
     }
 
@@ -71,11 +79,20 @@ public class LevelManager : MonoBehaviour
         // Uruchom efekt fade-out
         yield return StartCoroutine(FadeOut());
 
-        
+        // Sprawdzenie wywo³ania zdarzenia koñca poziomu
+        Debug.Log("Wywo³anie zdarzenia koñca poziomu");
+        if (playerLevelAnalytics != null)
+        {
+            playerLevelAnalytics.SendLevelEndEvent();
+            Debug.Log("Zdarzenie koñca poziomu zosta³o wys³ane");
+        }
+        else
+        {
+            Debug.LogError("Brak przypisanej referencji do PlayerLevelAnalytics");
+        }
 
+        // Przejœcie do kolejnego poziomu
         SceneManager.LoadScene(nextLevelName);
-        LevelUnlockManager.Instance.UnlockNextLevel(SceneManager.GetActiveScene().buildIndex);
-        GlobalDeathCounter.SaveGlobalDeathCount();
     }
 
     IEnumerator FadeOut()
@@ -85,14 +102,12 @@ public class LevelManager : MonoBehaviour
 
         while (fadeElapsed < fadeDuration)
         {
-            // Interpoluj przezroczystoœæ od 0 do 1
             float alpha = Mathf.Lerp(0, 1, fadeElapsed / fadeDuration);
             fadePanel.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
             fadeElapsed += Time.deltaTime;
             yield return null;
         }
 
-        // Ustaw pe³n¹ przezroczystoœæ na koñcu
         fadePanel.color = new Color(originalColor.r, originalColor.g, originalColor.b, 1);
     }
 }

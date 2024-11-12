@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpikeTrigger2 : MonoBehaviour
@@ -23,9 +22,24 @@ public class SpikeTrigger2 : MonoBehaviour
             {
                 Debug.LogWarning("Nie znaleziono obiektu startowego!");
             }
+
             if (other.CompareTag("Player") && !isDead)
             {
                 isDead = true;
+
+                // Pobierz aktualn¹ nazwê poziomu
+                string level = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+                // Pobierz pozycjê gracza w momencie œmierci
+                Vector3 deathPosition = transform.position;
+
+                // Pobierz nazwê obiektu, z którym gracz zderzy³ siê
+                string causeOfDeath = other.gameObject.name;
+
+                // Ustaw dane œmierci w GameEventsManager
+                GameEventsManager.SetDeathData(level, deathPosition, causeOfDeath);
+
+                // Wywo³aj zdarzenie œmierci
                 if (GameEventsManager.instance != null)
                 {
                     GameEventsManager.instance.PlayerDied();
@@ -34,11 +48,12 @@ public class SpikeTrigger2 : MonoBehaviour
                 {
                     Debug.LogError("Nie znaleziono instancji GameEventsManager!");
                 }
+
                 StartCoroutine(ResetDeathFlag());
             }
         }
-
     }
+
     IEnumerator ResetDeathFlag()
     {
         yield return new WaitForSeconds(0.2f);  // Wait 1 sec before flag reset

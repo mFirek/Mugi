@@ -1,4 +1,3 @@
-// SpikeTrigger.cs
 using System.Collections;
 using UnityEngine;
 
@@ -7,13 +6,6 @@ public class Lavatrigger : MonoBehaviour
     private GameObject player;
     private bool isDead = false;  // Flaga zapobiegaj¹ca wielokrotnemu zliczaniu zgonów
     public DeactivateObjectOnTrigger keyScript; // Referencja do skryptu klucza
-
-    // Funkcja wywo³ywana, gdy gracz umiera
-
-    // Resurrect key
-    // Wywo³aj metodê, która ponownie aktywuje klucz
-
-    // Dodaj inne logiki zwi¹zane ze œmierci¹ gracza, np. resetowanie pozycji, licznik ¿yæ itp.
 
     void Start()
     {
@@ -33,13 +25,22 @@ public class Lavatrigger : MonoBehaviour
             // Przenieœ gracza do punktu respawnu
             player.transform.position = respawnPoint;
 
-            // Wywo³aj zdarzenie œmierci gracza
+            // Pobierz aktualn¹ nazwê poziomu
+            string level = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+            // Pobierz pozycjê gracza w momencie œmierci
+            Vector3 deathPosition = transform.position;
+
+            // Pobierz nazwê obiektu, z którym gracz zderzy³ siê (w tym przypadku lava)
+            string causeOfDeath = "Lava";
+
+            // Ustaw dane œmierci w GameEventsManager
+            GameEventsManager.SetDeathData(level, deathPosition, causeOfDeath);
+
+            // Wywo³aj zdarzenie œmierci
             if (GameEventsManager.instance != null)
             {
-                GameEventsManager.instance.PlayerDied();  // Wywo³aj zdarzenie
-
-                GlobalDeathCounter.IncrementGlobalDeathCount();  // Zwiêksz globalny licznik
-                keyScript.RespawnKey();
+                GameEventsManager.instance.PlayerDied();
             }
             else
             {

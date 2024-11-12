@@ -1,4 +1,3 @@
-// SpikeTrigger.cs
 using System.Collections;
 using UnityEngine;
 
@@ -25,11 +24,22 @@ public class SpikeTrigger : MonoBehaviour
             // Przenieś gracza do punktu respawnu
             player.transform.position = respawnPoint;
 
-            // Wywołaj zdarzenie śmierci gracza
+            // Pobierz aktualną nazwę poziomu
+            string level = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+            // Pobierz pozycję gracza w momencie śmierci
+            Vector3 deathPosition = transform.position;
+
+            // Pobierz nazwę obiektu, z którym gracz zderzył się (w tym przypadku kolce)
+            string causeOfDeath = "Spikes";
+
+            // Ustaw dane śmierci w GameEventsManager
+            GameEventsManager.SetDeathData(level, deathPosition, causeOfDeath);
+
+            // Wywołaj zdarzenie śmierci
             if (GameEventsManager.instance != null)
             {
-                GameEventsManager.instance.PlayerDied();  // Wywołaj zdarzenie
-                GlobalDeathCounter.IncrementGlobalDeathCount();  // Zwiększ globalny licznik
+                GameEventsManager.instance.PlayerDied();
             }
             else
             {

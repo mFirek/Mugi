@@ -7,6 +7,11 @@ public class GameEventsManager : MonoBehaviour
 
     public event Action onPlayerDeath;  // U¿ywamy Action dla zdarzeñ bez parametrów
 
+    // Statyczne w³aœciwoœci przechowuj¹ce dane o œmierci gracza
+    public static Vector3 deathPosition;
+    public static string causeOfDeath;
+    public static string currentLevel;
+
     private void Awake()
     {
         // Sprawdzenie, czy istnieje ju¿ instancja GameEventsManager
@@ -24,8 +29,20 @@ public class GameEventsManager : MonoBehaviour
     // Metoda wywo³uj¹ca zdarzenie œmierci gracza
     public void PlayerDied()
     {
+        // Wywo³anie zdarzenia œmierci
         onPlayerDeath?.Invoke();
-        GlobalDeathCounter.ResetDeathFlag();
+        GlobalDeathCounter.ResetDeathFlag();  // Resetuj flagê
+
+        // Jeœli s¹ zarejestrowane dane o œmierci gracza, wypisz je w logu
+        Debug.Log($"Zdarzenie œmierci: Poziom: {currentLevel}, Pozycja: {deathPosition}, Przyczyna œmierci: {causeOfDeath}");
+    }
+
+    // Ustawienie danych o œmierci gracza
+    public static void SetDeathData(string level, Vector3 position, string cause)
+    {
+        currentLevel = level;
+        deathPosition = position;
+        causeOfDeath = cause;
     }
 
     private void RespawnPlayer()

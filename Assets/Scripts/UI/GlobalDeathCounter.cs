@@ -4,7 +4,7 @@ using TMPro;
 public class GlobalDeathCounter : MonoBehaviour
 {
     private static int globalDeathCount = 0; // Statyczna zmienna przechowuj¹ca globaln¹ liczbê zgonów
-    private TextMeshProUGUI globalDeathCountText; // TextMeshProUGUI komponent do wyœwietlania liczby zgonów
+    private TextMeshProUGUI globalDeathCountText; // Komponent TextMeshProUGUI do wyœwietlania liczby zgonów
     private static bool isDeathIncremented = false; // Flaga do ochrony przed podwójnym naliczaniem przy pierwszym zgonie
 
     private void Awake()
@@ -22,35 +22,33 @@ public class GlobalDeathCounter : MonoBehaviour
         isDeathIncremented = false; // Flaga do zabezpieczenia przed podwójnym naliczaniem
     }
 
+    // Zapisz liczbê globalnych zgonów do PlayerPrefs
     public static void SaveGlobalDeathCount()
     {
-        PlayerPrefs.SetInt("GlobalDeathCount", globalDeathCount); // Zapisz liczbê zgonów globalnych
+        PlayerPrefs.SetInt("GlobalDeathCount", globalDeathCount); // Zapisz liczbê globalnych zgonów
         PlayerPrefs.Save(); // Zapisz zmiany
     }
 
+    // Wczytaj liczbê globalnych zgonów z PlayerPrefs
     public void LoadGlobalDeathCount()
     {
         globalDeathCount = PlayerPrefs.GetInt("GlobalDeathCount", 0); // Za³aduj liczbê globalnych zgonów
     }
 
+    // Zwiêkszenie globalnej liczby zgonów
     public static void IncrementGlobalDeathCount()
     {
-        
-
         // SprawdŸ, czy liczba zgonów ju¿ nie zosta³a zwiêkszona
         if (!isDeathIncremented)
         {
-           
             globalDeathCount++; // Zwiêksz liczbê zgonów globalnych
             isDeathIncremented = true; // Zapobiega podwójnemu naliczaniu
+            SaveGlobalDeathCount(); // Zapisz now¹ wartoœæ globalnej liczby zgonów w PlayerPrefs
             UpdateGlobalDeathCountText(); // Zaktualizuj tekst po zwiêkszeniu
-        }
-        else
-        {
-            
         }
     }
 
+    // Aktualizacja tekstu wyœwietlanego na ekranie
     public static void UpdateGlobalDeathCountText()
     {
         // ZnajdŸ wszystkie obiekty typu GlobalDeathCounter w scenie
@@ -64,10 +62,10 @@ public class GlobalDeathCounter : MonoBehaviour
         }
     }
 
+    // Resetowanie flagi po odrodzeniu gracza
     public static void ResetDeathFlag()
     {
-        
-        isDeathIncremented = false; // Resetujemy dodatkow¹ flagê do zabezpieczenia
+        isDeathIncremented = false; // Resetujemy dodatkow¹ flagê zabezpieczaj¹c¹
     }
 
     private void Start()
@@ -78,6 +76,6 @@ public class GlobalDeathCounter : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        SaveGlobalDeathCount(); // Zapisz globalne zgony przy wy³¹czaniu aplikacji
+        SaveGlobalDeathCount(); // Zapisz globaln¹ liczbê zgonów przy wy³¹czaniu aplikacji
     }
 }

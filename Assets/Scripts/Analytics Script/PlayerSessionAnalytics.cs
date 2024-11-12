@@ -4,25 +4,20 @@ using System.Collections.Generic;
 
 public class PlayerSessionAnalytics : MonoBehaviour
 {
-    public static int totalDeaths = 0;
-
-    // Wywo³aj tê metodê w momencie œmierci gracza
-    public void OnPlayerDeath()
+    // Statyczna metoda, któr¹ mo¿na wywo³aæ bez tworzenia instancji klasy
+    public static void SendSessionEndEvent()
     {
-        totalDeaths++;
-    }
+        // Pobierz ca³kowit¹ liczbê zgonów z PlayerPrefs
+        int totalDeaths = PlayerPrefs.GetInt("GlobalDeathCount", 0);
 
-    // Wywo³aj na koniec sesji gry
-    public void SendSessionEndEvent()
-    {
+        // Przygotowanie danych do wys³ania
         Dictionary<string, object> sessionData = new Dictionary<string, object>()
         {
             { "total_deaths", totalDeaths }
         };
 
+        // Wysy³anie zdarzenia analitycznego
         AnalyticsResult result = Analytics.CustomEvent("session_end", sessionData);
-        Debug.Log("Liczba zgonów podczas sesji: " + totalDeaths);
-
-        totalDeaths = 0; // Resetowanie licznika na kolejn¹ sesjê
+        Debug.Log("Zdarzenie sesji wys³ane: Liczba zgonów = " + totalDeaths);
     }
 }

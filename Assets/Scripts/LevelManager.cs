@@ -80,11 +80,11 @@ public class LevelManager : MonoBehaviour
         yield return StartCoroutine(FadeOut());
 
         // Sprawdzenie wywo³ania zdarzenia koñca poziomu
-        Debug.Log("Wywo³anie zdarzenia koñca poziomu");
+       
         if (playerLevelAnalytics != null)
         {
             playerLevelAnalytics.SendLevelEndEvent();
-            Debug.Log("Zdarzenie koñca poziomu zosta³o wys³ane");
+            
         }
         else
         {

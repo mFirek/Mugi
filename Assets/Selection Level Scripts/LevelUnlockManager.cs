@@ -7,11 +7,10 @@ public class LevelUnlockManager : MonoBehaviour
 
     public Button[] levelButtons; // Przycisk dla ka¿dego poziomu przypisany w inspektorze
     private bool[] unlockedLevels; // Tablica przechowuj¹ca stan odblokowania poziomów
-    private int totalLevels = 10; // Liczba poziomów (do dostosowania)
+    private int totalLevels = 12; // Liczba poziomów (do dostosowania)
 
     private void Awake()
     {
-        
         // Singleton instancji
         if (Instance == null)
         {
@@ -31,12 +30,12 @@ public class LevelUnlockManager : MonoBehaviour
     {
         unlockedLevels = new bool[totalLevels];
 
-        // Ustawienie poziomów 0 i 1 jako odblokowanych
-        unlockedLevels[0] = true;
-        unlockedLevels[1] = true;
-
-        // Za³aduj stan poziomów z PlayerPrefs, nadpisuj¹c tylko odblokowane poziomy powy¿ej pierwszych dwóch
+        // Za³aduj stan poziomów z PlayerPrefs
         LoadLevels();
+
+        // Ustawienie poziomów 0 i 1 jako odblokowanych (jeœli nie zosta³y odblokowane w PlayerPrefs)
+        if (!unlockedLevels[0]) unlockedLevels[0] = true;
+        if (!unlockedLevels[1]) unlockedLevels[1] = true;
 
         // Aktualizacja interaktywnoœci przycisków
         UpdateButtonInteractivity();
@@ -52,14 +51,19 @@ public class LevelUnlockManager : MonoBehaviour
     public void UnlockNextLevel(int currentLevelIndex)
     {
         int nextLevel = currentLevelIndex + 1;
+
         if (nextLevel < unlockedLevels.Length && !unlockedLevels[nextLevel])
         {
             unlockedLevels[nextLevel] = true;
-            SaveLevels();
-            Debug.Log("Odblokowano nowy poziom: " + nextLevel);
+            SaveLevels(); // Zapisz stan po odblokowaniu poziomu
+            Debug.Log("Odblokowano nowy poziom: " + nextLevel); // Logowanie
+        }
+        else
+        {
+            Debug.Log("Poziom " + nextLevel + " jest ju¿ odblokowany lub nie istnieje.");
         }
 
-        UpdateButtonInteractivity();
+        UpdateButtonInteractivity(); // Zaktualizuj przyciski
     }
 
     // Funkcja zapisuj¹ca stan poziomów do PlayerPrefs
@@ -70,15 +74,16 @@ public class LevelUnlockManager : MonoBehaviour
             PlayerPrefs.SetInt("LevelUnlocked_" + i, unlockedLevels[i] ? 1 : 0);
         }
         PlayerPrefs.Save();
+        Debug.Log("Poziomy zapisane do PlayerPrefs.");
     }
 
     // Funkcja ³aduj¹ca stan poziomów z PlayerPrefs
     private void LoadLevels()
     {
-        for (int i = 2; i < unlockedLevels.Length; i++)
+        for (int i = 0; i < unlockedLevels.Length; i++)
         {
-            // £adowanie poziomów zaczynaj¹c od indeksu 2, ¿eby pierwsze dwa pozosta³y odblokowane
             unlockedLevels[i] = PlayerPrefs.GetInt("LevelUnlocked_" + i, 0) == 1;
+            Debug.Log("Loaded level " + i + ": " + unlockedLevels[i]); // Logowanie
         }
     }
 

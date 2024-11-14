@@ -14,6 +14,7 @@ public class GameEventsManager : MonoBehaviour
 
     private void Awake()
     {
+        
         // Sprawdzenie, czy istnieje ju¿ instancja GameEventsManager
         if (instance == null)
         {
@@ -35,6 +36,7 @@ public class GameEventsManager : MonoBehaviour
 
         // Jeœli s¹ zarejestrowane dane o œmierci gracza, wypisz je w logu
         Debug.Log($"Zdarzenie œmierci: Poziom: {currentLevel}, Pozycja: {deathPosition}, Przyczyna œmierci: {causeOfDeath}");
+        GlobalDeathCounter.IncrementGlobalDeathCount();
     }
 
     // Ustawienie danych o œmierci gracza

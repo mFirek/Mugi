@@ -38,9 +38,7 @@ public class LevelUnlockTrigger : MonoBehaviour
 
         Debug.Log("Odblokowany poziom: " + currentLevelIndex);
 
-        // Za³aduj nastêpny poziom
-        string nextLevelName = "Level" + currentLevelIndex.ToString(); // Za³ó¿my, ¿e sceny nazywaj¹ siê "Level1", "Level2", itd.
-        SceneManager.LoadScene(nextLevelName);
+      
     }
 
     // Resetowanie flagi po za³adowaniu nowej sceny

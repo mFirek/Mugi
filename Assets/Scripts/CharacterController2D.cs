@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 [RequireComponent(typeof(CapsuleCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -39,7 +38,9 @@ public class CharacterController2D : MonoBehaviour
     private bool jump = false;
     private bool isFalling = false;
 
-    AudioManager audioManager;
+    private AudioManager audioManager;
+    private GameObject pauseMenu;
+    private GameObject optionsMenu;
 
     private void Awake()
     {
@@ -49,12 +50,22 @@ public class CharacterController2D : MonoBehaviour
             animator = GetComponent<Animator>();
 
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
+        // Znalezienie obiektów Canvas i Pause Menu
+        GameObject canvas = GameObject.Find("Canvas");
+        if (canvas != null)
+        {
+            pauseMenu = canvas.transform.Find("Pause Menu")?.gameObject;
+            optionsMenu = canvas.transform.Find("Options")?.gameObject;
+
+        }
     }
 
     private void Update()
     {
-        if (DialogueManager.GetInstance() != null && DialogueManager.GetInstance().dialogueIsPlaying)
+        if (!CanPerformAction())
         {
+            // Zatrzymanie animacji postaci, gdy nie mo¿e siê poruszaæ
             horizontalMove = 0;
             animator.SetFloat("Speed", 0);
             return;
@@ -71,7 +82,7 @@ public class CharacterController2D : MonoBehaviour
             isFalling = false;  // Zresetowanie IsFalling
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetMouseButtonDown(0))
         {
             Attack();
         }
@@ -79,9 +90,9 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (DialogueManager.GetInstance() != null && DialogueManager.GetInstance().dialogueIsPlaying)
+        if (!CanPerformAction())
         {
-            Move(0, false);
+            Move(0, false); // Postaæ siê nie rusza
             return;
         }
 
@@ -127,10 +138,9 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-
     private void Move(float move, bool jump)
     {
-        if (DialogueManager.GetInstance() != null && DialogueManager.GetInstance().dialogueIsPlaying)
+        if (!CanPerformAction())
         {
             m_Rigidbody2D.velocity = new Vector2(0f, m_Rigidbody2D.velocity.y);
             return;
@@ -203,6 +213,30 @@ public class CharacterController2D : MonoBehaviour
 
     private bool CanPerformAction()
     {
-        return DialogueManager.GetInstance() == null || !DialogueManager.GetInstance().dialogueIsPlaying;
+        bool isDialoguePlaying = DialogueManager.GetInstance() != null && DialogueManager.GetInstance().dialogueIsPlaying;
+
+        // Sprawdzamy aktywnoœæ PauseMenu i OptionsMenu bezpoœrednio
+        bool isPauseMenuActive = pauseMenu != null && pauseMenu.activeSelf;
+        bool isOptionsMenuActive = optionsMenu != null && optionsMenu.activeSelf;
+        // Upewniamy siê, ¿e sprawdzamy tylko aktywnoœæ menu, a nie ca³ego Canvasa
+        return !isDialoguePlaying && !isPauseMenuActive && !isOptionsMenuActive;
     }
+
+
+
+    // Sprawdza, czy obiekt lub którykolwiek z jego dzieci jest aktywny
+    // Sprawdza, czy obiekt lub którykolwiek z jego dzieci jest aktywny
+    //private bool IsAnyChildActive(GameObject parent)
+    //{
+    //    if (parent == null) return false;
+
+    //    // Nie sprawdzaj aktywnoœci samego Canvasa, tylko jego dzieci
+    //    foreach (Transform child in parent.transform)
+    //    {
+    //        if (child.gameObject.activeSelf) return true;
+    //    }
+
+    //    return false;
+    //}
+
 }

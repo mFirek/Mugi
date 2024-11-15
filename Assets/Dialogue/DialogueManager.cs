@@ -49,7 +49,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         // Przewijanie dialogu przyciskiem X
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.F))
         {
             ContinueStory();
         }

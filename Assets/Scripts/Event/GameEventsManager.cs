@@ -14,7 +14,6 @@ public class GameEventsManager : MonoBehaviour
 
     private void Awake()
     {
-        
         // Sprawdzenie, czy istnieje ju¿ instancja GameEventsManager
         if (instance == null)
         {
@@ -36,6 +35,10 @@ public class GameEventsManager : MonoBehaviour
 
         // Jeœli s¹ zarejestrowane dane o œmierci gracza, wypisz je w logu
         Debug.Log($"Zdarzenie œmierci: Poziom: {currentLevel}, Pozycja: {deathPosition}, Przyczyna œmierci: {causeOfDeath}");
+
+        // Wywo³anie analityki w momencie œmierci gracza
+        SendDeathEventToAnalytics();
+
         GlobalDeathCounter.IncrementGlobalDeathCount();
     }
 
@@ -50,5 +53,22 @@ public class GameEventsManager : MonoBehaviour
     private void RespawnPlayer()
     {
         GlobalDeathCounter.ResetDeathFlag(); // Reset flagi
+    }
+
+    // Nowa metoda wysy³aj¹ca dane o œmierci do analityki
+    private void SendDeathEventToAnalytics()
+    {
+        // SprawdŸ, czy jest dostêpny skrypt PlayerDeathAnalytics w scenie
+        PlayerDeathAnalytics playerDeathAnalytics = FindObjectOfType<PlayerDeathAnalytics>();
+        if (playerDeathAnalytics != null)
+        {
+            // Wywo³anie metody wysy³aj¹cej dane o œmierci do Unity Analytics
+            playerDeathAnalytics.SendPlayerDeathEvent(currentLevel, deathPosition, causeOfDeath);
+            Debug.Log("Dane o œmierci zosta³y wys³ane do Unity Analytics.");
+        }
+        else
+        {
+            Debug.LogError("Nie znaleziono skryptu PlayerDeathAnalytics w scenie!");
+        }
     }
 }

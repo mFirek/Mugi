@@ -1,5 +1,6 @@
 using UnityEngine;
-using UnityEngine.Analytics;
+using UnityEngine.SceneManagement;
+using Unity.Services.Analytics;
 using System.Collections.Generic;
 
 public class PlayerCheckpointAnalytics : MonoBehaviour
@@ -23,72 +24,64 @@ public class PlayerCheckpointAnalytics : MonoBehaviour
         {
             if (gameObject.name == "Checkpoint1")
             {
-                // Rozpocznij pomiar czasu
                 checkpoint1Time = Time.time;
                 Debug.Log("Checkpoint1 osi¹gniêty, czas pomiaru rozpoczêty.");
             }
             else if (gameObject.name == "Checkpoint2" && checkpoint1Time >= 0)
             {
-                if (checkpoint4Exists)
-                {
-                    // Jeœli istnieje "Checkpoint4", zapisujemy czas dotarcia do "Checkpoint2" i czekamy dalej
-                    checkpoint2Time = Time.time;
-                    Debug.Log("Checkpoint2 osi¹gniêty, czas zapisany, oczekiwanie na Checkpoint4.");
-                }
-                else if (checkpoint3Exists)
-                {
-                    // Jeœli istnieje "Checkpoint3", ale nie "Checkpoint4", czekamy na dotarcie do Checkpoint3
-                    checkpoint2Time = Time.time;
-                    Debug.Log("Checkpoint2 osi¹gniêty, czas zapisany, oczekiwanie na Checkpoint3.");
-                }
-                else
-                {
-                    // Jeœli brak "Checkpoint3" i "Checkpoint4", koñczymy pomiar przy Checkpoint2
-                    float timeBetweenCheckpoints = Time.time - checkpoint1Time;
-                    SendAnalytics("checkpoint_time_1_2", timeBetweenCheckpoints);
-                    ResetTimes();
-                }
+                checkpoint2Time = Time.time;
+                Debug.Log("Checkpoint2 osi¹gniêty.");
+                ProcessCheckpoint("checkpoint_time_1_2", checkpoint1Time, checkpoint2Time);
             }
             else if (gameObject.name == "Checkpoint3" && checkpoint1Time >= 0 && checkpoint2Time >= 0)
             {
-                if (checkpoint4Exists)
-                {
-                    // Jeœli istnieje "Checkpoint4", zapisujemy czas dotarcia do "Checkpoint3"
-                    checkpoint3Time = Time.time;
-                    Debug.Log("Checkpoint3 osi¹gniêty, czas zapisany, oczekiwanie na Checkpoint4.");
-                }
-                else
-                {
-                    // Jeœli brak "Checkpoint4", koñczymy pomiar przy Checkpoint3
-                    float timeBetweenCheckpoints = Time.time - checkpoint1Time;
-                    SendAnalytics("checkpoint_time_1_3", timeBetweenCheckpoints);
-                    ResetTimes();
-                }
+                checkpoint3Time = Time.time;
+                Debug.Log("Checkpoint3 osi¹gniêty.");
+                ProcessCheckpoint("checkpoint_time_1_3", checkpoint1Time, checkpoint3Time);
             }
             else if (gameObject.name == "Checkpoint4" && checkpoint1Time >= 0 && checkpoint2Time >= 0 && checkpoint3Time >= 0)
             {
-                // Jeœli dotarliœmy do "Checkpoint4", koñczymy pomiar przy nim
-                float timeBetweenCheckpoints = Time.time - checkpoint1Time;
-                SendAnalytics("checkpoint_time_1_4", timeBetweenCheckpoints);
+                float totalTime = Time.time - checkpoint1Time;
+                SendAnalytics("checkpoint_time_1_4", totalTime);
                 ResetTimes();
             }
         }
     }
 
+    private void ProcessCheckpoint(string eventName, float startTime, float endTime)
+    {
+        if (checkpoint4Exists || (checkpoint3Exists && eventName == "checkpoint_time_1_2"))
+        {
+            Debug.Log($"Oczekiwanie na kolejne punkty kontrolne po {eventName}.");
+        }
+        else
+        {
+            float timeBetweenCheckpoints = endTime - startTime;
+            SendAnalytics(eventName, timeBetweenCheckpoints);
+            ResetTimes();
+        }
+    }
+
     private void SendAnalytics(string eventName, float time)
     {
-        // Wysy³a dane analityczne z czasem
+        // Pobierz nazwê bie¿¹cej sceny
+        string levelName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+        // Dodaj informacjê o scenie do danych analitycznych
         Dictionary<string, object> checkpointData = new Dictionary<string, object>()
         {
-            { "time_between_checkpoints", time }
+            { "time_between_checkpoints", time }, // Dopasuj nazwê do Unity Dashboard
+            { "level_name", levelName } // Dodaj nazwê sceny
         };
-        AnalyticsResult result = Analytics.CustomEvent(eventName, checkpointData);
-        Debug.Log($"{eventName}: {time} s.");
+
+        // Wysy³anie zdarzenia do Unity Analytics
+        AnalyticsService.Instance.CustomData(eventName, checkpointData);
+        AnalyticsService.Instance.Flush(); // Opcjonalne: wys³anie danych natychmiast
+        Debug.Log($"{eventName}: {time} s in scene {levelName} sent to Unity Analytics.");
     }
 
     private void ResetTimes()
     {
-        // Resetuje czasy po zakoñczeniu pomiaru
         checkpoint1Time = -1f;
         checkpoint2Time = -1f;
         checkpoint3Time = -1f;

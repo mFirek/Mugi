@@ -1,5 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Unity.Services.Core;
+using Unity.Services.Analytics;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public class PlayerBossAnalytics : MonoBehaviour
 {
@@ -17,33 +21,36 @@ public class PlayerBossAnalytics : MonoBehaviour
         }
     }
 
-    private int attemptsCount = 0; // Liczba prób (równa liczbie zgonów)
-    private int currentLevel = 1; // Numer poziomu
+    private int attemptsCount = 0; // Liczba prób (zgony)
+    private int currentLevel = 1;  // Numer poziomu
+    private string levelName;      // Nazwa poziomu
 
     // Referencja do skryptu licz¹cego zgony
     private DeathCountText deathCountTextScript;
 
-    private void Start()
+    private async void Start()
     {
-        // Pobierz numer poziomu z nazwy sceny
-        string sceneName = SceneManager.GetActiveScene().name;
-        if (int.TryParse(sceneName.Substring(sceneName.Length - 1), out currentLevel))
+        // Inicjalizowanie Unity Services
+        await InitializeUnityServices();
+
+        // Pobranie numeru poziomu z nazwy sceny
+        levelName = SceneManager.GetActiveScene().name;
+        if (int.TryParse(levelName.Substring(levelName.Length - 1), out currentLevel))
         {
-            Debug.Log("Aktualny poziom: " + currentLevel);
+            Debug.Log($"Aktualny poziom: {currentLevel}");
         }
         else
         {
             Debug.LogError("Nie uda³o siê uzyskaæ numeru poziomu z nazwy sceny!");
-            currentLevel = 1; // Domyœlny poziom, jeœli nie uda³o siê wyci¹gn¹æ numeru
+            currentLevel = 1; // Domyœlny numer poziomu
         }
 
-        // Pobierz referencjê do skryptu licz¹cego zgony
+        // Pobranie referencji do skryptu licz¹cego zgony
         deathCountTextScript = FindObjectOfType<DeathCountText>();
         if (deathCountTextScript != null)
         {
-            // Ustaw liczbê prób na liczbê zgonów
             attemptsCount = deathCountTextScript.GetDeathCount();
-            Debug.Log("Pobrana liczba zgonów (prób): " + attemptsCount);
+            Debug.Log($"Pobrana liczba zgonów (prób): {attemptsCount}");
         }
         else
         {
@@ -51,19 +58,57 @@ public class PlayerBossAnalytics : MonoBehaviour
         }
     }
 
-    // Metoda wywo³ywana przy pokonaniu bossa
+    private async Task InitializeUnityServices()
+    {
+        try
+        {
+            // Inicjalizowanie Unity Services
+            await UnityServices.InitializeAsync();
+            Debug.Log("Unity Services zosta³y pomyœlnie zainicjalizowane.");
+            GiveConsent(); // Udziel zgody na zbieranie danych
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"B³¹d inicjalizacji Unity Services: {e.Message}");
+        }
+    }
+
+    private void GiveConsent()
+    {
+        // Rozpoczynamy zbieranie danych analitycznych
+        AnalyticsService.Instance.StartDataCollection();
+        Debug.Log("Zgoda na zbieranie danych zosta³a udzielona.");
+    }
+
+    // Wywo³ywana po pokonaniu bossa
     public void SendBossDefeatEvent()
     {
-        // Pobierz aktualn¹ liczbê zgonów, aby odœwie¿yæ attemptsCount
         if (deathCountTextScript != null)
         {
-            attemptsCount = deathCountTextScript.GetDeathCount();
+            attemptsCount = deathCountTextScript.GetDeathCount(); // Aktualizacja liczby prób
         }
 
-        // Wyœwietl dane
-        Debug.Log($"Boss pokonany po {attemptsCount} podejœciu na poziomie {currentLevel}.");
+        // Przygotowanie danych zdarzenia
+        Dictionary<string, object> bossDefeatData = new Dictionary<string, object>
+        {
+            { "level_name", levelName },    // Numer poziomu
+            { "attempts", attemptsCount }   // Liczba podejœæ
+        };
 
-        // Zapisz dane do PlayerPrefs, jeœli jest to potrzebne
+        try
+        {
+            // Wysy³anie danych analitycznych do Unity Analytics
+            Debug.Log("Próba wys³ania zdarzenia 'boss_defeated'...");
+            AnalyticsService.Instance.CustomData("boss_defeated", bossDefeatData);
+            AnalyticsService.Instance.Flush(); // Natychmiastowe wysy³anie danych
+            Debug.Log($"Zdarzenie 'boss_defeated' zosta³o wys³ane: Poziom {currentLevel}, Próby {attemptsCount}.");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"B³¹d podczas wysy³ania zdarzenia 'boss_defeated': {e.Message}");
+        }
+
+        // Opcjonalne: Zapisz lokalne dane (np. w PlayerPrefs)
         PlayerPrefs.SetInt($"BossDefeatAttempts_Level{currentLevel}", attemptsCount);
     }
 }

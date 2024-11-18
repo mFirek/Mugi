@@ -1,28 +1,20 @@
 using UnityEngine;
 using Unity.Services.Core;
 using Unity.Services.Analytics;
-using System.Threading.Tasks;
 
 public class AnalyticsInitializer : MonoBehaviour
 {
-    private async void Start()
-    {
-        await InitializeUnityServices();
-    }
-
-    private async Task InitializeUnityServices()
+    async void Start()
     {
         try
         {
             await UnityServices.InitializeAsync();
-            if (Unity.Services.Analytics.AnalyticsService.Instance != null)
-            {
-                Debug.Log("Unity Analytics zosta³o zainicjalizowane.");
-            }
+            AnalyticsService.Instance.StartDataCollection(); // Rozpocznij zbieranie danych
+            Debug.Log("Unity Services initialized and data collection started.");
         }
-        catch (System.Exception e)
+        catch (ConsentCheckException e)
         {
-            Debug.LogError("B³¹d inicjalizacji Unity Services: " + e.Message);
+            Debug.LogError($"Consent check failed: {e.Message}");
         }
     }
 }

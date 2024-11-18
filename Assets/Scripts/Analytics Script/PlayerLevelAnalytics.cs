@@ -1,15 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Analytics;
+using Unity.Services.Core;
+using Unity.Services.Analytics;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public class PlayerLevelAnalytics : MonoBehaviour
 {
     private TimerText timer;
     private DeathCountText deathCounter;
 
-    private void Start()
+    private async void Start()
     {
+        // Inicjalizowanie Unity Services
+        await InitializeUnityServices();
+
         // Znajdujemy obiekt o nazwie „Timer” i pobieramy jego komponent TimerText
         GameObject timerObject = GameObject.Find("Timer");
         if (timerObject != null)
@@ -33,31 +38,58 @@ public class PlayerLevelAnalytics : MonoBehaviour
         }
     }
 
+    private async Task InitializeUnityServices()
+    {
+        try
+        {
+            // Inicjalizowanie Unity Services
+            await UnityServices.InitializeAsync();
+            GiveConsent(); // Udziel zgody na zbieranie danych
+            Debug.Log("Unity Services zosta³y pomyœlnie zainicjalizowane.");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"B³¹d inicjalizacji Unity Services: {e.Message}");
+        }
+    }
+
+    private void GiveConsent()
+    {
+        // Rozpoczynamy zbieranie danych analitycznych
+        AnalyticsService.Instance.StartDataCollection();
+        Debug.Log("Zgoda na zbieranie danych zosta³a udzielona.");
+    }
+
     public void SendLevelEndEvent()
     {
         // Pobranie informacji o poziomie
         string levelName = SceneManager.GetActiveScene().name; // Pobierz nazwê sceny (poziomu)
 
-        // Pobieranie licznika zgonów za pomoc¹ nazwy obiektu "Death Counter"
-        GameObject deathCounterObj = GameObject.Find("Death Counter");
-        DeathCountText deathCountText = deathCounterObj.GetComponent<DeathCountText>();
-        int deaths = deathCountText.GetDeathCount();
+        // Pobieranie licznika zgonów
+        int deaths = deathCounter.GetDeathCount();
 
-        // Pobieranie czasu ukoñczenia poziomu za pomoc¹ nazwy obiektu "Timer"
-        GameObject timerObj = GameObject.Find("Timer");
-        TimerText timerText = timerObj.GetComponent<TimerText>();
-        float completionTime = timerText.GetElapsedTime();
+        // Pobieranie czasu ukoñczenia poziomu
+        float completionTime = timer.GetElapsedTime();
 
         // Tworzymy s³ownik, w którym przechowamy dane
         Dictionary<string, object> levelEndData = new Dictionary<string, object>()
         {
-            { "level", levelName },
+            { "level_name", levelName },
             { "completion_time", completionTime },
             { "deaths", deaths }
         };
 
-        // Wysy³amy dane analityczne
-        AnalyticsResult result = Analytics.CustomEvent("level_end", levelEndData);
-        Debug.Log($"Poziom {levelName} zakoñczony. Czas: {completionTime}s, Zgony: {deaths}");
+        // Wysy³anie danych analitycznych do Unity Analytics Cloud
+        try
+        {
+            Debug.Log("Próba wys³ania zdarzenia 'level_end'...");
+            AnalyticsService.Instance.CustomData("level_end", levelEndData);
+            AnalyticsService.Instance.Flush(); // Natychmiastowe wysy³anie zdarzenia
+            Debug.Log($"Zdarzenie 'level_end' zosta³o wys³ane: {levelEndData}");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"B³¹d podczas wysy³ania zdarzenia 'level_end': {e.Message}");
+        }
     }
 }

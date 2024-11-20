@@ -6,6 +6,7 @@ public class AnalyticsInitializer : MonoBehaviour
 {
     async void Start()
     {
+        
         try
         {
             await UnityServices.InitializeAsync();

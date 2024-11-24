@@ -6,7 +6,7 @@ using TMPro;
 public class FPSManager : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown fpsDropdown; // Dropdown dla wyboru limitu FPS
-    private List<int> fpsOptions = new List<int> { 30, 60, 120 }; // Dostêpne opcje FPS
+    private List<int> fpsOptions = new List<int> { 120, 60, 30 }; // Dostêpne opcje FPS
     private int currentFPSIndex = 0;
 
     void Start()

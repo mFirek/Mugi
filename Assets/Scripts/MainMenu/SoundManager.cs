@@ -13,18 +13,20 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        if (!PlayerPrefs.HasKey("musicVolume"))
+        // Ustaw domyœlne wartoœci, jeœli brak zapisanych ustawieñ
+        if (!PlayerPrefs.HasKey("musicVolume") || !PlayerPrefs.HasKey("sfxVolume"))
         {
-            PlayerPrefs.SetFloat("musicVolume", 1);
-            PlayerPrefs.SetFloat("sfxVolume", 1);
-            Load();
-        }
-        else
-        {
-            Load();
+            PlayerPrefs.SetFloat("musicVolume", 0.5f); // Domyœlna wartoœæ 50% g³oœnoœci
+            PlayerPrefs.SetFloat("sfxVolume", 0.5f);   // Domyœlna wartoœæ 50% g³oœnoœci
+            PlayerPrefs.Save();
         }
 
+        // Za³aduj zapisane ustawienia
+        Load();
+
+        // Zastosuj ustawienia i rozpocznij odtwarzanie dŸwiêków
         ApplyVolumeSettings();
+        PlaySounds();
     }
 
     public void ChangeMusicVolume()
@@ -54,6 +56,7 @@ public class SoundManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat("musicVolume", musicVolume);
         PlayerPrefs.SetFloat("sfxVolume", sfxVolume);
+        PlayerPrefs.Save();
     }
 
     private void ApplyVolumeSettings()
@@ -64,6 +67,28 @@ public class SoundManager : MonoBehaviour
         {
             audioManager.musicSource.volume = musicVolume; // Ustaw g³oœnoœæ muzyki
             audioManager.sfxSource.volume = sfxVolume;     // Ustaw g³oœnoœæ efektów dŸwiêkowych
+        }
+        else
+        {
+            Debug.LogWarning("AudioManager instance not found.");
+        }
+    }
+
+    private void PlaySounds()
+    {
+        AudioManager audioManager = AudioManager.GetInstance();
+
+        if (audioManager != null)
+        {
+            if (!audioManager.musicSource.isPlaying) // Jeœli muzyka nie gra, uruchom
+            {
+                audioManager.musicSource.Play();
+            }
+
+            if (!audioManager.sfxSource.isPlaying) // Jeœli efekty dŸwiêkowe nie graj¹, odtwórz przyk³adowy dŸwiêk
+            {
+                audioManager.sfxSource.PlayOneShot(audioManager.sfxSource.clip);
+            }
         }
         else
         {

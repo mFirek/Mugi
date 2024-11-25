@@ -24,23 +24,25 @@ public class SoundManager : MonoBehaviour
         // Za³aduj zapisane ustawienia
         Load();
 
-        // Zastosuj ustawienia i rozpocznij odtwarzanie dŸwiêków
+        // Zastosuj ustawienia g³oœnoœci
         ApplyVolumeSettings();
-        PlaySounds();
+
+        // Upewnij siê, ¿e dŸwiêki s¹ odtwarzane
+        EnsureSoundsArePlaying();
     }
 
     public void ChangeMusicVolume()
     {
         musicVolume = musicVolumeSlider.value;
-        Save();
-        ApplyVolumeSettings();
+        SaveMusicVolume();
+        ApplyMusicVolume();
     }
 
     public void ChangeSFXVolume()
     {
         sfxVolume = sfxVolumeSlider.value;
-        Save();
-        ApplyVolumeSettings();
+        SaveSFXVolume();
+        ApplySFXVolume();
     }
 
     private void Load()
@@ -52,42 +54,66 @@ public class SoundManager : MonoBehaviour
         sfxVolumeSlider.value = sfxVolume;
     }
 
-    private void Save()
+    private void SaveMusicVolume()
     {
         PlayerPrefs.SetFloat("musicVolume", musicVolume);
+        PlayerPrefs.Save();
+    }
+
+    private void SaveSFXVolume()
+    {
         PlayerPrefs.SetFloat("sfxVolume", sfxVolume);
         PlayerPrefs.Save();
     }
 
     private void ApplyVolumeSettings()
     {
+        ApplyMusicVolume();
+        ApplySFXVolume();
+    }
+
+    private void ApplyMusicVolume()
+    {
         AudioManager audioManager = AudioManager.GetInstance();
 
-        if (audioManager != null)
+        if (audioManager != null && audioManager.musicSource != null)
         {
             audioManager.musicSource.volume = musicVolume; // Ustaw g³oœnoœæ muzyki
-            audioManager.sfxSource.volume = sfxVolume;     // Ustaw g³oœnoœæ efektów dŸwiêkowych
         }
         else
         {
-            Debug.LogWarning("AudioManager instance not found.");
+            Debug.LogWarning("AudioManager or musicSource not found.");
         }
     }
 
-    private void PlaySounds()
+    private void ApplySFXVolume()
+    {
+        AudioManager audioManager = AudioManager.GetInstance();
+
+        if (audioManager != null && audioManager.sfxSource != null)
+        {
+            audioManager.sfxSource.volume = sfxVolume; // Ustaw g³oœnoœæ efektów dŸwiêkowych
+        }
+        else
+        {
+            Debug.LogWarning("AudioManager or sfxSource not found.");
+        }
+    }
+
+    private void EnsureSoundsArePlaying()
     {
         AudioManager audioManager = AudioManager.GetInstance();
 
         if (audioManager != null)
         {
-            if (!audioManager.musicSource.isPlaying) // Jeœli muzyka nie gra, uruchom
+            if (audioManager.musicSource != null && !audioManager.musicSource.isPlaying)
             {
-                audioManager.musicSource.Play();
+                audioManager.musicSource.Play(); // Upewnij siê, ¿e muzyka gra
             }
 
-            if (!audioManager.sfxSource.isPlaying) // Jeœli efekty dŸwiêkowe nie graj¹, odtwórz przyk³adowy dŸwiêk
+            if (audioManager.sfxSource != null && audioManager.sfxSource.clip != null && !audioManager.sfxSource.isPlaying)
             {
-                audioManager.sfxSource.PlayOneShot(audioManager.sfxSource.clip);
+                audioManager.sfxSource.PlayOneShot(audioManager.sfxSource.clip); // Odtwórz przyk³adowy dŸwiêk
             }
         }
         else

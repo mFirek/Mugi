@@ -39,8 +39,8 @@ public class CharacterController2D : MonoBehaviour
     private bool isFalling = false;
 
     private AudioManager audioManager;
-    private GameObject pauseMenu;
-    private GameObject optionsMenu;
+    private GameObject PauseMenu;
+    private GameObject Options;
 
     private void Awake()
     {
@@ -55,8 +55,8 @@ public class CharacterController2D : MonoBehaviour
         GameObject canvas = GameObject.Find("Canvas");
         if (canvas != null)
         {
-            pauseMenu = canvas.transform.Find("Pause Menu")?.gameObject;
-            optionsMenu = canvas.transform.Find("Options")?.gameObject;
+            PauseMenu = canvas.transform.Find("Pause Menu")?.gameObject;
+            Options = canvas.transform.Find("Options")?.gameObject;
 
         }
     }
@@ -216,8 +216,8 @@ public class CharacterController2D : MonoBehaviour
         bool isDialoguePlaying = DialogueManager.GetInstance() != null && DialogueManager.GetInstance().dialogueIsPlaying;
 
         // Sprawdzamy aktywnoœæ PauseMenu i OptionsMenu bezpoœrednio
-        bool isPauseMenuActive = pauseMenu != null && pauseMenu.activeSelf;
-        bool isOptionsMenuActive = optionsMenu != null && optionsMenu.activeSelf;
+        bool isPauseMenuActive = PauseMenu != null && PauseMenu.activeSelf;
+        bool isOptionsMenuActive = Options != null && Options.activeSelf;
         // Upewniamy siê, ¿e sprawdzamy tylko aktywnoœæ menu, a nie ca³ego Canvasa
         return !isDialoguePlaying && !isPauseMenuActive && !isOptionsMenuActive;
     }

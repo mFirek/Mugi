@@ -15762,7 +15762,7 @@ GameObject:
   - component: {fileID: 1354964048}
   - component: {fileID: 1354964049}
   m_Layer: 5
-  m_Name: 'Pause Menu '
+  m_Name: Pause Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25597,6 +25597,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 840893606}
   - {fileID: 1157687221}
+  - {fileID: 904642176}
+  - {fileID: 1040268802}
   - {fileID: 217963136}
   - {fileID: 487695456}
   - {fileID: 1186701096}
@@ -25619,8 +25621,6 @@ SceneRoots:
   - {fileID: 1855355950}
   - {fileID: 5817244277314958269}
   - {fileID: 1734320361}
-  - {fileID: 904642176}
-  - {fileID: 1040268802}
   - {fileID: 995594740}
   - {fileID: 555120706}
   - {fileID: 875075491}

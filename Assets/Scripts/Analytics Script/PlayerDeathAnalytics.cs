@@ -7,7 +7,7 @@ public class PlayerDeathAnalytics : MonoBehaviour
 {
     private async void Start()
     {
-        // Inicjalizacja Unity Services
+        // Inicjalizacja us³ug Unity
         await InitializeUnityServices();
     }
 
@@ -15,9 +15,8 @@ public class PlayerDeathAnalytics : MonoBehaviour
     {
         try
         {
-            // Inicjalizowanie us³ug Unity
             await UnityServices.InitializeAsync();
-            GiveConsent(); // Udziel zgody na zbieranie danych
+            AnalyticsService.Instance.StartDataCollection();
             Debug.Log("Unity Services zosta³y pomyœlnie zainicjalizowane.");
         }
         catch (ConsentCheckException e)
@@ -26,65 +25,46 @@ public class PlayerDeathAnalytics : MonoBehaviour
         }
     }
 
-    private void GiveConsent()
+    // Metoda obs³uguj¹ca œmieræ gracza
+    public void ReportPlayerDeath(Collision2D collision)
     {
-        // Rozpoczêcie zbierania danych po udzieleniu zgody
-        AnalyticsService.Instance.StartDataCollection();
-        Debug.Log("Zgoda na zbieranie danych zosta³a udzielona.");
+        // Pobieranie szczegó³ów kolizji
+        string levelName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        Vector3 deathPosition = collision.transform.position;
+        GameObject killerObject = collision.otherCollider.gameObject;
+
+        string causeOfDeathName = killerObject.name;
+        string causeOfDeathTag = killerObject.tag;
+
+        // Log szczegó³ów
+        Debug.Log($"Gracz zgin¹³ na poziomie: {levelName}");
+        Debug.Log($"Pozycja œmierci: {deathPosition}");
+        Debug.Log($"Przyczyna œmierci - Obiekt: {causeOfDeathName}, Tag: {causeOfDeathTag}");
+
+        // Wys³anie zdarzenia do Unity Analytics
+        SendPlayerDeathEvent(levelName, deathPosition, causeOfDeathName, causeOfDeathTag);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public void SendPlayerDeathEvent(string levelName, Vector3 deathPosition, string causeOfDeathName, string causeOfDeathTag)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            if (collision.gameObject.CompareTag("Spike") || collision.gameObject.CompareTag("Lava"))
-            {
-                // Pobierz aktualn¹ nazwê poziomu
-                string levelName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-                Debug.Log($"Gracz zgin¹³ na poziomie: {levelName}");
-
-                // Pobierz pozycjê gracza w momencie œmierci
-                Vector3 deathPosition = collision.transform.position;
-                Debug.Log($"Pozycja œmierci: {deathPosition}");
-
-                // Pobierz nazwê obiektu, z którym gracz zderzy³ siê
-                string causeOfDeath = collision.gameObject.name;
-                Debug.Log($"Przyczyna œmierci: {causeOfDeath}");
-
-                // Wyœlij zdarzenie analityczne
-                SendPlayerDeathEvent(levelName, deathPosition, causeOfDeath);
-            }
-        }
-    }
-
-    public void SendPlayerDeathEvent(string levelName, Vector3 deathPosition, string causeOfDeath)
-    {
-        // Przygotowanie danych zdarzenia
         Dictionary<string, object> deathData = new Dictionary<string, object>
         {
             { "level_name", levelName },
             { "position_x", deathPosition.x },
             { "position_y", deathPosition.y },
             { "position_z", deathPosition.z },
-            { "cause_of_death", causeOfDeath }
+            { "cause_of_death_name", causeOfDeathName },
+            { "cause_of_death_tag", causeOfDeathTag }
         };
 
-        // Log przed wys³aniem zdarzenia
-        Debug.Log("Przygotowanie do wys³ania zdarzenia 'player_death'...");
-
-        // Próba wys³ania zdarzenia do Unity Analytics
         try
         {
-            // Wysy³anie zdarzenia
             AnalyticsService.Instance.CustomData("player_death", deathData);
-            AnalyticsService.Instance.Flush(); // Natychmiastowe wys³anie zdarzenia
-
-            // Log po wys³aniu
-            Debug.Log($"Zdarzenie 'player_death' zosta³o wys³ane pomyœlnie. Dane: {deathData}");
+            AnalyticsService.Instance.Flush();
+            Debug.Log("Zdarzenie 'player_death' zosta³o wys³ane.");
         }
         catch (System.Exception e)
         {
-            // B³¹d podczas wysy³ania
             Debug.LogError($"B³¹d podczas wysy³ania zdarzenia 'player_death': {e.Message}");
         }
     }

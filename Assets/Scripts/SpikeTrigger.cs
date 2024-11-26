@@ -33,8 +33,11 @@ public class SpikeTrigger : MonoBehaviour
             // Pobierz nazwę obiektu, z którym gracz zderzył się (w tym przypadku kolce)
             string causeOfDeath = "Spikes";
 
+            // Używamy 'other' do uzyskania tagu obiektu, z którym gracz zderzył się
+            string causeOfDeathTag = other.gameObject.tag;
+
             // Ustaw dane śmierci w GameEventsManager
-            GameEventsManager.SetDeathData(level, deathPosition, causeOfDeath);
+            GameEventsManager.SetDeathData(level, deathPosition, causeOfDeath, causeOfDeathTag);
 
             // Wywołaj zdarzenie śmierci
             if (GameEventsManager.instance != null)

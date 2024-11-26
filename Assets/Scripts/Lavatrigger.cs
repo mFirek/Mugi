@@ -31,11 +31,14 @@ public class Lavatrigger : MonoBehaviour
             // Pobierz pozycjê gracza w momencie œmierci
             Vector3 deathPosition = transform.position;
 
-            // Pobierz nazwê obiektu, z którym gracz zderzy³ siê (w tym przypadku lava)
+            // Pobierz nazwê obiektu, z którym gracz zderzy³ siê (w tym przypadku lawa)
             string causeOfDeath = "Lava";
 
+            // Uzyskaj tag obiektu, który spowodowa³ kolizjê
+            string causeOfDeathTag = other.gameObject.tag;
+
             // Ustaw dane œmierci w GameEventsManager
-            GameEventsManager.SetDeathData(level, deathPosition, causeOfDeath);
+            GameEventsManager.SetDeathData(level, deathPosition, causeOfDeath, causeOfDeathTag);
 
             // Wywo³aj zdarzenie œmierci
             if (GameEventsManager.instance != null)

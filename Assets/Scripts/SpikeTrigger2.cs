@@ -23,7 +23,7 @@ public class SpikeTrigger2 : MonoBehaviour
                 Debug.LogWarning("Nie znaleziono obiektu startowego!");
             }
 
-            if (other.CompareTag("Player") && !isDead)
+            if (!isDead) // Zapobiegamy wielokrotnemu zliczaniu œmierci
             {
                 isDead = true;
 
@@ -34,10 +34,13 @@ public class SpikeTrigger2 : MonoBehaviour
                 Vector3 deathPosition = transform.position;
 
                 // Pobierz nazwê obiektu, z którym gracz zderzy³ siê
-                string causeOfDeath = other.gameObject.name;
+                string causeOfDeath = "Spikes"; // Mo¿esz ustawiæ na "Spikes" lub u¿yæ nazwy obiektu
+
+                // U¿yj tagu obiektu, który spowodowa³ kolizjê (gracza)
+                string causeOfDeathTag = other.gameObject.tag;
 
                 // Ustaw dane œmierci w GameEventsManager
-                GameEventsManager.SetDeathData(level, deathPosition, causeOfDeath);
+                GameEventsManager.SetDeathData(level, deathPosition, causeOfDeath, causeOfDeathTag);
 
                 // Wywo³aj zdarzenie œmierci
                 if (GameEventsManager.instance != null)
@@ -54,9 +57,10 @@ public class SpikeTrigger2 : MonoBehaviour
         }
     }
 
+    // Coroutine do resetowania flagi
     IEnumerator ResetDeathFlag()
     {
-        yield return new WaitForSeconds(0.2f);  // Wait 1 sec before flag reset
-        isDead = false;  // Reset flag 
+        yield return new WaitForSeconds(0.2f);  // Poczekaj 0.2 sekundy przed resetowaniem flagi
+        isDead = false;  // Resetuj flagê
     }
 }

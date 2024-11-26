@@ -11,6 +11,7 @@ public class GameEventsManager : MonoBehaviour
     public static Vector3 deathPosition;
     public static string causeOfDeath;
     public static string currentLevel;
+    private static string deathtag;
 
     private void Awake()
     {
@@ -43,12 +44,14 @@ public class GameEventsManager : MonoBehaviour
     }
 
     // Ustawienie danych o œmierci gracza
-    public static void SetDeathData(string level, Vector3 position, string cause)
+    public static void SetDeathData(string level, Vector3 position, string cause, string causeOfDeathTag)
     {
         currentLevel = level;
         deathPosition = position;
         causeOfDeath = cause;
+        deathtag = causeOfDeathTag; // Przypisanie tagu przyczyny œmierci
     }
+
 
     private void RespawnPlayer()
     {
@@ -63,7 +66,7 @@ public class GameEventsManager : MonoBehaviour
         if (playerDeathAnalytics != null)
         {
             // Wywo³anie metody wysy³aj¹cej dane o œmierci do Unity Analytics
-            playerDeathAnalytics.SendPlayerDeathEvent(currentLevel, deathPosition, causeOfDeath);
+            playerDeathAnalytics.SendPlayerDeathEvent(currentLevel, deathPosition, causeOfDeath, deathtag);
             Debug.Log("Dane o œmierci zosta³y wys³ane do Unity Analytics.");
         }
         else
@@ -71,4 +74,5 @@ public class GameEventsManager : MonoBehaviour
             Debug.LogError("Nie znaleziono skryptu PlayerDeathAnalytics w scenie!");
         }
     }
+
 }

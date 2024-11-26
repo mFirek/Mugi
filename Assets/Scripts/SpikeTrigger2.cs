@@ -8,52 +8,44 @@ public class SpikeTrigger2 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // Sprawdzamy, czy obiekt, który wszed³ w trigger, to postaæ gracza
+        if (other.CompareTag("Player") && !isDead)
         {
-            // ZnajdŸ obiekt startowy
-            GameObject startObject = GameObject.FindGameObjectWithTag("Start");
+            // Zapobiegaj wielokrotnemu zliczaniu zgonów
+            isDead = true;
 
-            if (startObject != null)
+            // Uzyskaj punkt respawnu gracza
+            Vector2 respawnPoint = GameManager.Instance.GetSpawnPoint();
+
+            // Przenieœ gracza do punktu respawnu
+            player.transform.position = respawnPoint;
+
+            // Pobierz aktualn¹ nazwê poziomu
+            string level = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+            // Pobierz pozycjê gracza w momencie œmierci
+            Vector3 deathPosition = transform.position;
+
+            // Pobierz tag obiektu, który spowodowa³ œmieræ (np. kolce, pu³apki, wrogowie)
+            string causeOfDeathTag = gameObject.tag;  // Zamiast other.gameObject.tag, u¿ywamy tagu tego obiektu (np. kolce)
+
+            // Pobierz nazwê obiektu, który spowodowa³ kolizjê (np. kolce, pu³apka)
+            string causeOfDeath = causeOfDeathTag; // Przyczyna œmierci jest oparta na tagu obiektu
+
+            // Ustaw dane œmierci w GameEventsManager
+            GameEventsManager.SetDeathData(level, deathPosition, causeOfDeath, causeOfDeathTag);
+
+            // Wywo³aj zdarzenie œmierci
+            if (GameEventsManager.instance != null)
             {
-                // Jeœli znaleziono obiekt startowy, cofnij gracza do jego pozycji
-                other.transform.position = startObject.transform.position;
+                GameEventsManager.instance.PlayerDied();
             }
             else
             {
-                Debug.LogWarning("Nie znaleziono obiektu startowego!");
+                Debug.LogError("Nie znaleziono instancji GameEventsManager!");
             }
 
-            if (!isDead) // Zapobiegamy wielokrotnemu zliczaniu œmierci
-            {
-                isDead = true;
-
-                // Pobierz aktualn¹ nazwê poziomu
-                string level = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-
-                // Pobierz pozycjê gracza w momencie œmierci
-                Vector3 deathPosition = transform.position;
-
-                // Pobierz nazwê obiektu, z którym gracz zderzy³ siê
-                string causeOfDeath = "Spikes"; // Mo¿esz ustawiæ na "Spikes" lub u¿yæ nazwy obiektu
-
-                // U¿yj tagu obiektu, który spowodowa³ kolizjê (gracza)
-                string causeOfDeathTag = other.gameObject.tag;
-
-                // Ustaw dane œmierci w GameEventsManager
-                GameEventsManager.SetDeathData(level, deathPosition, causeOfDeath, causeOfDeathTag);
-
-                // Wywo³aj zdarzenie œmierci
-                if (GameEventsManager.instance != null)
-                {
-                    GameEventsManager.instance.PlayerDied();
-                }
-                else
-                {
-                    Debug.LogError("Nie znaleziono instancji GameEventsManager!");
-                }
-
-                StartCoroutine(ResetDeathFlag());
-            }
+            // Zresetuj flagê po 1 sekundzie
+            StartCoroutine(ResetDeathFlag());
         }
     }
 

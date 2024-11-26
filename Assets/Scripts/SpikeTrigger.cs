@@ -30,11 +30,11 @@ public class SpikeTrigger : MonoBehaviour
             // Pobierz pozycję gracza w momencie śmierci
             Vector3 deathPosition = transform.position;
 
-            // Pobierz nazwę obiektu, z którym gracz zderzył się (w tym przypadku kolce)
-            string causeOfDeath = "Spikes";
+            // Pobierz tag obiektu, który spowodował śmierć (to obiekt, z którym gracz zderzył się)
+            string causeOfDeathTag = gameObject.tag;  // Użyj tagu obiektu, z którym zderzył się gracz (np. kolce)
 
-            // Używamy 'other' do uzyskania tagu obiektu, z którym gracz zderzył się
-            string causeOfDeathTag = other.gameObject.tag;
+            // Pobierz nazwę obiektu, który spowodował kolizję (np. pułapka, kolce, itp.)
+            string causeOfDeath = causeOfDeathTag;  // Użyj tagu jako przyczynę śmierci
 
             // Ustaw dane śmierci w GameEventsManager
             GameEventsManager.SetDeathData(level, deathPosition, causeOfDeath, causeOfDeathTag);

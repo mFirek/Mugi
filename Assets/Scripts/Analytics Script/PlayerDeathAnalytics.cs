@@ -26,15 +26,15 @@ public class PlayerDeathAnalytics : MonoBehaviour
     }
 
     // Metoda obs³uguj¹ca œmieræ gracza
-    public void ReportPlayerDeath(Collision2D collision)
+    public void ReportPlayerDeath(Collider2D other)
     {
         // Pobieranie szczegó³ów kolizji
         string levelName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-        Vector3 deathPosition = collision.transform.position;
-        GameObject killerObject = collision.otherCollider.gameObject;
+        Vector3 deathPosition = transform.position;
 
-        string causeOfDeathName = killerObject.name;
-        string causeOfDeathTag = killerObject.tag;
+        // Pobieramy tag obiektu, który spowodowa³ œmieræ
+        string causeOfDeathTag = other.gameObject.tag;
+        string causeOfDeathName = other.gameObject.name;
 
         // Log szczegó³ów
         Debug.Log($"Gracz zgin¹³ na poziomie: {levelName}");

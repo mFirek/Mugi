@@ -622,6 +622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spear_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2967690096414032880, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
+      propertyPath: m_TagString
+      value: Spear
+      objectReference: {fileID: 0}
     - target: {fileID: 7055863149961489223, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.889
@@ -31105,6 +31109,10 @@ PrefabInstance:
     - target: {fileID: 2967690096414032880, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
       propertyPath: m_Name
       value: Spear_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967690096414032880, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
+      propertyPath: m_TagString
+      value: Spear
       objectReference: {fileID: 0}
     - target: {fileID: 7055863149961489223, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
       propertyPath: m_LocalPosition.x

@@ -385,6 +385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.2970963
@@ -777,6 +781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spear_0 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2967690096414032880, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
+      propertyPath: m_TagString
+      value: Spear
+      objectReference: {fileID: 0}
     - target: {fileID: 7055863149961489223, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.0395975
@@ -999,6 +1007,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Szuriken (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4608135940198782700, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
+      propertyPath: m_TagString
+      value: Shuriken
+      objectReference: {fileID: 0}
     - target: {fileID: 5425159690679268327, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.449
@@ -1149,6 +1161,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.019
       objectReference: {fileID: 0}
+    - target: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_TagString
+      value: LavaPlatform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1168,6 +1184,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
@@ -1528,6 +1548,10 @@ PrefabInstance:
     - target: {fileID: 8558497416568261141, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_TagString
+      value: LavaPlatform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2737,6 +2761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk with anim (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
     m_RemovedGameObjects: []
@@ -3186,6 +3214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk with anim (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
     m_RemovedGameObjects: []
@@ -3238,7 +3270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6033923566158855547, guid: 8a959775837e97e46b75d8843e974e1e, type: 3}
       propertyPath: m_Size.y
-      value: 3.958873
+      value: 3.945674
       objectReference: {fileID: 0}
     - target: {fileID: 6033923566158855547, guid: 8a959775837e97e46b75d8843e974e1e, type: 3}
       propertyPath: m_Material
@@ -3250,7 +3282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6033923566158855547, guid: 8a959775837e97e46b75d8843e974e1e, type: 3}
       propertyPath: m_Offset.y
-      value: 0.21056879
+      value: 0.20396924
       objectReference: {fileID: 0}
     - target: {fileID: 6033923566158855547, guid: 8a959775837e97e46b75d8843e974e1e, type: 3}
       propertyPath: m_AutoTiling
@@ -3389,6 +3421,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk with anim (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
     m_RemovedGameObjects: []
@@ -3481,6 +3517,10 @@ PrefabInstance:
     - target: {fileID: 3532900345549480779, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_Name
       value: Szuriken (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608135940198782700, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
+      propertyPath: m_TagString
+      value: Shuriken
       objectReference: {fileID: 0}
     - target: {fileID: 5425159690679268327, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3848,6 +3888,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.019
       objectReference: {fileID: 0}
+    - target: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_TagString
+      value: LavaPlatform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3867,6 +3911,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
@@ -4214,6 +4262,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spear_0 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2967690096414032880, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
+      propertyPath: m_TagString
+      value: Spear
+      objectReference: {fileID: 0}
     - target: {fileID: 7055863149961489223, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.4342961
@@ -4275,6 +4327,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.2970963
@@ -4331,6 +4387,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4504,6 +4564,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spear_0
       objectReference: {fileID: 0}
+    - target: {fileID: 2967690096414032880, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
+      propertyPath: m_TagString
+      value: Spear
+      objectReference: {fileID: 0}
     - target: {fileID: 7055863149961489223, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.7506037
@@ -4564,6 +4628,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5087,6 +5155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.144
@@ -5230,6 +5302,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5741,6 +5817,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
@@ -6360,6 +6440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spear_0 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2967690096414032880, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
+      propertyPath: m_TagString
+      value: Spear
+      objectReference: {fileID: 0}
     - target: {fileID: 7055863149961489223, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.24129608
@@ -6416,6 +6500,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
@@ -6482,6 +6570,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7244,6 +7336,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk with anim (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
     m_RemovedGameObjects: []
@@ -7477,9 +7573,13 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5878388985034637594, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6673673224770833227, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.09783971
+      value: 0.432
       objectReference: {fileID: 0}
     - target: {fileID: 6673673224770833227, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7520,6 +7620,10 @@ PrefabInstance:
     - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
       propertyPath: m_Name
       value: spajk with anim (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
@@ -7715,6 +7819,10 @@ PrefabInstance:
     - target: {fileID: 8558497416568261141, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_TagString
+      value: LavaPlatform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8434,6 +8542,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
@@ -9163,6 +9275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -9490,6 +9606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.144
@@ -9556,6 +9676,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
@@ -9843,6 +9967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -9953,6 +10081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk with anim (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
     m_RemovedGameObjects: []
@@ -10021,6 +10153,10 @@ PrefabInstance:
     - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
       propertyPath: m_Name
       value: spajk with anim (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
@@ -10231,6 +10367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -10303,6 +10443,10 @@ PrefabInstance:
     - target: {fileID: 3532900345549480779, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_Name
       value: Szuriken
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608135940198782700, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
+      propertyPath: m_TagString
+      value: Shuriken
       objectReference: {fileID: 0}
     - target: {fileID: 5425159690679268327, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10381,6 +10525,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11307,6 +11455,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk with anim (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
     m_RemovedGameObjects: []
@@ -11595,6 +11747,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -11655,6 +11811,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
@@ -11721,6 +11881,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
@@ -12185,6 +12349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spear_0 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2967690096414032880, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
+      propertyPath: m_TagString
+      value: Spear
+      objectReference: {fileID: 0}
     - target: {fileID: 7055863149961489223, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.75228775
@@ -12281,6 +12449,10 @@ PrefabInstance:
     - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
       propertyPath: m_Name
       value: spajk with anim (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
@@ -12661,6 +12833,10 @@ PrefabInstance:
     - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
       propertyPath: m_Name
       value: spajk with anim (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
@@ -13103,6 +13279,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13588,6 +13768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk with anim (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
     m_RemovedGameObjects: []
@@ -13786,6 +13970,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk with anim (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
     m_RemovedGameObjects: []
@@ -13853,6 +14041,10 @@ PrefabInstance:
     - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
       propertyPath: m_Name
       value: spajk with anim (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
@@ -14018,6 +14210,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14491,6 +14687,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15171,6 +15371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -15750,6 +15954,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.019
       objectReference: {fileID: 0}
+    - target: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_TagString
+      value: LavaPlatform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15919,6 +16127,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -16028,6 +16240,10 @@ PrefabInstance:
     - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
       propertyPath: m_Name
       value: spajk with anim (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
@@ -16265,6 +16481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spear_0 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2967690096414032880, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
+      propertyPath: m_TagString
+      value: Spear
+      objectReference: {fileID: 0}
     - target: {fileID: 7055863149961489223, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5402961
@@ -16348,6 +16568,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17100,6 +17324,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.846
@@ -17561,6 +17789,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.2970963
@@ -17617,6 +17849,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
@@ -18285,6 +18521,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -18859,6 +19099,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     - target: {fileID: 4208702585932287766, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -19075,6 +19319,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spajk with anim (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
     m_RemovedGameObjects: []
@@ -19205,6 +19453,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spear_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2967690096414032880, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
+      propertyPath: m_TagString
+      value: Spear
+      objectReference: {fileID: 0}
     - target: {fileID: 7055863149961489223, guid: b00f97d7969b7f34eaed19cd94db2de6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.1232963
@@ -19286,6 +19538,10 @@ PrefabInstance:
     - target: {fileID: 3532900345549480779, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_Name
       value: Szuriken (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608135940198782700, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
+      propertyPath: m_TagString
+      value: Shuriken
       objectReference: {fileID: 0}
     - target: {fileID: 5425159690679268327, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19456,6 +19712,10 @@ PrefabInstance:
     - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
       propertyPath: m_Name
       value: spajk with anim (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953984425594621882, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867277831876785062, guid: 58c33db07ec6fd2499a57c3e010d4f83, type: 3}
@@ -19759,6 +20019,10 @@ PrefabInstance:
     - target: {fileID: 3532900345549480779, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_Name
       value: Szuriken (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608135940198782700, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
+      propertyPath: m_TagString
+      value: Shuriken
       objectReference: {fileID: 0}
     - target: {fileID: 5425159690679268327, guid: 06f2ec7a691b0534fbb4ddb2e0f62ad0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20193,6 +20457,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.019
       objectReference: {fileID: 0}
+    - target: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_TagString
+      value: LavaPlatform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20394,6 +20662,10 @@ PrefabInstance:
     - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_Name
       value: spajk (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624167111681623585, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
+      propertyPath: m_TagString
+      value: Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 7758979611278343490, guid: 95bda0ecc076bca49935e1af523f8029, type: 3}
       propertyPath: m_LocalPosition.x

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class ProjectileScript1 : MonoBehaviour
@@ -20,10 +21,10 @@ public class ProjectileScript1 : MonoBehaviour
             isDead = true;
 
             // Get a player's revival point
-            Vector2 respawnPoint = GameManager.Instance.GetSpawnPoint();
+            string currentSceneName = SceneManager.GetActiveScene().name;
 
-            // Move the player to the revival point
-            player.transform.position = respawnPoint;
+            // Prze³adowuje aktualn¹ scenê
+            SceneManager.LoadScene(currentSceneName);
 
             // Invoke the player death event through the PlayerDied method in GameEventsManager
             if (GameEventsManager.instance != null)

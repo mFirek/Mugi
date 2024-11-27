@@ -1,31 +1,46 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InvokeSpike : MonoBehaviour
 {
     public float blinkInterval = 0.5f; // Czas miêdzy kolejnymi migniêciami
-    public float respawnDelay = 1f; // OpóŸnienie przed respawnem
-    public Color blinkColor = Color.white; // Kolor migania
+    public float respawnDelay = 1f;    // OpóŸnienie przed respawnem
+    public Color blinkColor = Color.red; // Kolor migania
     private GameObject player;
     private bool isPlayerInside = false; // Flaga okreœlaj¹ca, czy gracz jest wewn¹trz obszaru
-    private Renderer playerRenderer; // Komponent Renderer gracza
+    private SpriteRenderer playerRenderer; // Komponent SpriteRenderer gracza
     private Color originalColor; // Oryginalny kolor gracza
+    private bool isDead = false;  // Flaga zapobiegaj¹ca wielokrotnemu zliczaniu zgonów
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerRenderer = player.GetComponent<Renderer>(); // Pobierz komponent Renderer gracza
-        originalColor = playerRenderer.material.color; // Zapisz oryginalny kolor gracza
+
+        if (player != null)
+        {
+            playerRenderer = player.GetComponent<SpriteRenderer>(); // Pobierz SpriteRenderer
+            if (playerRenderer != null)
+            {
+                originalColor = playerRenderer.color; // Zapisz oryginalny kolor gracza
+            }
+            else
+            {
+                Debug.LogError("Brak komponentu SpriteRenderer na obiekcie gracza!");
+            }
+        }
+        else
+        {
+            Debug.LogError("Nie znaleziono obiektu gracza z tagiem 'Player'!");
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isDead)
         {
+            isDead = true; // Zabezpieczenie przed wielokrotnym zgonem
             isPlayerInside = true;
             StartCoroutine(BlinkPlayerRoutine());
-            Invoke("RespawnPlayer", respawnDelay); // Wywo³aj funkcjê RespawnPlayer po okreœlonym opóŸnieniu
         }
     }
 
@@ -33,35 +48,78 @@ public class InvokeSpike : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerInside = false;
-            StopAllCoroutines(); // Zatrzymaj wszystkie korutyny
-            playerRenderer.material.color = originalColor; // Przywróæ oryginalny kolor gracza
+            // Resetuj platformê po wyjœciu gracza
+            ResetPlatformState();
         }
     }
 
     IEnumerator BlinkPlayerRoutine()
     {
-        while (true)
+        float elapsed = 0f;
+        while (elapsed < respawnDelay)
         {
-            // Zmieñ kolor gracza na wybrany kolor migania
-            playerRenderer.material.color = blinkColor;
-            yield return new WaitForSeconds(blinkInterval);
+            // Miganie gracza
+            if (playerRenderer != null)
+            {
+                playerRenderer.color = blinkColor; // Zmieñ kolor na kolor migania
+                yield return new WaitForSeconds(blinkInterval);
+                playerRenderer.color = originalColor; // Przywróæ oryginalny kolor
+                yield return new WaitForSeconds(blinkInterval);
+            }
 
-            // Przywróæ oryginalny kolor gracza
-            playerRenderer.material.color = originalColor;
-            yield return new WaitForSeconds(blinkInterval);
+            elapsed += 2 * blinkInterval; // Zlicz czas migania
+        }
+
+        // Po zakoñczeniu migania wykonaj respawn
+        if (isPlayerInside)
+        {
+            RespawnPlayer();
         }
     }
 
     private void RespawnPlayer()
     {
-        if (isPlayerInside)
+        if (GameEventsManager.instance != null)
+        {
+            GameEventsManager.instance.PlayerDied();
+        }
+
+        if (GameManager.Instance != null)
         {
             // Przenieœ gracza do punktu respawnu
             Vector2 respawnPoint = GameManager.Instance.GetSpawnPoint();
             player.transform.position = respawnPoint;
-            StopAllCoroutines(); // Zatrzymaj wszystkie korutyny (miganie)
-            playerRenderer.material.color = originalColor; // Przywróæ oryginalny kolor gracza
         }
+        else
+        {
+            Debug.LogError("GameManager.Instance jest null!");
+        }
+
+        // Przywróæ kolor gracza
+        if (playerRenderer != null)
+        {
+            playerRenderer.color = originalColor;
+        }
+
+        // Resetuj flagê 'isDead' od razu po respawnie
+        isDead = false;
+    }
+
+    private void ResetPlatformState()
+    {
+        // Zatrzymaj wszystkie korutyny po opuszczeniu platformy
+        StopAllCoroutines();
+
+        // Przywróæ oryginalny kolor gracza
+        if (playerRenderer != null)
+        {
+            playerRenderer.color = originalColor;
+        }
+
+        // Resetuj flagê 'isDead', aby platforma mog³a naliczaæ œmieræ po ponownym wejœciu
+        isDead = false;
+
+        // Zresetuj stan "gracza wewn¹trz" platformy
+        isPlayerInside = false;
     }
 }

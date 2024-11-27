@@ -49,7 +49,7 @@ public class Lavatrigger : MonoBehaviour
             {
                 Debug.LogError("Nie znaleziono instancji GameEventsManager!");
             }
-
+            keyScript.RespawnKey();
             // Zresetuj flagê po 1 sekundzie
             StartCoroutine(ResetDeathFlag());
         }

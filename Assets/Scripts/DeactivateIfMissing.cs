@@ -2,17 +2,21 @@ using UnityEngine;
 
 public class DeactivateIfMissing : MonoBehaviour
 {
-    public GameObject keyObject; // klucz, który ma znikn¹æ przed aktywacj¹ drzwi
+    public GameObject keyObject; // klucz, który ma byæ nieaktywny przed aktywacj¹ drzwi
     public GameObject doorObject; // drzwi do dezaktywacji
 
-    private bool keyIsMissing = false; // flaga okreœlaj¹ca, czy klucz zosta³ znikniêty
+    private bool keyIsInactive = false; // flaga okreœlaj¹ca, czy klucz jest nieaktywny
 
     private void Update()
     {
-        // SprawdŸ, czy klucz znikn¹³
-        if (!keyIsMissing && (keyObject == null || !keyObject.activeInHierarchy))
+        // SprawdŸ, czy klucz istnieje i jest nieaktywny
+        if (keyObject != null && !keyObject.activeInHierarchy)
         {
-            keyIsMissing = true; // ustaw flagê na true, gdy klucz zniknie
+            keyIsInactive = true; // ustaw flagê na true, gdy klucz jest nieaktywny
+        }
+        else
+        {
+            keyIsInactive = false; // ustaw na false, gdy klucz jest aktywny
         }
     }
 
@@ -20,11 +24,17 @@ public class DeactivateIfMissing : MonoBehaviour
     {
         if (other.CompareTag("Player")) // sprawdzenie, czy obiekt jest graczem
         {
-            // Jeœli klucz znikn¹³ i drzwi s¹ obecne, dezaktywuj drzwi
-            if (keyIsMissing && doorObject != null)
+            // Debug.Log - sprawdzamy stan klucza i drzwi
+            Debug.Log($"Key is inactive: {keyIsInactive}");
+            Debug.Log($"Key active in hierarchy: {keyObject?.activeInHierarchy}");
+
+            // Jeœli klucz jest nieaktywny i drzwi istniej¹, dezaktywuj drzwi
+            if (keyIsInactive && doorObject != null)
             {
                 doorObject.SetActive(false);
+                Debug.Log("Door deactivated");
             }
         }
     }
 }
+

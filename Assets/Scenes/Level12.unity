@@ -6717,7 +6717,7 @@ GameObject:
   - component: {fileID: 1112387806}
   m_Layer: 0
   m_Name: atak
-  m_TagString: Untagged
+  m_TagString: WugiAtak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6846,7 +6846,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1112387802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eea8312e0f0a2a04a8258ae5fe1ff9e1, type: 3}
+  m_Script: {fileID: 11500000, guid: da9bcc0362baf674fa2ea4932a0bfe64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1117941532

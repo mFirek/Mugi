@@ -5,8 +5,20 @@ using System.Collections.Generic;
 
 public class PlayerDeathAnalytics : MonoBehaviour
 {
+    public static PlayerDeathAnalytics instance; // Dodajemy statyczn¹ instancjê
+
     private async void Start()
     {
+        // Ustawiamy instancjê skryptu
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); // Zniszcz instancjê, jeœli ju¿ istnieje
+        }
+
         // Inicjalizacja us³ug Unity
         await InitializeUnityServices();
     }

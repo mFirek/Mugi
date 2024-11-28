@@ -80,15 +80,23 @@ public class LevelManager : MonoBehaviour
         yield return StartCoroutine(FadeOut());
 
         // Sprawdzenie wywo³ania zdarzenia koñca poziomu
-       
         if (playerLevelAnalytics != null)
         {
             playerLevelAnalytics.SendLevelEndEvent();
-            
         }
         else
         {
             Debug.LogError("Brak przypisanej referencji do PlayerLevelAnalytics");
+        }
+
+        // Resetowanie lokalnego licznika zgonów
+        if (DeathCountText.instance != null)
+        {
+            DeathCountText.instance.ResetDeathCount();  // Wywo³anie resetowania licznika
+        }
+        else
+        {
+            Debug.LogError("DeathCountText nie zosta³o znalezione!");
         }
 
         // Przejœcie do kolejnego poziomu

@@ -3,12 +3,24 @@ using TMPro;
 
 public class GlobalDeathCounter : MonoBehaviour
 {
+    public static GlobalDeathCounter instance; // Dodajemy statyczn¹ instancjê
+
     private static int globalDeathCount = 0; // Statyczna zmienna przechowuj¹ca globaln¹ liczbê zgonów
     private TextMeshProUGUI globalDeathCountText; // Komponent TextMeshProUGUI do wyœwietlania liczby zgonów
     private static bool isDeathIncremented = false; // Flaga do ochrony przed podwójnym naliczaniem przy pierwszym zgonie
 
     private void Awake()
     {
+        // Ustawiamy instancjê skryptu
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); // Zniszcz instancjê, jeœli ju¿ istnieje
+        }
+
         LoadGlobalDeathCount(); // £adowanie globalnej liczby zgonów przy starcie
 
         // Pobierz komponent TextMeshProUGUI

@@ -21,9 +21,13 @@ public class ReloadSceneOnTrigger : MonoBehaviour
             // Zarejestruj zdarzenie œmierci w GameEventsManager
             if (GameEventsManager.instance != null)
             {
+                string causeOfDeathTag = gameObject.tag;  // U¿yj tagu obiektu, z którym zderzy³ siê gracz (np. kolce)
+
+                // Pobierz nazwê obiektu, który spowodowa³ kolizjê (np. pu³apka, kolce, itp.)
+                string causeOfDeath = causeOfDeathTag;  // U¿yj tagu jako przyczynê œmierci
                 // Przekazujemy dane o œmierci
                 // Zmieniamy dostêp do metody na statyczny
-                GameEventsManager.SetDeathData(currentSceneName, other.transform.position, "Cause of death", "CauseTag");
+                GameEventsManager.SetDeathData(currentSceneName, other.transform.position, causeOfDeath, causeOfDeathTag);
 
                 GameEventsManager.instance.PlayerDied(); // Wywo³anie zdarzenia œmierci
             }

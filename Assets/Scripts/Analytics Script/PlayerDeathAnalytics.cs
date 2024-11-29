@@ -16,7 +16,7 @@ public class PlayerDeathAnalytics : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); // Zniszcz instancjê, jeœli ju¿ istnieje
+          // Destroy(gameObject); // Zniszcz instancjê, jeœli ju¿ istnieje
         }
 
         // Inicjalizacja us³ug Unity

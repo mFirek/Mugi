@@ -5141,6 +5141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f3e6315c48e9942a4e85cae676224d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathCount: 0
+  deathCountText: {fileID: 0}
 --- !u!114 &1017107543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9581,14 +9583,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9143355098252780229, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2118218684}
+      addedObject: {fileID: 2118218692}
   m_SourcePrefab: {fileID: 100100000, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
 --- !u!1 &2118218683 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9143355098252780229, guid: 0a6291219756d4c41be4a24305c112b5, type: 3}
   m_PrefabInstance: {fileID: 2118218682}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2118218684
+--- !u!114 &2118218692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

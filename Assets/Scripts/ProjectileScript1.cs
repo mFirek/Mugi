@@ -20,7 +20,7 @@ public class ProjectileScript1 : MonoBehaviour
             // Protect against multiple billing deaths
             isDead = true;
 
-            // Get a player's revival point
+            
             string currentSceneName = SceneManager.GetActiveScene().name;
 
             // Prze³adowuje aktualn¹ scenê

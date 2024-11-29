@@ -790,26 +790,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115832519}
   m_CullTransparentMesh: 1
---- !u!1 &128660799 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
-  m_PrefabInstance: {fileID: 770566134}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &128660802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128660799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1718aedb8d16294cb7edfce6a5a009b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blinkInterval: 0.5
-  respawnDelay: 2
-  blinkColor: {r: 1, g: 0.4, b: 0.4, a: 1}
 --- !u!1 &135355725
 GameObject:
   m_ObjectHideFlags: 0
@@ -3857,6 +3837,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5040773895704089249, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040773895704089249, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040773895704089249, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.071
       objectReference: {fileID: 0}
@@ -3865,9 +3853,21 @@ PrefabInstance:
       value: -0.133
       objectReference: {fileID: 0}
     - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -468191522, guid: a782a3e05df432f478df721f783ed277, type: 3}
+      objectReference: {fileID: -85431632, guid: a782a3e05df432f478df721f783ed277, type: 3}
+    - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_DrawMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7630586137192385070, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_Size.y
       value: 0.07218188
@@ -3898,15 +3898,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_TagString
-      value: LavaPlatform
+      value: platform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 128660802}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
 --- !u!1 &829662420
 GameObject:
@@ -3994,6 +3991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f3e6315c48e9942a4e85cae676224d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathCount: 0
+  deathCountText: {fileID: 0}
 --- !u!114 &833334374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6234,10 +6233,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5040773895704089249, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040773895704089249, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -468191522, guid: a782a3e05df432f478df721f783ed277, type: 3}
+      objectReference: {fileID: -85431632, guid: a782a3e05df432f478df721f783ed277, type: 3}
+    - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_DrawMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7630586137192385070, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_Size.y
       value: 0.07673931
@@ -6264,36 +6283,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_TagString
-      value: LavaPlatform
+      value: platform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1374567608}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
---- !u!1 &1374567607 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
-  m_PrefabInstance: {fileID: 1374567606}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1374567608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1374567607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1718aedb8d16294cb7edfce6a5a009b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blinkInterval: 0.5
-  respawnDelay: 2
-  blinkColor: {r: 1, g: 0.4, b: 0.4, a: 1}
 --- !u!1001 &1423247177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6641,6 +6637,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5040773895704089249, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040773895704089249, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040773895704089249, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.071
       objectReference: {fileID: 0}
@@ -6649,9 +6653,21 @@ PrefabInstance:
       value: -0.133
       objectReference: {fileID: 0}
     - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -468191522, guid: a782a3e05df432f478df721f783ed277, type: 3}
+      objectReference: {fileID: -85431632, guid: a782a3e05df432f478df721f783ed277, type: 3}
+    - target: {fileID: 5640566166244984881, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
+      propertyPath: m_DrawMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7630586137192385070, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_Size.y
       value: 0.07218188
@@ -6682,15 +6698,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
       propertyPath: m_TagString
-      value: LavaPlatform
+      value: platform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2100638119}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
 --- !u!1001 &1501126119
 PrefabInstance:
@@ -8964,26 +8977,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2088664204}
   optionsMenuUI: {fileID: 564452198}
---- !u!1 &2100638116 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9197161342503291050, guid: b70025385cfa7bc42a5e0d8b45c07a87, type: 3}
-  m_PrefabInstance: {fileID: 1497530795}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2100638119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100638116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1718aedb8d16294cb7edfce6a5a009b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blinkInterval: 0.5
-  respawnDelay: 2
-  blinkColor: {r: 1, g: 0.4, b: 0.4, a: 1}
 --- !u!1 &2122891007
 GameObject:
   m_ObjectHideFlags: 0
@@ -9261,7 +9254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7919436629722412422, guid: 09f9d14ab3bb40c448a67a88d27ce92f, type: 3}
       propertyPath: speed
-      value: 1.5
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 7919436629722412422, guid: 09f9d14ab3bb40c448a67a88d27ce92f, type: 3}
       propertyPath: health

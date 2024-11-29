@@ -12142,7 +12142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7191910183039659846, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15787,6 +15787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f3e6315c48e9942a4e85cae676224d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathCount: 0
+  deathCountText: {fileID: 0}
 --- !u!114 &1134085670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30927,7 +30929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7191910183039659846, guid: 07d872f7ba403104f8f913d81b63d9d1, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

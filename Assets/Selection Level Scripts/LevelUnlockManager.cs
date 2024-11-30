@@ -20,6 +20,7 @@ public class LevelUnlockManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return; // Zapewnia, ¿e reszta kodu siê nie wykona w przypadku zduplikowania instancji
         }
 
         // Za³aduj stan poziomów i aktualny poziom
@@ -35,9 +36,9 @@ public class LevelUnlockManager : MonoBehaviour
         // Ustawienie odblokowanych poziomów do currentLevelIndex
         for (int i = 1; i <= currentLevelIndex; i++)
         {
-            if (i <= totalLevels) // Upewniamy siê, ¿e nie wyjdziemy poza limit
+            if (i <= totalLevels)
             {
-                unlockedLevels[i] = true; // Odblokowanie poziomu
+                unlockedLevels[i] = true;
             }
         }
 
@@ -48,24 +49,24 @@ public class LevelUnlockManager : MonoBehaviour
     // Funkcja do sprawdzenia, czy poziom jest odblokowany
     public bool IsLevelUnlocked(int levelIndex)
     {
-        return levelIndex > 0 && levelIndex < unlockedLevels.Length && unlockedLevels[levelIndex];
+        return levelIndex > 0 && levelIndex <= totalLevels && unlockedLevels[levelIndex];
     }
 
     // Funkcja odblokowuj¹ca nastêpny poziom
     public void UnlockNextLevel()
     {
-        // Zwiêkszamy currentLevelIndex tylko do maksymalnej liczby poziomów (13)
-        if (currentLevelIndex < totalLevels)
+        // Jeœli poziom jest wiêkszy lub równy 13, nie odblokowuj kolejnych
+        if (currentLevelIndex >= totalLevels)
         {
-            currentLevelIndex++;
-            unlockedLevels[currentLevelIndex] = true; // Odblokowujemy poziom
-            SaveLevels(); // Zapisz zmiany w PlayerPrefs
-            Debug.Log("Odblokowano nowy poziom: " + currentLevelIndex);
+            Debug.LogWarning("Osi¹gniêto maksymalny poziom: " + totalLevels + ". Nie mo¿na odblokowaæ kolejnych poziomów.");
+            return; // Zatrzymuje funkcjê
         }
-        else
-        {
-            Debug.Log("Osi¹gniêto maksymaln¹ liczbê poziomów: " + totalLevels);
-        }
+
+        // Odblokowanie nowego poziomu
+        currentLevelIndex++;
+        unlockedLevels[currentLevelIndex] = true;
+        SaveLevels();
+        Debug.Log("Odblokowano nowy poziom: " + currentLevelIndex);
 
         // Zaktualizuj interaktywnoœæ przycisków
         UpdateButtonInteractivity();
@@ -74,47 +75,34 @@ public class LevelUnlockManager : MonoBehaviour
     // Funkcja zapisuj¹ca stan poziomów i bie¿¹cego poziomu do PlayerPrefs
     private void SaveLevels()
     {
-        // Zapisz stan poziomów
         for (int i = 1; i <= totalLevels; i++)
         {
             PlayerPrefs.SetInt("LevelUnlocked_" + i, unlockedLevels[i] ? 1 : 0);
-            Debug.Log("Zapisano LevelUnlocked_" + i + ": " + (unlockedLevels[i] ? 1 : 0));
         }
-
-        // Zapisz bie¿¹cy indeks poziomu
         PlayerPrefs.SetInt("currentLevelIndex", currentLevelIndex);
-        Debug.Log("Zapisano currentLevelIndex: " + currentLevelIndex);
-
         PlayerPrefs.Save();
     }
 
     // Funkcja ³aduj¹ca stan poziomów i bie¿¹cego poziomu z PlayerPrefs
     private void LoadLevels()
     {
-        // Pobierz currentLevelIndex z PlayerPrefs (domyœlnie zaczynaj od poziomu 2)
         currentLevelIndex = PlayerPrefs.GetInt("currentLevelIndex", 2);
-        Debug.Log("Za³adowano currentLevelIndex: " + currentLevelIndex);
 
-        // Inicjalizacja tablicy unlockedLevels
-        unlockedLevels = new bool[totalLevels + 1]; // Tablica od 1 do 13 (indeks 0 ignorowany)
-
-        // Za³aduj stan odblokowania poziomów
+        unlockedLevels = new bool[totalLevels + 1];
         for (int i = 1; i <= totalLevels; i++)
         {
             unlockedLevels[i] = PlayerPrefs.GetInt("LevelUnlocked_" + i, i <= 2 ? 1 : 0) == 1;
-            Debug.Log("Wczytano LevelUnlocked_" + i + ": " + (unlockedLevels[i] ? 1 : 0));
         }
     }
 
     // Aktualizacja interaktywnoœci przycisków na podstawie stanu odblokowania poziomów
     private void UpdateButtonInteractivity()
     {
-        for (int i = 1; i <= totalLevels; i++) // i = 1, aby numeracja zgadza³a siê z przyciskami
+        for (int i = 1; i <= totalLevels; i++)
         {
-            if (i - 1 < levelButtons.Length) // Dopasowanie indeksów levelButtons (0-12) do unlockedLevels (1-13)
+            if (i - 1 < levelButtons.Length)
             {
                 levelButtons[i - 1].interactable = unlockedLevels[i];
-                Debug.Log("Przycisk poziomu " + i + " interaktywny: " + unlockedLevels[i]);
             }
         }
     }

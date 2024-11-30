@@ -6,6 +6,7 @@ public class LevelUnlockTrigger : MonoBehaviour
     // Zmienna do trzymania obecnego poziomu
     private int currentLevelIndex;
     private bool hasUnlockedLevel = false; // Flaga, aby zapobiec wielokrotnemu odblokowywaniu poziomu w jednej kolizji
+    private const int maxLevels = 13; // Limit maksymalnego poziomu
 
     void Start()
     {
@@ -29,6 +30,13 @@ public class LevelUnlockTrigger : MonoBehaviour
 
     void UnlockNextLevel()
     {
+        // Sprawdzenie, czy poziom nie przekracza limitu
+        if (currentLevelIndex >= maxLevels)
+        {
+            Debug.LogWarning("Osi¹gniêto maksymalny poziom: " + maxLevels + ". Nie mo¿na odblokowaæ kolejnych poziomów.");
+            return; // Zatrzymanie funkcji, jeœli poziom wynosi 13 lub wiêcej
+        }
+
         // Zwiêkszenie currentLevelIndex, odblokowanie kolejnego poziomu
         currentLevelIndex++;
 
@@ -37,22 +45,18 @@ public class LevelUnlockTrigger : MonoBehaviour
         PlayerPrefs.Save();
 
         Debug.Log("Odblokowany poziom: " + currentLevelIndex);
-
-      
     }
 
     // Resetowanie flagi po za³adowaniu nowej sceny
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Resetowanie flagi po za³adowaniu nowej sceny
         hasUnlockedLevel = false;
         Debug.Log("Flaga resetowana po za³adowaniu nowej sceny.");
     }
 
-    // Dodatkowa metoda, aby rêcznie usun¹æ nas³uchiwanie zdarzenia po zakoñczeniu dzia³ania obiektu
+    // Usuniêcie nas³uchiwania zdarzenia po zakoñczeniu dzia³ania obiektu
     private void OnDestroy()
     {
-        // Upewnij siê, ¿e usuwamy nas³uchiwanie, gdy obiekt zostanie zniszczony
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

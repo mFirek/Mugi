@@ -1,12 +1,12 @@
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System.Collections;
 
 public class ProjectileScript1 : MonoBehaviour
 {
+    private GameObject player;
+    private bool isDead = false;  // Flaga zapobiegaj¹ca wielokrotnemu zliczaniu zgonów
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -14,50 +14,48 @@ public class ProjectileScript1 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
+        // Sprawdzamy, czy kula trafi³a w gracza i czy gracz nie jest ju¿ martwy
         if (other.CompareTag("Player") && !isDead)
         {
-            // Protect against multiple billing deaths
+            // Zaznaczamy, ¿e gracz jest martwy
             isDead = true;
 
-            
+            // Prze³adowujemy scenê
             string currentSceneName = SceneManager.GetActiveScene().name;
-
-            // Prze³adowuje aktualn¹ scenê
             SceneManager.LoadScene(currentSceneName);
 
-            // Invoke the player death event through the PlayerDied method in GameEventsManager
+            // Rejestrujemy œmieræ gracza w GameEventsManager
             if (GameEventsManager.instance != null)
             {
-                GameEventsManager.instance.PlayerDied();
-                Destroy(gameObject);
+                string causeOfDeathTag = gameObject.tag;  // U¿ywamy tagu obiektu (w tym przypadku "WugieSpecialAttack")
+
+                // Pobieramy nazwê obiektu, który spowodowa³ kolizjê (np. kula)
+                string causeOfDeath = causeOfDeathTag;  // Przyczyna œmierci to tag kuli
+                // Przekazujemy dane o œmierci
+                // Zmieniamy dostêp do metody na statyczny
+                GameEventsManager.SetDeathData(currentSceneName, other.transform.position, causeOfDeath, causeOfDeathTag);
+
+                GameEventsManager.instance.PlayerDied(); // Wywo³anie zdarzenia œmierci
             }
             else
             {
                 Debug.LogError("Nie znaleziono instancji GameEventsManager!");
             }
 
-            // Reset flag before 1 sec
+            // Resetujemy flagê œmierci po krótkiej przerwie (1 sekunda)
             StartCoroutine(ResetDeathFlag());
         }
-        if (other.CompareTag("Teren") || other.CompareTag("platform"))
-            {
+        else if (other.CompareTag("Teren") || other.CompareTag("platform"))
+        {
+            // Zniszczenie kuli po uderzeniu w teren lub platformê
             Destroy(gameObject);
         }
     }
 
-
-
-
-    private GameObject player;
-    private bool isDead = false;  // Flag to prevent multiple counting of deaths
-
-
-   
-    // Coroutine, for reseting the flag
-    IEnumerator ResetDeathFlag()
+    // Coroutine do resetowania flagi isDead
+    private IEnumerator ResetDeathFlag()
     {
-        yield return new WaitForSeconds(1f);  // Wait 1 sec before flag reset
-        isDead = false;  // Reset flag 
+        yield return new WaitForSeconds(1f);  // Poczekaj 1 sekundê przed resetowaniem flagi
+        isDead = false;  // Resetuj flagê
     }
 }

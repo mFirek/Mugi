@@ -90,4 +90,11 @@ public class GlobalDeathCounter : MonoBehaviour
     {
         SaveGlobalDeathCount(); // Zapisz globaln¹ liczbê zgonów przy wy³¹czaniu aplikacji
     }
+    public static void ResetGlobalDeathCount()
+    {
+        globalDeathCount = 0;
+        SaveGlobalDeathCount();
+        UpdateGlobalDeathCountText();
+        ResetDeathFlag();
+    }
 }

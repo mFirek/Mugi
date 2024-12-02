@@ -44,6 +44,8 @@ public class MainMenu : MonoBehaviour
     {
         //DisableMenuButtons();
         SceneManager.LoadSceneAsync("Level1");
+        DeathCountText.instance.ResetDeathCount();
+        GlobalDeathCounter.ResetGlobalDeathCount();
     }
     private void DisableMenuButtons()
     {

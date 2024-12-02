@@ -93,6 +93,7 @@ public class BossHP : MonoBehaviour
     {
         Debug.Log("Boss is dying");
 
+        // Odtwarzanie efektu dŸwiêkowego pora¿ki bossa
         audioManager.PlaySFX(audioManager.bossDefeat);
 
         if (rb != null)
@@ -107,6 +108,7 @@ public class BossHP : MonoBehaviour
 
         animator.SetTrigger("Die");
 
+        // Pobranie d³ugoœci animacji
         float animationLength = GetAnimationLength(animator, "Die");
         if (animationLength > 0)
         {
@@ -118,14 +120,27 @@ public class BossHP : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
 
+        // Wys³anie zdarzenia analitycznego o pokonaniu bossa
+        if (PlayerBossAnalytics.Instance != null)
+        {
+            PlayerBossAnalytics.Instance.SendBossDefeatEvent();
+        }
+        else
+        {
+            Debug.LogError("PlayerBossAnalytics instance is null. Event not sent.");
+        }
+
+        // Zniszczenie obiektu bossa
         Destroy(gameObject);
         healthBarUI.SetActive(false); // Wy³¹czenie paska zdrowia po œmierci bossa
 
+        // Aktywacja obiektu prowadz¹cego do kolejnego poziomu
         if (nextLevelObject != null)
         {
             nextLevelObject.SetActive(true);
         }
     }
+
 
     private float GetAnimationLength(Animator animator, string clipName)
     {

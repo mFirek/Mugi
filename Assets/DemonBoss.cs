@@ -143,8 +143,10 @@ public class DemonBoss : MonoBehaviour
         animator.SetTrigger("Die");
         Debug.Log("Demon zgin¹³!");
 
+        // Odtwarzanie efektu dŸwiêkowego pokonania bossa
         audioManager.PlaySFX(audioManager.bossDefeat);
 
+        // Wy³¹czanie koliderów, które s¹ triggerami
         Collider2D[] colliders = GetComponents<Collider2D>();
         foreach (Collider2D collider in colliders)
         {
@@ -154,17 +156,33 @@ public class DemonBoss : MonoBehaviour
             }
         }
 
-        healthBarUI.SetActive(false); // Wy³¹czenie paska zdrowia po œmierci bossa
+        // Wy³¹czenie paska zdrowia po œmierci bossa
+        healthBarUI.SetActive(false);
 
+        // Wys³anie zdarzenia analitycznego o pokonaniu bossa
+        if (PlayerBossAnalytics.Instance != null)
+        {
+            PlayerBossAnalytics.Instance.SendBossDefeatEvent();
+            Debug.Log("Zdarzenie analityczne 'boss_defeated' zosta³o wys³ane.");
+        }
+        else
+        {
+            Debug.LogError("PlayerBossAnalytics instance is null. Event not sent.");
+        }
+
+        // Dezaktywacja skryptu
         this.enabled = false;
 
+        // Aktywacja obiektu po œmierci bossa, jeœli istnieje
         if (objectToActivateOnDeath != null)
         {
             objectToActivateOnDeath.SetActive(true);
         }
 
+        // Zniszczenie obiektu bossa po 2 sekundach
         Destroy(gameObject, 2f);
     }
+
 
     public void PlayAttackSound()
     {

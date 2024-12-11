@@ -33,6 +33,10 @@ public class CharacterController2D : MonoBehaviour
     public float bulletSpeed = 1f;
     private Vector2 lastDirection = Vector2.right;
 
+    [Header("Attack Cooldown Settings")]
+    [SerializeField] private float attackCooldown = 0.5f; // Czas odnowienia ataku w sekundach
+    private float lastAttackTime = -Mathf.Infinity; // Czas ostatniego ataku
+
     public float runSpeed = 10f;
     private float horizontalMove = 0f;
     private bool jump = false;
@@ -57,7 +61,6 @@ public class CharacterController2D : MonoBehaviour
         {
             PauseMenu = canvas.transform.Find("Pause Menu")?.gameObject;
             Options = canvas.transform.Find("Options")?.gameObject;
-
         }
     }
 
@@ -82,7 +85,8 @@ public class CharacterController2D : MonoBehaviour
             isFalling = false;  // Zresetowanie IsFalling
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetMouseButtonDown(0))
+        // Atak z cooldownem
+        if ((Input.GetKeyDown(KeyCode.Z) || Input.GetMouseButtonDown(0)) && Time.time >= lastAttackTime + attackCooldown)
         {
             Attack();
         }
@@ -113,7 +117,7 @@ public class CharacterController2D : MonoBehaviour
                     m_CanAirJump = true;
                     m_CurrentJumps = 0;
                     animator.SetBool("IsJumping", false);
-                    animator.SetBool("IsFalling", false); // Wy³¹czenie animacji „Falling” po l¹dowaniu
+                    animator.SetBool("IsFalling", false); // Wy³¹czenie animacji "Falling" po l¹dowaniu
                 }
                 break;
             }
@@ -124,8 +128,8 @@ public class CharacterController2D : MonoBehaviour
         {
             if (animator.GetBool("IsJumping")) // Jeœli postaæ zaczyna opadaæ po skoku
             {
-                animator.SetBool("IsJumping", false); // Wy³¹czenie „IsJumping”
-                animator.SetBool("IsFalling", true); // Aktywacja „IsFalling”
+                animator.SetBool("IsJumping", false); // Wy³¹czenie "IsJumping"
+                animator.SetBool("IsFalling", true); // Aktywacja "IsFalling"
             }
             else if (!animator.GetBool("IsFalling")) // Jeœli postaæ spada bez skoku (np. z platformy)
             {
@@ -193,6 +197,7 @@ public class CharacterController2D : MonoBehaviour
             return;
         }
 
+        lastAttackTime = Time.time; // Zapisujemy czas ataku
         audioManager.PlaySFX(audioManager.Attack);
         animator.Play(m_AttackAnimationName);
         Shoot();
@@ -218,25 +223,6 @@ public class CharacterController2D : MonoBehaviour
         // Sprawdzamy aktywnoœæ PauseMenu i OptionsMenu bezpoœrednio
         bool isPauseMenuActive = PauseMenu != null && PauseMenu.activeSelf;
         bool isOptionsMenuActive = Options != null && Options.activeSelf;
-        // Upewniamy siê, ¿e sprawdzamy tylko aktywnoœæ menu, a nie ca³ego Canvasa
         return !isDialoguePlaying && !isPauseMenuActive && !isOptionsMenuActive;
     }
-
-
-
-    // Sprawdza, czy obiekt lub którykolwiek z jego dzieci jest aktywny
-    // Sprawdza, czy obiekt lub którykolwiek z jego dzieci jest aktywny
-    //private bool IsAnyChildActive(GameObject parent)
-    //{
-    //    if (parent == null) return false;
-
-    //    // Nie sprawdzaj aktywnoœci samego Canvasa, tylko jego dzieci
-    //    foreach (Transform child in parent.transform)
-    //    {
-    //        if (child.gameObject.activeSelf) return true;
-    //    }
-
-    //    return false;
-    //}
-
 }

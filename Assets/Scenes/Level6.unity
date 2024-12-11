@@ -3356,8 +3356,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1039485435}
   isFlipped: 0
-  specialAttackCooldown: 5
-  shieldCooldown: 4
+  specialAttackCooldown: 2
+  shieldCooldown: 3
   lastSpecialAttackTime: -Infinity
   lastShieldTime: -Infinity
 --- !u!1 &784870525
@@ -9648,7 +9648,7 @@ PrefabInstance:
       objectReference: {fileID: 1039485435}
     - target: {fileID: 2512966249276879264, guid: 6443b04c4e0d24b4cb20fb045f38b132, type: 3}
       propertyPath: maxHealth
-      value: 40
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2512966249276879264, guid: 6443b04c4e0d24b4cb20fb045f38b132, type: 3}
       propertyPath: healthText

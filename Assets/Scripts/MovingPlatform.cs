@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public float speed;
     public int startingPoint;
     public Transform[] points;
+    public float travelTime = 2f; // Czas podró¿y miêdzy punktami w sekundach
+    private float speed;
     private int i;
 
     void Start()
     {
         if (points.Length > 0)
         {
-            transform.position = points[startingPoint].position;
+            i = startingPoint % points.Length; // Obs³uga bezpiecznego indeksu
+            transform.position = points[i].position;
+            CalculateSpeed();
         }
         else
         {
@@ -23,16 +26,28 @@ public class MovingPlatform : MonoBehaviour
 
     void Update()
     {
-        
-        if (Vector2.Distance(transform.position, points[i].position) < 0.2f)      
+        if (Vector2.Distance(transform.position, points[i].position) < 0.01f) // Tolerancja bliska zera
         {
             i++;
             if (i == points.Length)
             {
                 i = 0;
             }
+            CalculateSpeed(); // Obliczenie prêdkoœci dla nowego punktu
         }
+
+        // Przesuwanie platformy
         transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
+    }
+
+    private void CalculateSpeed()
+    {
+        if (points.Length > 1)
+        {
+            // Oblicz dystans do nastêpnego punktu
+            float distance = Vector2.Distance(transform.position, points[i].position);
+            speed = distance / travelTime; // Prêdkoœæ = odleg³oœæ / czas
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -53,8 +68,7 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
-
-    void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
